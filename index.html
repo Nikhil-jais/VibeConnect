@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe — Social App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- TOP NAVBAR -->
+    <header class="navbar">
+        <div class="logo">Vibe</div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search">
+        </div>
+
+        <div class="nav-icons">
+            <button onclick="showPage('home')">🏠</button>
+            <button onclick="showPage('reels')">🎬</button>
+            <button onclick="showPage('create')">➕</button>
+            <button onclick="showPage('profile')">👤</button>
+        </div>
+    </header>
+
+
+    <!-- MAIN APP -->
+    <main>
+
+        <!-- HOME -->
+        <section id="home" class="page active">
+
+            <!-- STORIES -->
+            <div class="stories">
+
+                <div class="story">
+                    <div class="story-avatar">👤</div>
+                    <span>Your Story</span>
+                </div>
+
+                <div class="story">
+                    <div class="story-avatar">😎</div>
+                    <span>Rahul</span>
+                </div>
+
+                <div class="story">
+                    <div class="story-avatar">🔥</div>
+                    <span>Aditya</span>
+                </div>
+
+                <div class="story">
+                    <div class="story-avatar">🌸</div>
+                    <span>Priya</span>
+                </div>
+
+                <div class="story">
+                    <div class="story-avatar">🚀</div>
+                    <span>Tech</span>
+                </div>
+
+            </div>
+
+
+            <!-- POSTS -->
+            <div id="postsContainer">
+
+                <!-- POST 1 -->
+                <article class="post">
+
+                    <div class="post-header">
+                        <div class="user-avatar">😎</div>
+
+                        <div>
+                            <strong>Rahul Sharma</strong>
+                            <p>@rahul</p>
+                        </div>
+
+                        <button class="more">•••</button>
+                    </div>
+
+                    <div class="post-image">
+                        🌆
+                    </div>
+
+                    <div class="post-actions">
+
+                        <button onclick="likePost(this)">♡</button>
+
+                        <button>💬</button>
+
+                        <button>↗️</button>
+
+                        <button class="save">🔖</button>
+
+                    </div>
+
+                    <div class="likes">
+                        <b class="like-count">120</b> likes
+                    </div>
+
+                    <div class="caption">
+                        <b>@rahul</b> Beautiful evening 🌆✨
+                    </div>
+
+                    <div class="comments">
+                        View all 12 comments
+                    </div>
+
+                </article>
+
+
+                <!-- POST 2 -->
+                <article class="post">
+
+                    <div class="post-header">
+                        <div class="user-avatar">🚀</div>
+
+                        <div>
+                            <strong>Tech World</strong>
+                            <p>@techworld</p>
+                        </div>
+
+                        <button class="more">•••</button>
+                    </div>
+
+                    <div class="post-image second">
+                        💻
+                    </div>
+
+                    <div class="post-actions">
+
+                        <button onclick="likePost(this)">♡</button>
+
+                        <button>💬</button>
+
+                        <button>↗️</button>
+
+                        <button class="save">🔖</button>
+
+                    </div>
+
+                    <div class="likes">
+                        <b class="like-count">245</b> likes
+                    </div>
+
+                    <div class="caption">
+                        <b>@techworld</b> Building something amazing 🚀
+                    </div>
+
+                    <div class="comments">
+                        View all 25 comments
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- REELS -->
+        <section id="reels" class="page">
+
+            <div class="section-title">
+                <h2>Reels 🎬</h2>
+                <p>Discover what's trending</p>
+            </div>
+
+            <div class="reels-container">
+
+                <div class="reel">
+                    <div class="reel-content">🔥</div>
+
+                    <div class="reel-info">
+                        <b>@trending</b>
+                        <p>This is trending right now!</p>
+
+                        <button onclick="likeReel(this)">
+                            ❤️ <span>1.2K</span>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="reel">
+                    <div class="reel-content">🚀</div>
+
+                    <div class="reel-info">
+                        <b>@developer</b>
+                        <p>Code. Build. Repeat. 💻</p>
+
+                        <button onclick="likeReel(this)">
+                            ❤️ <span>856</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CREATE POST -->
+        <section id="create" class="page">
+
+            <div class="create-card">
+
+                <h2>Create a Post</h2>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Your username"
+                >
+
+                <textarea
+                    id="caption"
+                    placeholder="Write a caption..."
+                ></textarea>
+
+                <input
+                    type="text"
+                    id="emoji"
+                    placeholder="Choose an emoji for your post 😊"
+                    maxlength="2"
+                >
+
+                <button class="create-btn" onclick="createPost()">
+                    Publish Post
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE -->
+        <section id="profile" class="page">
+
+            <div class="profile-card">
+
+                <div class="profile-avatar">
+                    👤
+                </div>
+
+                <h2>Your Profile</h2>
+
+                <p>@yourusername</p>
+
+                <div class="profile-stats">
+
+                    <div>
+                        <b id="postCount">0</b>
+                        <span>Posts</span>
+                    </div>
+
+                    <div>
+                        <b>128</b>
+                        <span>Followers</span>
+                    </div>
+
+                    <div>
+                        <b>245</b>
+                        <span>Following</span>
+                    </div>
+
+                </div>
+
+                <button class="edit-btn">
+                    Edit Profile
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- MOBILE NAVIGATION -->
+    <nav class="bottom-nav">
+
+        <button onclick="showPage('home')">
+            🏠
+            <span>Home</span>
+        </button>
+
+        <button onclick="showPage('reels')">
+            🎬
+            <span>Reels</span>
+        </button>
+
+        <button onclick="showPage('create')">
+            ➕
+            <span>Create</span>
+        </button>
+
+        <button onclick="showPage('profile')">
+            👤
+            <span>Profile</span>
+        </button>
+
+    </nav>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
