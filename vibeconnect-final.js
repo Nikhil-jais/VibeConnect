@@ -1,4 +1,3 @@
-```javascript
 /* =========================================================
    VIBECONNECT — FINAL INTEGRATION
    STEP 30
@@ -642,4 +641,3 @@
     initialize();
 
 })();
-```
