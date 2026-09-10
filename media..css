@@ -1,0 +1,1023 @@
+/* =========================================================
+   VIBECONNECT
+   MEDIA STUDIO
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f9ff 0%,
+            #eef2ff 50%,
+            #f9faff 100%
+        );
+
+    color: #172033;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.media-header {
+    width: 100%;
+    padding: 18px 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border-bottom: 1px solid #e4e8f2;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    backdrop-filter: blur(14px);
+}
+
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.brand-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d5dfc,
+            #8e7cff
+        );
+
+    color: white;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 20px rgba(109, 93, 252, 0.25);
+}
+
+
+.brand h1 {
+    font-size: 20px;
+    line-height: 1.1;
+}
+
+
+.brand p {
+    font-size: 12px;
+    color: #7b8498;
+    margin-top: 3px;
+}
+
+
+.back-button {
+    text-decoration: none;
+
+    padding: 10px 17px;
+
+    border-radius: 10px;
+
+    color: #4f46e5;
+
+    background: #eef0ff;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+
+.back-button:hover {
+    background: #e2e5ff;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.media-wrapper {
+    width: min(1100px, 92%);
+
+    margin: 40px auto 70px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.25fr)
+        minmax(300px, 0.75fr);
+
+    gap: 28px;
+
+    align-items: start;
+}
+
+
+.media-card,
+.library-card {
+    background: white;
+
+    border: 1px solid #e4e8f2;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 15px 45px rgba(33, 43, 77, 0.08);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+   ========================================================= */
+
+.page-title {
+    padding: 28px;
+
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+
+    border-bottom: 1px solid #edf0f6;
+}
+
+
+.title-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #f0efff;
+
+    font-size: 23px;
+}
+
+
+.page-title h2 {
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+
+.page-title p {
+    color: #7c8598;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MEDIA TYPE
+   ========================================================= */
+
+.media-type-selector {
+    padding: 20px 28px 5px;
+
+    display: flex;
+    gap: 10px;
+}
+
+
+.type-button {
+    border: 1px solid #e1e5ef;
+
+    background: #f8f9fc;
+
+    padding: 11px 20px;
+
+    border-radius: 11px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #687287;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.type-button:hover {
+    border-color: #bfc5ff;
+}
+
+
+.type-button.active {
+    background: #eeedff;
+
+    border-color: #7568ff;
+
+    color: #5547df;
+}
+
+
+/* =========================================================
+   UPLOAD AREA
+   ========================================================= */
+
+.upload-area {
+    margin: 20px 28px;
+
+    min-height: 220px;
+
+    border: 2px dashed #ccd2e2;
+
+    border-radius: 17px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    background: #fafbff;
+
+    transition: 0.25s ease;
+}
+
+
+.upload-area:hover {
+    border-color: #776cff;
+    background: #f7f6ff;
+}
+
+
+.upload-area.dragging {
+    border-color: #5b4ff5;
+    background: #efedff;
+}
+
+
+.upload-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+
+.upload-area h3 {
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+
+.upload-area p {
+    color: #858da0;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+
+.choose-button {
+    padding: 9px 16px;
+
+    background: #5b50e8;
+
+    color: white;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   FILE INFORMATION
+   ========================================================= */
+
+.file-information {
+    margin: 0 28px 20px;
+
+    padding: 13px;
+
+    background: #f6f7fb;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.file-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    border-radius: 10px;
+
+    font-size: 19px;
+}
+
+
+.file-details {
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.file-details strong {
+    font-size: 13px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.file-details span {
+    font-size: 12px;
+    color: #858da0;
+}
+
+
+.remove-file {
+    width: 32px;
+    height: 32px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: #ffecee;
+
+    color: #dc4355;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   PREVIEW
+   ========================================================= */
+
+.preview-section {
+    margin: 0 28px 22px;
+}
+
+
+.section-heading {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+}
+
+
+.section-heading h3 {
+    font-size: 14px;
+}
+
+
+.section-heading span {
+    font-size: 12px;
+    color: #9299aa;
+}
+
+
+.media-preview {
+    width: 100%;
+
+    min-height: 160px;
+
+    background: #111827;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.media-preview img,
+.media-preview video {
+    display: block;
+
+    max-width: 100%;
+    max-height: 350px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.form-section {
+    margin: 0 28px 20px;
+
+    position: relative;
+}
+
+
+.form-section label {
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+
+    color: #4e576b;
+}
+
+
+.form-section input,
+.form-section textarea {
+    width: 100%;
+
+    border: 1px solid #dfe3ed;
+
+    border-radius: 11px;
+
+    padding: 12px 13px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    color: #1f2937;
+
+    background: #fbfcfe;
+
+    transition: 0.2s ease;
+}
+
+
+.form-section input:focus,
+.form-section textarea:focus {
+    border-color: #7166f5;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 3px rgba(113, 102, 245, 0.09);
+}
+
+
+.form-section textarea {
+    resize: vertical;
+}
+
+
+.character-count {
+    position: absolute;
+
+    right: 10px;
+    bottom: 8px;
+
+    color: #9aa1b0;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.progress-section {
+    margin: 0 28px 20px;
+}
+
+
+.progress-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 7px;
+
+    font-size: 12px;
+
+    color: #697286;
+}
+
+
+.progress-bar {
+    width: 100%;
+
+    height: 8px;
+
+    background: #e8eaf2;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.progress-fill {
+    height: 100%;
+
+    width: 0%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6559ed,
+            #9287ff
+        );
+
+    transition: width 0.2s ease;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status-message {
+    margin: 0 28px 18px;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+.status-message.success {
+    background: #eafaf1;
+    color: #197343;
+}
+
+
+.status-message.error {
+    background: #fff0f1;
+    color: #b42334;
+}
+
+
+.status-message.info {
+    background: #eef3ff;
+    color: #4056a5;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.media-actions {
+    padding: 20px 28px 28px;
+
+    border-top: 1px solid #edf0f6;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+}
+
+
+.clear-button,
+.upload-button {
+    border: 0;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.clear-button {
+    background: #f1f3f7;
+    color: #596274;
+}
+
+
+.clear-button:hover {
+    background: #e7e9ef;
+}
+
+
+.upload-button {
+    background:
+        linear-gradient(
+            135deg,
+            #5b50e8,
+            #776cff
+        );
+
+    color: white;
+
+    box-shadow:
+        0 7px 18px rgba(91, 80, 232, 0.2);
+}
+
+
+.upload-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 10px 23px rgba(91, 80, 232, 0.25);
+}
+
+
+.upload-button:disabled {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   LIBRARY
+   ========================================================= */
+
+.library-card {
+    min-height: 300px;
+}
+
+
+.library-header {
+    padding: 23px;
+
+    border-bottom: 1px solid #edf0f6;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+
+.library-header h2 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+
+.library-header p {
+    color: #8a92a4;
+    font-size: 12px;
+}
+
+
+.media-count {
+    background: #f0efff;
+
+    color: #5b50e8;
+
+    padding: 7px 10px;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   MEDIA GRID
+   ========================================================= */
+
+.media-grid {
+    padding: 18px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+.media-item {
+    position: relative;
+
+    aspect-ratio: 1 / 1;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background: #111827;
+}
+
+
+.media-item img,
+.media-item video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.media-item-overlay {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 25px 10px 10px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0, 0, 0, 0.75)
+        );
+}
+
+
+.media-item-title {
+    font-size: 12px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.media-item-type {
+    font-size: 10px;
+
+    opacity: 0.8;
+
+    margin-top: 3px;
+}
+
+
+.video-badge {
+    position: absolute;
+
+    top: 8px;
+    right: 8px;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    color: white;
+
+    padding: 5px 7px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   EMPTY LIBRARY
+   ========================================================= */
+
+.empty-library {
+    grid-column: 1 / -1;
+
+    padding: 45px 20px;
+
+    text-align: center;
+
+    color: #8b93a5;
+}
+
+
+.empty-icon {
+    font-size: 40px;
+
+    margin-bottom: 12px;
+}
+
+
+.empty-library h3 {
+    color: #4e576b;
+
+    font-size: 15px;
+
+    margin-bottom: 6px;
+}
+
+
+.empty-library p {
+    font-size: 12px;
+
+    max-width: 240px;
+
+    margin: auto;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast {
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 25px;
+
+    transform:
+        translate(-50%, 100px);
+
+    background: #172033;
+
+    color: white;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: 0.3s ease;
+
+    z-index: 999;
+}
+
+
+.toast.show {
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .media-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .media-header {
+        padding: 14px 4%;
+    }
+
+
+    .brand h1 {
+        font-size: 17px;
+    }
+
+
+    .back-button {
+        padding: 8px 11px;
+        font-size: 12px;
+    }
+
+
+    .media-wrapper {
+        width: 94%;
+        margin-top: 20px;
+    }
+
+
+    .page-title {
+        padding: 21px;
+    }
+
+
+    .media-type-selector {
+        padding-left: 21px;
+        padding-right: 21px;
+    }
+
+
+    .upload-area {
+        margin-left: 21px;
+        margin-right: 21px;
+    }
+
+
+    .form-section,
+    .preview-section,
+    .progress-section,
+    .status-message {
+        margin-left: 21px;
+        margin-right: 21px;
+    }
+
+
+    .media-actions {
+        padding-left: 21px;
+        padding-right: 21px;
+    }
+
+
+    .upload-button,
+    .clear-button {
+        flex: 1;
+    }
+
+}
