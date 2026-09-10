@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>VibeConnect — Real Posts</title>
+
+<link
+    rel="stylesheet"
+    href="post-data.css"
+>
+
+<!-- Supabase -->
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    defer
+></script>
+
+<!-- Existing Supabase configuration -->
+<script
+    src="supabase.js"
+    defer
+></script>
+
+<!-- Step 23 -->
+<script
+    src="post-data.js"
+    defer
+></script>
+```
+
+</head>
+
+<body>
+
+```
+<!-- =========================================
+     HEADER
+========================================== -->
+
+<header class="posts-header">
+
+    <div class="header-left">
+
+        <button
+            type="button"
+            id="backButton"
+            class="back-button"
+        >
+            ←
+        </button>
+
+
+        <div>
+
+            <span class="header-label">
+                VIBECONNECT
+            </span>
+
+            <h1>
+                Real Posts
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-brand">
+        ✦ VibeConnect
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     MAIN
+========================================== -->
+
+<main class="posts-container">
+
+
+    <!-- =====================================
+         CONNECTION
+    ====================================== -->
+
+    <section
+        id="connectionCard"
+        class="connection-card"
+    >
+
+        <div
+            id="connectionIcon"
+            class="connection-icon"
+        >
+            ⏳
+        </div>
+
+
+        <div class="connection-content">
+
+            <span class="small-label">
+                LIVE DATABASE
+            </span>
+
+            <h2 id="connectionTitle">
+                Connecting...
+            </h2>
+
+            <p id="connectionMessage">
+                Checking your VibeConnect connection.
+            </p>
+
+        </div>
+
+
+        <span
+            id="connectionBadge"
+            class="connection-badge"
+        >
+            CHECKING
+        </span>
+
+    </section>
+
+
+    <!-- =====================================
+         LOGIN REQUIRED
+    ====================================== -->
+
+    <section
+        id="loginRequired"
+        class="login-card hidden"
+    >
+
+        <div class="login-icon">
+            🔐
+        </div>
+
+        <h2>
+            Sign in to use real posts
+        </h2>
+
+        <p>
+            Create an account or sign in to publish
+            posts and see posts stored in Supabase.
+        </p>
+
+        <button
+            type="button"
+            id="loginButton"
+            class="primary-button"
+        >
+            Go to Login
+        </button>
+
+    </section>
+
+
+    <!-- =====================================
+         POST CREATOR
+    ====================================== -->
+
+    <section
+        id="postContent"
+        class="post-content"
+    >
+
+
+        <section class="composer-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="small-label">
+                        CREATE
+                    </span>
+
+                    <h2>
+                        What's happening?
+                    </h2>
+
+                </div>
+
+                <span class="composer-icon">
+                    ✎
+                </span>
+
+            </div>
+
+
+            <div class="composer-user">
+
+                <div
+                    id="composerAvatar"
+                    class="composer-avatar"
+                >
+                    ✦
+                </div>
+
+
+                <div>
+
+                    <strong id="composerName">
+                        You
+                    </strong>
+
+                    <span id="composerUsername">
+                        @username
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <textarea
+                id="postText"
+                maxlength="2000"
+                rows="6"
+                placeholder="Share something with your community..."
+            ></textarea>
+
+
+            <div class="composer-footer">
+
+                <span id="postCounter">
+                    0 / 2000
+                </span>
+
+
+                <button
+                    type="button"
+                    id="publishButton"
+                    class="primary-button"
+                >
+                    🚀 Publish Post
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             FEED HEADER
+        ================================== -->
+
+        <div class="feed-heading">
+
+            <div>
+
+                <span class="small-label">
+                    COMMUNITY
+                </span>
+
+                <h2>
+                    Latest posts
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="refreshButton"
+                class="refresh-button"
+                title="Refresh posts"
+            >
+                ↻ Refresh
+            </button>
+
+        </div>
+
+
+        <!-- =================================
+             POSTS
+        ================================== -->
+
+        <section
+            id="postsList"
+            class="posts-list"
+        ></section>
+
+
+        <!-- =================================
+             EMPTY STATE
+        ================================== -->
+
+        <section
+            id="emptyState"
+            class="empty-state hidden"
+        >
+
+            <div class="empty-icon">
+                ✨
+            </div>
+
+            <h2>
+                No posts yet
+            </h2>
+
+            <p>
+                Be the first person to share something
+                with the VibeConnect community.
+            </p>
+
+        </section>
+
+
+        <!-- =================================
+             LOADING
+        ================================== -->
+
+        <section
+            id="loadingState"
+            class="loading-state hidden"
+        >
+
+            <div class="loading-spinner"></div>
+
+            <p>
+                Loading posts...
+            </p>
+
+        </section>
+
+
+    </section>
+
+</main>
+
+
+<!-- =========================================
+     TOAST
+========================================== -->
+
+<div
+    id="toast"
+    class="toast"
+    aria-live="polite"
+></div>
+```
+
+</body>
+
+</html>
