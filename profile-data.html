@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>VibeConnect — My Profile</title>
+
+<link
+    rel="stylesheet"
+    href="profile-data.css"
+>
+
+<!-- Supabase -->
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    defer
+></script>
+
+<!-- Existing VibeConnect Supabase connection -->
+<script
+    src="supabase.js"
+    defer
+></script>
+
+<!-- Step 22 -->
+<script
+    src="profile-data.js"
+    defer
+></script>
+```
+
+</head>
+
+<body>
+
+```
+<!-- =========================================
+     HEADER
+========================================== -->
+
+<header class="profile-header">
+
+    <div class="header-left">
+
+        <button
+            type="button"
+            id="backButton"
+            class="back-button"
+            aria-label="Back"
+        >
+            ←
+        </button>
+
+
+        <div>
+
+            <span class="header-label">
+                VIBECONNECT
+            </span>
+
+            <h1>
+                My Profile
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-brand">
+        ✦ VibeConnect
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     MAIN
+========================================== -->
+
+<main class="profile-container">
+
+
+    <!-- =====================================
+         CONNECTION STATUS
+    ====================================== -->
+
+    <section
+        id="connectionCard"
+        class="connection-card"
+    >
+
+        <div
+            id="connectionIcon"
+            class="connection-icon"
+        >
+            ⏳
+        </div>
+
+
+        <div class="connection-content">
+
+            <span class="small-label">
+                PROFILE DATABASE
+            </span>
+
+            <h2 id="connectionTitle">
+                Checking connection...
+            </h2>
+
+            <p id="connectionMessage">
+                Connecting to your VibeConnect account.
+            </p>
+
+        </div>
+
+
+        <span
+            id="connectionBadge"
+            class="connection-badge"
+        >
+            CHECKING
+        </span>
+
+    </section>
+
+
+    <!-- =====================================
+         LOGIN REQUIRED
+    ====================================== -->
+
+    <section
+        id="loginRequired"
+        class="login-card hidden"
+    >
+
+        <div class="login-icon">
+            🔐
+        </div>
+
+        <h2>
+            Sign in to manage your profile
+        </h2>
+
+        <p>
+            You need to be signed in to view and
+            update your VibeConnect profile.
+        </p>
+
+        <button
+            type="button"
+            id="loginButton"
+            class="primary-button"
+        >
+            Go to Login
+        </button>
+
+    </section>
+
+
+    <!-- =====================================
+         PROFILE HERO
+    ====================================== -->
+
+    <section
+        id="profileContent"
+        class="profile-content"
+    >
+
+        <div class="profile-hero">
+
+            <div class="cover-area">
+
+                <div
+                    id="coverPreview"
+                    class="cover-preview"
+                ></div>
+
+                <div class="cover-overlay">
+                    PROFILE
+                </div>
+
+            </div>
+
+
+            <div class="profile-main">
+
+                <div
+                    id="avatarPreview"
+                    class="avatar-preview"
+                >
+                    ✦
+                </div>
+
+
+                <div class="profile-heading">
+
+                    <h2 id="profileName">
+                        Your Name
+                    </h2>
+
+                    <p id="profileUsername">
+                        @username
+                    </p>
+
+                    <p id="profileBio">
+                        Your bio will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             PROFILE FORM
+        ================================== -->
+
+        <section class="form-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="small-label">
+                        PERSONAL INFORMATION
+                    </span>
+
+                    <h2>
+                        Edit your profile
+                    </h2>
+
+                </div>
+
+                <span class="edit-icon">
+                    ✎
+                </span>
+
+            </div>
+
+
+            <form id="profileForm">
+
+
+                <!-- Display Name -->
+
+                <div class="form-group">
+
+                    <label for="displayName">
+                        Display name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="displayName"
+                        name="displayName"
+                        maxlength="80"
+                        placeholder="Your name"
+                        autocomplete="name"
+                    >
+
+                </div>
+
+
+                <!-- Username -->
+
+                <div class="form-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <div class="username-input">
+
+                        <span>
+                            @
+                        </span>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            maxlength="30"
+                            placeholder="username"
+                            autocomplete="username"
+                        >
+
+                    </div>
+
+                    <small>
+                        3–30 characters. Letters, numbers,
+                        underscores and periods are allowed.
+                    </small>
+
+                </div>
+
+
+                <!-- Bio -->
+
+                <div class="form-group">
+
+                    <label for="bio">
+                        Bio
+                    </label>
+
+                    <textarea
+                        id="bio"
+                        name="bio"
+                        maxlength="160"
+                        rows="4"
+                        placeholder="Tell people a little about yourself..."
+                    ></textarea>
+
+                    <div class="character-row">
+
+                        <span>
+                            Keep it short and meaningful.
+                        </span>
+
+                        <span id="bioCount">
+                            0 / 160
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Website -->
+
+                <div class="form-group">
+
+                    <label for="website">
+                        Website
+                    </label>
+
+                    <input
+                        type="url"
+                        id="website"
+                        name="website"
+                        placeholder="https://example.com"
+                        autocomplete="url"
+                    >
+
+                </div>
+
+
+                <!-- Location -->
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        maxlength="100"
+                        placeholder="City or region"
+                        autocomplete="address-level2"
+                    >
+
+                </div>
+
+
+                <!-- Birthday -->
+
+                <div class="form-group">
+
+                    <label for="birthday">
+                        Birthday
+                    </label>
+
+                    <input
+                        type="date"
+                        id="birthday"
+                        name="birthday"
+                    >
+
+                    <small>
+                        Your birthday is stored in your profile.
+                    </small>
+
+                </div>
+
+
+                <!-- Avatar URL -->
+
+                <div class="form-group">
+
+                    <label for="avatarUrl">
+                        Profile picture URL
+                    </label>
+
+                    <input
+                        type="url"
+                        id="avatarUrl"
+                        name="avatarUrl"
+                        placeholder="https://..."
+                    >
+
+                    <small>
+                        Image uploads will be connected to
+                        Supabase Storage in a later step.
+                    </small>
+
+                </div>
+
+
+                <!-- Cover URL -->
+
+                <div class="form-group">
+
+                    <label for="coverUrl">
+                        Cover image URL
+                    </label>
+
+                    <input
+                        type="url"
+                        id="coverUrl"
+                        name="coverUrl"
+                        placeholder="https://..."
+                    >
+
+                </div>
+
+
+                <!-- Actions -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        id="resetButton"
+                        class="secondary-button"
+                    >
+                        Reset
+                    </button>
+
+                    <button
+                        type="submit"
+                        id="saveButton"
+                        class="primary-button"
+                    >
+                        💾 Save Profile
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- =================================
+             ACCOUNT INFORMATION
+        ================================== -->
+
+        <section class="info-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="small-label">
+                        ACCOUNT INFORMATION
+                    </span>
+
+                    <h2>
+                        Your account
+                    </h2>
+
+                </div>
+
+                <span class="info-icon">
+                    ℹ️
+                </span>
+
+            </div>
+
+
+            <div class="info-list">
+
+
+                <div class="info-row">
+
+                    <span>
+                        Email
+                    </span>
+
+                    <strong id="accountEmail">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        User ID
+                    </span>
+
+                    <strong
+                        id="accountId"
+                        class="breakable"
+                    >
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Account created
+                    </span>
+
+                    <strong id="accountCreated">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Profile updated
+                    </span>
+
+                    <strong id="profileUpdated">
+                        —
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             PROFILE PREVIEW
+        ================================== -->
+
+        <section class="preview-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="small-label">
+                        LIVE PREVIEW
+                    </span>
+
+                    <h2>
+                        How your profile looks
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="preview-profile">
+
+                <div
+                    id="previewAvatar"
+                    class="preview-avatar"
+                >
+                    ✦
+                </div>
+
+
+                <div class="preview-details">
+
+                    <strong id="previewName">
+                        Your Name
+                    </strong>
+
+                    <span id="previewUsername">
+                        @username
+                    </span>
+
+                    <p id="previewBio">
+                        Your bio will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="preview-meta">
+
+                <span id="previewLocation">
+                    📍 Location
+                </span>
+
+                <span id="previewWebsite">
+                    🌐 Website
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             SECURITY
+        ================================== -->
+
+        <section class="security-card">
+
+            <div class="security-icon">
+                🛡️
+            </div>
+
+            <div>
+
+                <h3>
+                    Your profile is protected
+                </h3>
+
+                <p>
+                    Profile updates are restricted by
+                    Supabase Row Level Security so a user
+                    can only modify their own profile.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             LOGOUT
+        ================================== -->
+
+        <section class="logout-card">
+
+            <div>
+
+                <h3>
+                    Sign out
+                </h3>
+
+                <p>
+                    Sign out from this VibeConnect account
+                    on this browser.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="logoutButton"
+                class="logout-button"
+            >
+                Sign Out
+            </button>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================
+     TOAST
+========================================== -->
+
+<div
+    id="toast"
+    class="toast"
+    aria-live="polite"
+></div>
+```
+
+</body>
+
+</html>
