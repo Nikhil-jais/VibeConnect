@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Messages | VibeConnect</title>
+
+    <link rel="stylesheet" href="messages.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="messages-header">
+
+        <div class="header-left">
+
+            <a
+                href="app.html"
+                class="back-button"
+                aria-label="Back to VibeConnect"
+            >
+                ←
+            </a>
+
+            <div>
+                <h1>Messages</h1>
+                <p>Stay connected with your people</p>
+            </div>
+
+        </div>
+
+        <div class="header-brand">
+            <span>✦</span>
+            VibeConnect
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN MESSAGING AREA
+         ===================================================== -->
+
+    <main class="messages-wrapper">
+
+        <section class="messenger">
+
+            <!-- =================================================
+                 CONVERSATIONS SIDEBAR
+                 ================================================= -->
+
+            <aside class="conversation-panel">
+
+                <div class="conversation-heading">
+
+                    <div>
+                        <h2>Chats</h2>
+                        <span id="conversationCount">
+                            0 conversations
+                        </span>
+                    </div>
+
+                    <button
+                        id="newChatButton"
+                        class="new-chat-button"
+                        title="New message"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <div class="chat-search">
+
+                    <span>🔎</span>
+
+                    <input
+                        type="text"
+                        id="conversationSearch"
+                        placeholder="Search conversations..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <!-- CONVERSATION LIST -->
+
+                <div
+                    id="conversationList"
+                    class="conversation-list"
+                ></div>
+
+
+                <div
+                    id="emptyConversations"
+                    class="empty-conversations hidden"
+                >
+
+                    <div>💬</div>
+
+                    <h3>No conversations</h3>
+
+                    <p>
+                        Start a new conversation with someone.
+                    </p>
+
+                </div>
+
+            </aside>
+
+
+            <!-- =================================================
+                 CHAT AREA
+                 ================================================= -->
+
+            <section class="chat-panel">
+
+                <!-- EMPTY CHAT -->
+
+                <div
+                    id="chatEmpty"
+                    class="chat-empty"
+                >
+
+                    <div class="chat-empty-icon">
+                        💬
+                    </div>
+
+                    <h2>Your Messages</h2>
+
+                    <p>
+                        Select a conversation to start chatting.
+                    </p>
+
+                    <button
+                        id="emptyNewChatButton"
+                        class="primary-button"
+                    >
+                        Start a Conversation
+                    </button>
+
+                </div>
+
+
+                <!-- ACTIVE CHAT -->
+
+                <div
+                    id="activeChat"
+                    class="active-chat hidden"
+                >
+
+                    <!-- CHAT HEADER -->
+
+                    <header class="chat-header">
+
+                        <div class="chat-person">
+
+                            <div
+                                id="chatAvatar"
+                                class="chat-avatar"
+                            >
+                                👤
+                            </div>
+
+                            <div>
+
+                                <h2 id="chatName">
+                                    User
+                                </h2>
+
+                                <p id="chatStatus">
+                                    Offline
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            id="chatInfoButton"
+                            class="chat-info-button"
+                            title="Conversation information"
+                        >
+                            ⋮
+                        </button>
+
+                    </header>
+
+
+                    <!-- MESSAGES -->
+
+                    <div
+                        id="messageList"
+                        class="message-list"
+                    ></div>
+
+
+                    <!-- TYPING -->
+
+                    <div
+                        id="typingIndicator"
+                        class="typing-indicator hidden"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Someone is typing...
+                    </div>
+
+
+                    <!-- MESSAGE COMPOSER -->
+
+                    <form
+                        id="messageForm"
+                        class="message-form"
+                    >
+
+                        <button
+                            type="button"
+                            id="emojiButton"
+                            class="composer-button"
+                            title="Add emoji"
+                        >
+                            😊
+                        </button>
+
+                        <input
+                            type="text"
+                            id="messageInput"
+                            placeholder="Write a message..."
+                            autocomplete="off"
+                            maxlength="1000"
+                        >
+
+                        <button
+                            type="submit"
+                            class="send-button"
+                        >
+                            ➤
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- =====================================================
+             INFO CARD
+             ===================================================== -->
+
+        <section class="messages-info">
+
+            <div class="info-icon">
+                🔐
+            </div>
+
+            <div>
+
+                <h3>Your conversations</h3>
+
+                <p>
+                    Messages are currently saved locally on this
+                    device. Real-time messaging will be connected
+                    to the VibeConnect backend later.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         NEW CHAT MODAL
+         ===================================================== -->
+
+    <div
+        id="newChatModal"
+        class="modal-overlay hidden"
+    >
+
+        <div class="new-chat-modal">
+
+            <button
+                id="closeModalButton"
+                class="close-modal"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+            <div class="modal-icon">
+                💬
+            </div>
+
+            <h2>Start a New Chat</h2>
+
+            <p>
+                Choose someone to start a conversation.
+            </p>
+
+            <div
+                id="newChatPeople"
+                class="new-chat-people"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+
+    <div
+        id="messageToast"
+        class="message-toast"
+    ></div>
+
+
+    <script src="messages.js"></script>
+
+</body>
+</html>
