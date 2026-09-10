@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>VibeConnect — Database</title>
+
+<link
+    rel="stylesheet"
+    href="database.css"
+>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    defer
+></script>
+
+<script
+    src="supabase.js"
+    defer
+></script>
+
+<script
+    src="database.js"
+    defer
+></script>
+```
+
+</head>
+
+<body>
+
+```
+<!-- =========================================
+     HEADER
+========================================== -->
+
+<header class="database-header">
+
+    <div class="header-left">
+
+        <button
+            type="button"
+            id="backButton"
+            class="back-button"
+            aria-label="Go back"
+        >
+            ←
+        </button>
+
+        <div>
+
+            <span class="header-eyebrow">
+                VIBECONNECT BACKEND
+            </span>
+
+            <h1>
+                Database Center
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    <div class="brand">
+        ✦ VibeConnect
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     MAIN
+========================================== -->
+
+<main class="database-container">
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <section class="database-hero">
+
+        <div class="hero-content">
+
+            <span class="hero-label">
+                STEP 21
+            </span>
+
+            <h2>
+                Build the
+                <span>foundation.</span>
+            </h2>
+
+            <p>
+                Your VibeConnect features need a real database
+                so users, posts, likes, comments and connections
+                can persist across devices.
+            </p>
+
+        </div>
+
+
+        <div class="database-icon">
+            🗄️
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         CONNECTION STATUS
+    ====================================== -->
+
+    <section class="status-card">
+
+        <div class="status-icon" id="statusIcon">
+            ⏳
+        </div>
+
+        <div class="status-content">
+
+            <span class="status-label">
+                SUPABASE CONNECTION
+            </span>
+
+            <h2 id="statusTitle">
+                Checking connection...
+            </h2>
+
+            <p id="statusMessage">
+                Please wait while VibeConnect checks
+                your Supabase configuration.
+            </p>
+
+        </div>
+
+        <span
+            class="status-badge"
+            id="statusBadge"
+        >
+            CHECKING
+        </span>
+
+    </section>
+
+
+    <!-- =====================================
+         DATABASE TABLES
+    ====================================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    DATABASE ARCHITECTURE
+                </span>
+
+                <h2>
+                    VibeConnect tables
+                </h2>
+
+            </div>
+
+            <span
+                class="table-count"
+                id="tableCount"
+            >
+                0 / 10
+            </span>
+
+        </div>
+
+
+        <div
+            class="tables-grid"
+            id="tablesGrid"
+        ></div>
+
+    </section>
+
+
+    <!-- =====================================
+         SETUP GUIDE
+    ====================================== -->
+
+    <section class="setup-card">
+
+        <div class="setup-number">
+            1
+        </div>
+
+        <div>
+
+            <h3>
+                Run the database SQL
+            </h3>
+
+            <p>
+                Open your Supabase project,
+                go to SQL Editor, open the
+                <strong>database.sql</strong> file,
+                copy its contents and run the SQL.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="setup-card">
+
+        <div class="setup-number">
+            2
+        </div>
+
+        <div>
+
+            <h3>
+                Check your tables
+            </h3>
+
+            <p>
+                After running the SQL, return to this page
+                and press the button below to check which
+                VibeConnect tables are available.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="setup-card">
+
+        <div class="setup-number">
+            3
+        </div>
+
+        <div>
+
+            <h3>
+                Keep your secret keys private
+            </h3>
+
+            <p>
+                Your frontend should only use the
+                Supabase publishable key. Never place a
+                service-role or secret key in GitHub code.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         CHECK BUTTON
+    ====================================== -->
+
+    <section class="action-section">
+
+        <button
+            type="button"
+            id="checkDatabase"
+            class="primary-button"
+        >
+            🔄 Check Database
+        </button>
+
+        <button
+            type="button"
+            id="copyChecklist"
+            class="secondary-button"
+        >
+            📋 Copy Table Checklist
+        </button>
+
+    </section>
+
+
+    <!-- =====================================
+         DATABASE ROADMAP
+    ====================================== -->
+
+    <section class="roadmap-card">
+
+        <div class="roadmap-header">
+
+            <div>
+
+                <span class="section-label">
+                    WHAT COMES NEXT
+                </span>
+
+                <h2>
+                    From database to real app
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="roadmap">
+
+            <div class="roadmap-item completed">
+
+                <span>
+                    ✓
+                </span>
+
+                <div>
+
+                    <strong>
+                        Supabase connection
+                    </strong>
+
+                    <small>
+                        Backend connection foundation
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="roadmap-item active">
+
+                <span>
+                    21
+                </span>
+
+                <div>
+
+                    <strong>
+                        Database foundation
+                    </strong>
+
+                    <small>
+                        Tables and relationships
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="roadmap-item">
+
+                <span>
+                    22
+                </span>
+
+                <div>
+
+                    <strong>
+                        Real profiles
+                    </strong>
+
+                    <small>
+                        Persistent user profile data
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="roadmap-item">
+
+                <span>
+                    23
+                </span>
+
+                <div>
+
+                    <strong>
+                        Real posts & feed
+                    </strong>
+
+                    <small>
+                        Database-powered content
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="roadmap-item">
+
+                <span>
+                    24
+                </span>
+
+                <div>
+
+                    <strong>
+                        Likes, comments & saves
+                    </strong>
+
+                    <small>
+                        Real social interactions
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         SECURITY NOTE
+    ====================================== -->
+
+    <section class="security-card">
+
+        <div class="security-icon">
+            🛡️
+        </div>
+
+        <div>
+
+            <h3>
+                Security reminder
+            </h3>
+
+            <p>
+                Database access should eventually be protected
+                with Supabase Row Level Security (RLS).
+                Step 21 prepares the database structure;
+                security policies will be configured as part
+                of the backend integration.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- =========================================
+     TOAST
+========================================== -->
+
+<div
+    id="toast"
+    class="toast"
+    aria-live="polite"
+></div>
+```
+
+</body>
+
+</html>
