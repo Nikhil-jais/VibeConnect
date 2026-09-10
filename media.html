@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VibeConnect • Media</title>
+
+    <link rel="stylesheet" href="media.css">
+</head>
+
+<body>
+
+    <!-- ================================
+         HEADER
+    ================================= -->
+
+    <header class="media-header">
+
+        <div class="brand">
+            <div class="brand-icon">✦</div>
+
+            <div>
+                <h1>VibeConnect</h1>
+                <p>Media Studio</p>
+            </div>
+        </div>
+
+        <a href="app.html" class="back-button">
+            ← Back to App
+        </a>
+
+    </header>
+
+
+    <!-- ================================
+         MAIN CONTENT
+    ================================= -->
+
+    <main class="media-wrapper">
+
+        <section class="media-card">
+
+            <div class="page-title">
+
+                <span class="title-icon">📸</span>
+
+                <div>
+                    <h2>Upload Media</h2>
+                    <p>Share photos and videos with your VibeConnect community.</p>
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 MEDIA TYPE
+            ================================= -->
+
+            <div class="media-type-selector">
+
+                <button
+                    type="button"
+                    class="type-button active"
+                    data-type="image"
+                    id="imageTypeButton">
+
+                    📷
+                    <span>Photo</span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="type-button"
+                    data-type="video"
+                    id="videoTypeButton">
+
+                    🎥
+                    <span>Video</span>
+
+                </button>
+
+            </div>
+
+
+            <!-- ================================
+                 UPLOAD AREA
+            ================================= -->
+
+            <label class="upload-area" for="mediaInput" id="uploadArea">
+
+                <div class="upload-icon">
+                    ☁️
+                </div>
+
+                <h3 id="uploadTitle">
+                    Select a photo
+                </h3>
+
+                <p id="uploadDescription">
+                    JPG, PNG, WEBP or GIF
+                </p>
+
+                <span class="choose-button">
+                    Choose File
+                </span>
+
+                <input
+                    type="file"
+                    id="mediaInput"
+                    accept="image/*"
+                    hidden
+                >
+
+            </label>
+
+
+            <!-- ================================
+                 FILE INFORMATION
+            ================================= -->
+
+            <div
+                class="file-information"
+                id="fileInformation"
+                hidden>
+
+                <div class="file-icon" id="fileIcon">
+                    🖼️
+                </div>
+
+                <div class="file-details">
+
+                    <strong id="fileName">
+                        No file selected
+                    </strong>
+
+                    <span id="fileSize">
+                        0 MB
+                    </span>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="remove-file"
+                    id="removeFile">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <!-- ================================
+                 PREVIEW
+            ================================= -->
+
+            <div
+                class="preview-section"
+                id="previewSection"
+                hidden>
+
+                <div class="section-heading">
+                    <h3>Preview</h3>
+                    <span>Before upload</span>
+                </div>
+
+                <div class="media-preview" id="mediaPreview">
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 TITLE / CAPTION
+            ================================= -->
+
+            <div class="form-section">
+
+                <label for="mediaTitle">
+                    Title
+                </label>
+
+                <input
+                    type="text"
+                    id="mediaTitle"
+                    placeholder="Give your media a title..."
+                    maxlength="100"
+                >
+
+            </div>
+
+
+            <div class="form-section">
+
+                <label for="mediaCaption">
+                    Caption
+                </label>
+
+                <textarea
+                    id="mediaCaption"
+                    placeholder="Write something about this..."
+                    maxlength="500"
+                    rows="4"
+                ></textarea>
+
+                <div class="character-count">
+                    <span id="captionCount">0</span>/500
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 UPLOAD PROGRESS
+            ================================= -->
+
+            <div
+                class="progress-section"
+                id="progressSection"
+                hidden>
+
+                <div class="progress-header">
+
+                    <span>Uploading...</span>
+
+                    <span id="progressPercent">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        id="progressFill">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 STATUS
+            ================================= -->
+
+            <div
+                class="status-message"
+                id="statusMessage"
+                hidden>
+            </div>
+
+
+            <!-- ================================
+                 ACTIONS
+            ================================= -->
+
+            <div class="media-actions">
+
+                <button
+                    type="button"
+                    class="clear-button"
+                    id="clearButton">
+
+                    Clear
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="upload-button"
+                    id="uploadButton">
+
+                    <span>☁️</span>
+                    Upload Media
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             MEDIA LIBRARY
+        ================================= -->
+
+        <section class="library-card">
+
+            <div class="library-header">
+
+                <div>
+                    <h2>Your Media</h2>
+                    <p>Media uploaded to VibeConnect</p>
+                </div>
+
+                <span
+                    class="media-count"
+                    id="mediaCount">
+
+                    0 files
+
+                </span>
+
+            </div>
+
+
+            <div
+                class="media-grid"
+                id="mediaGrid">
+
+                <div class="empty-library">
+
+                    <div class="empty-icon">
+                        🗂️
+                    </div>
+
+                    <h3>No media yet</h3>
+
+                    <p>
+                        Your uploaded photos and videos will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================
+         TOAST
+    ================================= -->
+
+    <div
+        class="toast"
+        id="toast">
+    </div>
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="supabase.js"></script>
+
+    <script src="media.js"></script>
+
+</body>
+</html>
