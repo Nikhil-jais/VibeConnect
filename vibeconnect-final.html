@@ -1,0 +1,810 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="VibeConnect — your connected social experience."
+    >
+
+    <title>VibeConnect — Home</title>
+
+    <link
+        rel="stylesheet"
+        href="vibeconnect-final.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-mark">
+                V
+            </div>
+
+            <div>
+                <strong>VibeConnect</strong>
+                <span>Social • Connect • Share</span>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <a
+                href="vibeconnect-final.html"
+                class="nav-item active"
+            >
+                <span>🏠</span>
+                <span>Home</span>
+            </a>
+
+            <a
+                href="feed.html"
+                class="nav-item"
+            >
+                <span>📰</span>
+                <span>Feed</span>
+            </a>
+
+            <a
+                href="explore.html"
+                class="nav-item"
+            >
+                <span>🌎</span>
+                <span>Explore</span>
+            </a>
+
+            <a
+                href="search.html"
+                class="nav-item"
+            >
+                <span>🔍</span>
+                <span>Search</span>
+            </a>
+
+            <a
+                href="stories-data.html"
+                class="nav-item"
+            >
+                <span>📖</span>
+                <span>Stories</span>
+            </a>
+
+            <a
+                href="reels.html"
+                class="nav-item"
+            >
+                <span>🎬</span>
+                <span>Reels</span>
+            </a>
+
+            <a
+                href="messages.html"
+                class="nav-item"
+            >
+                <span>💬</span>
+                <span>Messages</span>
+            </a>
+
+            <a
+                href="notifications-data.html"
+                class="nav-item"
+            >
+                <span>🔔</span>
+                <span>Notifications</span>
+                <span
+                    id="notificationBadge"
+                    class="nav-badge"
+                >
+                    0
+                </span>
+            </a>
+
+            <a
+                href="friends.html"
+                class="nav-item"
+            >
+                <span>👥</span>
+                <span>Friends</span>
+            </a>
+
+            <a
+                href="saved.html"
+                class="nav-item"
+            >
+                <span>🔖</span>
+                <span>Saved</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="account.html"
+                class="nav-item"
+            >
+                <span>👤</span>
+                <span>Account</span>
+            </a>
+
+            <a
+                href="settings.html"
+                class="nav-item"
+            >
+                <span>⚙️</span>
+                <span>Settings</span>
+            </a>
+
+            <a
+                href="security.html"
+                class="nav-item"
+            >
+                <span>🔐</span>
+                <span>Security</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP HEADER -->
+
+        <header class="top-header">
+
+            <div>
+
+                <span class="welcome-label">
+                    VIBECONNECT
+                </span>
+
+                <h1>
+                    Welcome back,
+                    <span id="userName">
+                        there
+                    </span>
+                    👋
+                </h1>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <a
+                    href="notifications-data.html"
+                    class="icon-button"
+                    title="Notifications"
+                >
+                    🔔
+
+                    <span
+                        id="headerNotificationBadge"
+                        class="header-badge"
+                    >
+                        0
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="account.html"
+                    class="profile-button"
+                >
+
+                    <div
+                        id="userAvatar"
+                        class="avatar"
+                    >
+                        ?
+                    </div>
+
+                    <span id="headerUsername">
+                        Account
+                    </span>
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             LOGIN / CONNECTION STATUS
+             ================================================= -->
+
+        <section
+            id="connectionCard"
+            class="connection-card"
+        >
+
+            <div class="connection-icon">
+                🔗
+            </div>
+
+            <div class="connection-text">
+
+                <strong id="connectionTitle">
+                    Checking VibeConnect...
+                </strong>
+
+                <span id="connectionMessage">
+                    Connecting to your account.
+                </span>
+
+            </div>
+
+            <span
+                id="connectionDot"
+                class="connection-dot"
+            ></span>
+
+        </section>
+
+
+        <!-- =================================================
+             HERO
+             ================================================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="hero-label">
+                    YOUR SOCIAL SPACE
+                </span>
+
+                <h2>
+                    Share your world.
+                    <br>
+                    Find your people.
+                </h2>
+
+                <p>
+                    Create posts, discover people,
+                    share stories and stay connected
+                    with your VibeConnect community.
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="create.html"
+                        class="primary-button"
+                    >
+                        ✨ Create Post
+                    </a>
+
+                    <a
+                        href="feed.html"
+                        class="secondary-button"
+                    >
+                        Open Feed →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual">
+
+                <div class="floating-card card-one">
+                    ❤️
+                    <strong>Connect</strong>
+                </div>
+
+                <div class="floating-card card-two">
+                    📸
+                    <strong>Share</strong>
+                </div>
+
+                <div class="floating-card card-three">
+                    💬
+                    <strong>Vibe</strong>
+                </div>
+
+                <div class="hero-circle">
+                    V
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUICK ACTIONS
+             ================================================= -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">
+                        QUICK ACTIONS
+                    </span>
+
+                    <h2>
+                        Jump right in
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="quick-grid">
+
+
+                <a
+                    href="create.html"
+                    class="quick-card"
+                >
+
+                    <span class="quick-icon">
+                        ✨
+                    </span>
+
+                    <strong>
+                        Create
+                    </strong>
+
+                    <span>
+                        Share something new
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="stories-data.html"
+                    class="quick-card"
+                >
+
+                    <span class="quick-icon">
+                        📖
+                    </span>
+
+                    <strong>
+                        Stories
+                    </strong>
+
+                    <span>
+                        See what's happening
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="messages.html"
+                    class="quick-card"
+                >
+
+                    <span class="quick-icon">
+                        💬
+                    </span>
+
+                    <strong>
+                        Messages
+                    </strong>
+
+                    <span>
+                        Talk with friends
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="friends.html"
+                    class="quick-card"
+                >
+
+                    <span class="quick-icon">
+                        👥
+                    </span>
+
+                    <strong>
+                        Friends
+                    </strong>
+
+                    <span>
+                        Meet your community
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="reels.html"
+                    class="quick-card"
+                >
+
+                    <span class="quick-icon">
+                        🎬
+                    </span>
+
+                    <strong>
+                        Reels
+                    </strong>
+
+                    <span>
+                        Watch short videos
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="saved.html"
+                    class="quick-card"
+                >
+
+                    <span class="quick-icon">
+                        🔖
+                    </span>
+
+                    <strong>
+                        Saved
+                    </strong>
+
+                    <span>
+                        Find your saved posts
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             REAL DATA AREA
+             ================================================= -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        YOUR VIBECONNECT
+                    </span>
+
+                    <h2>
+                        Your account at a glance
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+
+                <a
+                    href="account.html"
+                    class="stat-card"
+                >
+
+                    <span class="stat-icon">
+                        👤
+                    </span>
+
+                    <div>
+                        <strong id="profileStat">
+                            —
+                        </strong>
+
+                        <span>
+                            Profile
+                        </span>
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="notifications-data.html"
+                    class="stat-card"
+                >
+
+                    <span class="stat-icon">
+                        🔔
+                    </span>
+
+                    <div>
+                        <strong id="notificationStat">
+                            0
+                        </strong>
+
+                        <span>
+                            Unread notifications
+                        </span>
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="security.html"
+                    class="stat-card"
+                >
+
+                    <span class="stat-icon">
+                        🛡️
+                    </span>
+
+                    <div>
+                        <strong id="securityStat">
+                            ✓
+                        </strong>
+
+                        <span>
+                            Account security
+                        </span>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ALL FEATURES
+             ================================================= -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        VIBECONNECT
+                    </span>
+
+                    <h2>
+                        Everything in one place
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+
+                <a
+                    href="profile-data.html"
+                    class="feature-card"
+                >
+
+                    <div class="feature-icon">
+                        👤
+                    </div>
+
+                    <div>
+                        <strong>
+                            Real Profile
+                        </strong>
+
+                        <span>
+                            Manage your real Supabase profile.
+                        </span>
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+
+                <a
+                    href="likes-data.html"
+                    class="feature-card"
+                >
+
+                    <div class="feature-icon">
+                        ❤️
+                    </div>
+
+                    <div>
+                        <strong>
+                            Posts & Interactions
+                        </strong>
+
+                        <span>
+                            Likes, comments and saved posts.
+                        </span>
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+
+                <a
+                    href="stories-data.html"
+                    class="feature-card"
+                >
+
+                    <div class="feature-icon">
+                        📖
+                    </div>
+
+                    <div>
+                        <strong>
+                            Real Stories & Reels
+                        </strong>
+
+                        <span>
+                            Your Supabase-powered media experience.
+                        </span>
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+
+                <a
+                    href="notifications-data.html"
+                    class="feature-card"
+                >
+
+                    <div class="feature-icon">
+                        🔔
+                    </div>
+
+                    <div>
+                        <strong>
+                            Real Notifications
+                        </strong>
+
+                        <span>
+                            Stay updated with account activity.
+                        </span>
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+
+                <a
+                    href="database.html"
+                    class="feature-card"
+                >
+
+                    <div class="feature-icon">
+                        🗄️
+                    </div>
+
+                    <div>
+                        <strong>
+                            Database Center
+                        </strong>
+
+                        <span>
+                            Manage and inspect your data foundation.
+                        </span>
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+
+                <a
+                    href="security.html"
+                    class="feature-card"
+                >
+
+                    <div class="feature-icon">
+                        🔐
+                    </div>
+
+                    <div>
+                        <strong>
+                            Security Center
+                        </strong>
+
+                        <span>
+                            Authentication and RLS protection.
+                        </span>
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer>
+
+            <div class="footer-brand">
+                <div class="logo-mark small">
+                    V
+                </div>
+
+                <strong>
+                    VibeConnect
+                </strong>
+            </div>
+
+            <p>
+                Built with passion for connecting people.
+            </p>
+
+            <span>
+                Made with ❤️ by Nikhil
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <div
+        id="toast"
+        class="toast"
+    ></div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="supabase.js"></script>
+
+    <script src="vibeconnect-final.js"></script>
+
+</body>
+
+</html>
+```
