@@ -1,0 +1,532 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+
+:root {
+--primary: #6c4cff;
+--primary-dark: #5638dc;
+--accent: #8b5cf6;
+--text: #171426;
+--muted: #77738a;
+--border: #e5e2ed;
+--surface: #ffffff;
+--background: #f6f4fb;
+--success: #16835b;
+--danger: #d14343;
+}
+
+body {
+min-height: 100vh;
+font-family:
+Inter,
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+sans-serif;
+background: var(--background);
+color: var(--text);
+}
+
+button,
+input {
+font: inherit;
+}
+
+button {
+cursor: pointer;
+}
+
+.auth-page {
+min-height: 100vh;
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+
+/* ================================
+BRAND PANEL
+================================ */
+
+.brand-panel {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 60px;
+background:
+radial-gradient(
+circle at 20% 20%,
+rgba(139, 92, 246, 0.45),
+transparent 35%
+),
+linear-gradient(
+145deg,
+#241650,
+#42248d 50%,
+#6c4cff
+);
+color: white;
+}
+
+.brand-content {
+width: min(520px, 100%);
+}
+
+.brand-icon {
+width: 64px;
+height: 64px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 20px;
+margin-bottom: 25px;
+background: rgba(255, 255, 255, 0.16);
+border: 1px solid rgba(255, 255, 255, 0.25);
+font-size: 34px;
+}
+
+.brand-content h1 {
+font-size: clamp(42px, 5vw, 72px);
+line-height: 1;
+letter-spacing: -3px;
+margin-bottom: 20px;
+}
+
+.brand-tagline {
+max-width: 400px;
+font-size: 20px;
+line-height: 1.6;
+color: rgba(255, 255, 255, 0.8);
+}
+
+.brand-features {
+margin-top: 55px;
+display: grid;
+gap: 24px;
+}
+
+.feature {
+display: flex;
+align-items: flex-start;
+gap: 16px;
+}
+
+.feature > span {
+width: 48px;
+height: 48px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+border-radius: 14px;
+background: rgba(255, 255, 255, 0.12);
+font-size: 22px;
+}
+
+.feature strong {
+display: block;
+margin-bottom: 5px;
+font-size: 16px;
+}
+
+.feature small {
+display: block;
+color: rgba(255, 255, 255, 0.68);
+line-height: 1.5;
+}
+
+/* ================================
+AUTH PANEL
+================================ */
+
+.auth-panel {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 40px;
+}
+
+.auth-card {
+width: min(470px, 100%);
+padding: 45px;
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 28px;
+box-shadow: 0 25px 70px rgba(39, 25, 79, 0.10);
+}
+
+.mobile-brand {
+display: none;
+}
+
+.auth-heading {
+margin-bottom: 30px;
+}
+
+.eyebrow {
+display: inline-block;
+margin-bottom: 10px;
+color: var(--primary);
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 1.5px;
+}
+
+.auth-heading h2,
+.logged-in h2 {
+font-size: 36px;
+line-height: 1.1;
+letter-spacing: -1px;
+margin-bottom: 10px;
+}
+
+.auth-heading p,
+.logged-in p {
+color: var(--muted);
+line-height: 1.6;
+}
+
+/* ================================
+FORM
+================================ */
+
+form {
+display: grid;
+gap: 10px;
+}
+
+form label {
+margin-top: 8px;
+font-size: 13px;
+font-weight: 700;
+}
+
+input {
+width: 100%;
+height: 52px;
+padding: 0 15px;
+border: 1px solid var(--border);
+border-radius: 13px;
+outline: none;
+background: #fbfaff;
+color: var(--text);
+transition: 0.2s ease;
+}
+
+input:focus {
+border-color: var(--primary);
+background: white;
+box-shadow: 0 0 0 4px rgba(108, 76, 255, 0.10);
+}
+
+input::placeholder {
+color: #aaa6b5;
+}
+
+.password-wrapper {
+position: relative;
+}
+
+.password-wrapper input {
+padding-right: 50px;
+}
+
+.password-toggle {
+position: absolute;
+right: 7px;
+top: 7px;
+width: 38px;
+height: 38px;
+border: none;
+border-radius: 10px;
+background: transparent;
+font-size: 17px;
+}
+
+.password-toggle:hover {
+background: #f0edf8;
+}
+
+/* ================================
+BUTTONS
+================================ */
+
+.primary-button,
+.secondary-button,
+.logout-button {
+width: 100%;
+min-height: 52px;
+border-radius: 13px;
+border: none;
+font-weight: 750;
+transition:
+transform 0.2s ease,
+box-shadow 0.2s ease,
+background 0.2s ease;
+}
+
+.primary-button {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 17px;
+margin-top: 18px;
+background: var(--primary);
+color: white;
+}
+
+.primary-button:hover {
+background: var(--primary-dark);
+transform: translateY(-1px);
+box-shadow: 0 10px 25px rgba(108, 76, 255, 0.25);
+}
+
+.primary-button:disabled {
+opacity: 0.65;
+cursor: not-allowed;
+transform: none;
+}
+
+.secondary-button {
+background: #f3f0fb;
+color: var(--primary);
+}
+
+.secondary-button:hover {
+background: #eae5fa;
+}
+
+.logout-button {
+margin-top: 12px;
+background: transparent;
+color: var(--danger);
+border: 1px solid #efcaca;
+}
+
+.logout-button:hover {
+background: #fff4f4;
+}
+
+/* ================================
+DIVIDER
+================================ */
+
+.divider {
+display: flex;
+align-items: center;
+gap: 12px;
+margin: 28px 0 15px;
+color: #aaa6b5;
+font-size: 10px;
+font-weight: 800;
+letter-spacing: 1px;
+}
+
+.divider::before,
+.divider::after {
+content: "";
+height: 1px;
+flex: 1;
+background: var(--border);
+}
+
+/* ================================
+PASSWORD STRENGTH
+================================ */
+
+.password-strength {
+margin-top: 5px;
+}
+
+.strength-track {
+width: 100%;
+height: 5px;
+overflow: hidden;
+border-radius: 99px;
+background: #ebe8f1;
+}
+
+#strengthBar {
+width: 0;
+height: 100%;
+border-radius: inherit;
+transition: width 0.25s ease;
+}
+
+#strengthText {
+display: block;
+margin-top: 6px;
+font-size: 11px;
+color: var(--muted);
+}
+
+/* ================================
+STATUS
+================================ */
+
+.auth-status {
+display: none;
+margin-top: 18px;
+padding: 12px 14px;
+border-radius: 12px;
+font-size: 13px;
+line-height: 1.5;
+}
+
+.auth-status.show {
+display: block;
+}
+
+.auth-status.error {
+color: #9f3030;
+background: #fff0f0;
+border: 1px solid #f3cccc;
+}
+
+.auth-status.success {
+color: #126a4b;
+background: #edf9f3;
+border: 1px solid #c7ead9;
+}
+
+.auth-status.info {
+color: #4f42a3;
+background: #f2efff;
+border: 1px solid #ddd6ff;
+}
+
+/* ================================
+LOGGED IN
+================================ */
+
+.logged-in {
+text-align: center;
+}
+
+.success-icon {
+width: 72px;
+height: 72px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto 22px;
+border-radius: 50%;
+background: #e9f8f0;
+color: var(--success);
+font-size: 34px;
+font-weight: 800;
+}
+
+.logged-in .eyebrow {
+margin-bottom: 8px;
+}
+
+.logged-in p {
+margin-bottom: 24px;
+word-break: break-word;
+}
+
+/* ================================
+FOOTER
+================================ */
+
+.auth-footer {
+margin-top: 30px;
+text-align: center;
+color: #aaa6b5;
+font-size: 11px;
+}
+
+/* ================================
+UTILITIES
+================================ */
+
+.hidden {
+display: none !important;
+}
+
+/* ================================
+MOBILE
+================================ */
+
+@media (max-width: 850px) {
+
+```
+.auth-page {
+    display: block;
+}
+
+.brand-panel {
+    display: none;
+}
+
+.auth-panel {
+    min-height: 100vh;
+    padding: 20px;
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(108, 76, 255, 0.12),
+            transparent 35%
+        ),
+        var(--background);
+}
+
+.auth-card {
+    padding: 30px 24px;
+    border-radius: 22px;
+}
+
+.mobile-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 35px;
+    font-weight: 850;
+    font-size: 20px;
+}
+
+.mobile-brand .brand-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    border-radius: 12px;
+    background: #eeeaff;
+    color: var(--primary);
+    font-size: 21px;
+}
+
+.auth-heading h2,
+.logged-in h2 {
+    font-size: 31px;
+}
+```
+
+}
+
+@media (max-width: 420px) {
+
+```
+.auth-panel {
+    padding: 10px;
+}
+
+.auth-card {
+    padding: 25px 18px;
+    border-radius: 18px;
+    box-shadow: none;
+}
+
+.auth-heading {
+    margin-bottom: 22px;
+}
+
+.auth-heading h2 {
+    font-size: 28px;
+}
+```
+
+}
