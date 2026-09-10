@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VibeConnect • Notifications</title>
+
+    <link
+        rel="stylesheet"
+        href="notifications.css"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="notifications-header">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ✦
+            </div>
+
+            <div>
+                <h1>VibeConnect</h1>
+                <p>Notifications</p>
+            </div>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <button
+                type="button"
+                id="markAllButton"
+                class="mark-all-button"
+            >
+                ✓ Mark all as read
+            </button>
+
+
+            <a
+                href="app.html"
+                class="back-button"
+            >
+                ← Back to App
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="notifications-wrapper">
+
+
+        <!-- =================================================
+             PAGE HEADER
+        ================================================== -->
+
+        <section class="page-heading">
+
+            <div>
+
+                <span class="heading-icon">
+                    🔔
+                </span>
+
+                <div class="heading-text">
+
+                    <h2>
+                        Notifications
+                    </h2>
+
+                    <p>
+                        Stay updated with everything happening
+                        around your VibeConnect account.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <span
+                class="unread-count"
+                id="unreadCount"
+            >
+                0 unread
+            </span>
+
+        </section>
+
+
+        <!-- =================================================
+             FILTERS
+        ================================================== -->
+
+        <nav class="notification-filters">
+
+            <button
+                type="button"
+                class="filter-button active"
+                data-filter="all"
+            >
+                All
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="likes"
+            >
+                ❤️ Likes
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="comments"
+            >
+                💬 Comments
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="follows"
+            >
+                👤 Follows
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="system"
+            >
+                ⚙️ System
+            </button>
+
+        </nav>
+
+
+        <!-- =================================================
+             NOTIFICATION LIST
+        ================================================== -->
+
+        <section class="notifications-card">
+
+            <div
+                id="notificationList"
+                class="notification-list"
+            >
+            </div>
+
+
+            <!-- EMPTY STATE -->
+
+            <div
+                id="emptyState"
+                class="empty-state"
+                hidden
+            >
+
+                <div class="empty-icon">
+                    🔕
+                </div>
+
+                <h3>
+                    No notifications
+                </h3>
+
+                <p>
+                    You're all caught up.
+                    New activity will appear here.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             NOTIFICATION INFO
+        ================================================== -->
+
+        <section class="notification-info">
+
+            <div class="info-icon">
+                💡
+            </div>
+
+            <div>
+
+                <strong>
+                    Your activity center
+                </strong>
+
+                <p>
+                    Likes, comments, follows and important
+                    VibeConnect updates can appear here.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        id="toast"
+        class="toast"
+    ></div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script
+        src="notifications.js"
+    ></script>
+
+</body>
+</html>
