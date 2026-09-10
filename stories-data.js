@@ -1,4 +1,3 @@
-```javascript
 /* =========================================================
    VIBECONNECT — REAL STORIES & REELS
    STEP 27
@@ -1733,4 +1732,3 @@ document.addEventListener(
 
     }
 );
-```
