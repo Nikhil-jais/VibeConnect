@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VibeConnect — Feed</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         VIBECONNECT FEED
+    ====================================================== -->
+
+    <main class="feed-page">
+
+
+        <!-- =================================================
+             FEED HEADER
+        ================================================== -->
+
+        <header class="feed-header">
+
+            <div class="feed-header-left">
+
+                <div class="feed-logo">
+                    ◆
+                </div>
+
+                <div>
+
+                    <h1>
+                        VibeConnect
+                    </h1>
+
+                    <p>
+                        Share your world.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feed-header-actions">
+
+                <button
+                    type="button"
+                    id="feedSearchButton"
+                    class="feed-header-button"
+                    aria-label="Search"
+                >
+                    🔍
+                </button>
+
+                <button
+                    type="button"
+                    id="feedNotificationButton"
+                    class="feed-header-button"
+                    aria-label="Notifications"
+                >
+                    ♡
+                </button>
+
+                <button
+                    type="button"
+                    id="feedCreateButton"
+                    class="feed-header-button"
+                    aria-label="Create post"
+                >
+                    ＋
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             STORIES
+        ================================================== -->
+
+        <section class="feed-stories-section">
+
+            <div class="feed-section-title">
+
+                <div>
+
+                    <h2>
+                        Stories
+                    </h2>
+
+                    <p>
+                        Moments from your Vibe
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="feedStoriesButton"
+                >
+                    View all
+                </button>
+
+            </div>
+
+
+            <div
+                id="feedStories"
+                class="feed-stories"
+            >
+
+                <!-- YOUR STORY -->
+
+                <button
+                    type="button"
+                    class="feed-story"
+                    id="yourStory"
+                >
+
+                    <div
+                        class="feed-story-avatar feed-story-add"
+                    >
+
+                        <span>
+                            Y
+                        </span>
+
+                        <b>
+                            +
+                        </b>
+
+                    </div>
+
+                    <strong>
+                        Your story
+                    </strong>
+
+                </button>
+
+
+                <!-- STORIES -->
+
+                <button
+                    type="button"
+                    class="feed-story"
+                >
+
+                    <div class="feed-story-avatar">
+                        A
+                    </div>
+
+                    <strong>
+                        Alex
+                    </strong>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="feed-story"
+                >
+
+                    <div class="feed-story-avatar">
+                        R
+                    </div>
+
+                    <strong>
+                        Riya
+                    </strong>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="feed-story"
+                >
+
+                    <div class="feed-story-avatar">
+                        K
+                    </div>
+
+                    <strong>
+                        Karan
+                    </strong>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="feed-story"
+                >
+
+                    <div class="feed-story-avatar">
+                        S
+                    </div>
+
+                    <strong>
+                        Sarah
+                    </strong>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="feed-story"
+                >
+
+                    <div class="feed-story-avatar">
+                        M
+                    </div>
+
+                    <strong>
+                        Manav
+                    </strong>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUICK CREATE
+        ================================================== -->
+
+        <section class="feed-quick-create">
+
+            <div class="feed-quick-top">
+
+                <div class="feed-user-avatar">
+                    Y
+                </div>
+
+                <button
+                    type="button"
+                    id="openCreatePost"
+                    class="feed-quick-input"
+                >
+                    What's on your mind?
+                </button>
+
+            </div>
+
+
+            <div class="feed-quick-actions">
+
+                <button
+                    type="button"
+                    id="quickPhoto"
+                >
+                    <span>🖼️</span>
+                    Photo
+                </button>
+
+
+                <button
+                    type="button"
+                    id="quickVideo"
+                >
+                    <span>🎥</span>
+                    Video
+                </button>
+
+
+                <button
+                    type="button"
+                    id="quickPoll"
+                >
+                    <span>📊</span>
+                    Poll
+                </button>
+
+
+                <button
+                    type="button"
+                    id="quickLocation"
+                >
+                    <span>📍</span>
+                    Location
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FEED TITLE
+        ================================================== -->
+
+        <section class="feed-heading">
+
+            <div>
+
+                <h2>
+                    Latest Vibes
+                </h2>
+
+                <p>
+                    Posts from your VibeConnect feed
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="feedSortButton"
+                class="feed-sort-button"
+            >
+                Latest
+                <span>⌄</span>
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             POSTS
+        ================================================== -->
+
+        <section
+            id="feedContainer"
+            class="feed-container"
+        >
+
+            <!--
+                feed.js will generate posts here.
+            -->
+
+        </section>
+
+
+
+        <!-- =================================================
+             CREATE POST PANEL
+        ================================================== -->
+
+        <div
+            id="feedCreatePanel"
+            class="feed-create-panel"
+            hidden
+        >
+
+            <div class="feed-create-box">
+
+
+                <!-- CREATE HEADER -->
+
+                <div class="feed-create-header">
+
+                    <div>
+
+                        <h2>
+                            Create a Vibe
+                        </h2>
+
+                        <p>
+                            Share something with your world
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="closeCreatePanel"
+                        class="feed-close-button"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+
+                <!-- MEDIA PREVIEW -->
+
+                <div
+                    id="feedMediaPreview"
+                    class="feed-media-preview"
+                >
+
+                    <div class="feed-media-placeholder">
+
+                        <span>
+                            📸
+                        </span>
+
+                        <p>
+                            Add a photo or video
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FILE INPUT -->
+
+                <input
+                    type="file"
+                    id="feedMediaInput"
+                    accept="image/*,video/*"
+                    hidden
+                >
+
+
+                <label
+                    for="feedMediaInput"
+                    class="feed-upload-button"
+                >
+                    🖼️ Add Photo / Video
+                </label>
+
+
+
+                <!-- CAPTION -->
+
+                <div class="feed-form-group">
+
+                    <label
+                        for="feedCaption"
+                    >
+                        Caption
+                    </label>
+
+                    <textarea
+                        id="feedCaption"
+                        rows="4"
+                        maxlength="500"
+                        placeholder="Write something..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- LOCATION -->
+
+                <div class="feed-form-group">
+
+                    <label
+                        for="feedLocation"
+                    >
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="feedLocation"
+                        maxlength="100"
+                        placeholder="📍 Add location"
+                    >
+
+                </div>
+
+
+
+                <!-- EXTRA OPTIONS -->
+
+                <div class="feed-extra-options">
+
+                    <button
+                        type="button"
+                        id="feedTagPeople"
+                    >
+                        👥 Tag people
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="feedAddPoll"
+                    >
+                        📊 Add poll
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="feedAddFeeling"
+                    >
+                        😊 Feeling
+                    </button>
+
+                </div>
+
+
+
+                <!-- PUBLISH -->
+
+                <button
+                    type="button"
+                    id="publishFeedPost"
+                    class="feed-publish-button"
+                >
+                    Publish Vibe ✨
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FEED SCRIPT
+    ====================================================== -->
+
+    <script src="feed.js"></script>
+
+</body>
+
+</html>
