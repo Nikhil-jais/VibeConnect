@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>VibeConnect — Likes, Comments & Saves</title>
+
+<link
+    rel="stylesheet"
+    href="likes-data.css"
+>
+
+<!-- Supabase -->
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    defer
+></script>
+
+<!-- Existing Supabase configuration -->
+<script
+    src="supabase.js"
+    defer
+></script>
+
+<!-- Step 24 -->
+<script
+    src="likes-data.js"
+    defer
+></script>
+```
+
+</head>
+
+<body>
+
+```
+<!-- =========================================
+     HEADER
+========================================== -->
+
+<header class="likes-header">
+
+    <div class="header-left">
+
+        <button
+            type="button"
+            id="backButton"
+            class="back-button"
+            aria-label="Back"
+        >
+            ←
+        </button>
+
+
+        <div>
+
+            <span class="header-label">
+                VIBECONNECT
+            </span>
+
+            <h1>
+                Social Interactions
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-brand">
+        ✦ VibeConnect
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     MAIN
+========================================== -->
+
+<main class="likes-container">
+
+
+    <!-- =====================================
+         CONNECTION
+    ====================================== -->
+
+    <section
+        class="connection-card"
+        id="connectionCard"
+    >
+
+        <div
+            class="connection-icon"
+            id="connectionIcon"
+        >
+            ⏳
+        </div>
+
+
+        <div class="connection-content">
+
+            <span class="small-label">
+                LIVE DATABASE
+            </span>
+
+            <h2 id="connectionTitle">
+                Connecting...
+            </h2>
+
+            <p id="connectionMessage">
+                Checking your VibeConnect connection.
+            </p>
+
+        </div>
+
+
+        <span
+            class="connection-badge"
+            id="connectionBadge"
+        >
+            CHECKING
+        </span>
+
+    </section>
+
+
+    <!-- =====================================
+         LOGIN
+    ====================================== -->
+
+    <section
+        id="loginRequired"
+        class="login-card hidden"
+    >
+
+        <div class="login-icon">
+            🔐
+        </div>
+
+        <h2>
+            Sign in to interact with posts
+        </h2>
+
+        <p>
+            You need to be signed in to like,
+            comment on, or save posts.
+        </p>
+
+        <button
+            type="button"
+            id="loginButton"
+            class="primary-button"
+        >
+            Go to Login
+        </button>
+
+    </section>
+
+
+    <!-- =====================================
+         CONTENT
+    ====================================== -->
+
+    <section
+        id="interactionContent"
+        class="interaction-content"
+    >
+
+
+        <!-- =================================
+             INFO
+        ================================== -->
+
+        <section class="intro-card">
+
+            <div class="intro-icon">
+                ❤️
+            </div>
+
+            <div>
+
+                <span class="small-label">
+                    STEP 24
+                </span>
+
+                <h2>
+                    Make every post interactive
+                </h2>
+
+                <p>
+                    Likes, comments and saves below are
+                    connected directly to your Supabase
+                    database.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             FEED HEADER
+        ================================== -->
+
+        <div class="feed-heading">
+
+            <div>
+
+                <span class="small-label">
+                    COMMUNITY
+                </span>
+
+                <h2>
+                    Posts
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="refreshButton"
+                class="refresh-button"
+            >
+                ↻ Refresh
+            </button>
+
+        </div>
+
+
+        <!-- =================================
+             POSTS
+        ================================== -->
+
+        <section
+            id="postsList"
+            class="posts-list"
+        ></section>
+
+
+        <!-- =================================
+             EMPTY
+        ================================== -->
+
+        <section
+            id="emptyState"
+            class="empty-state hidden"
+        >
+
+            <div class="empty-icon">
+                ✨
+            </div>
+
+            <h2>
+                No posts yet
+            </h2>
+
+            <p>
+                Create a post first, then come back here
+                to interact with it.
+            </p>
+
+        </section>
+
+
+        <!-- =================================
+             LOADING
+        ================================== -->
+
+        <section
+            id="loadingState"
+            class="loading-state hidden"
+        >
+
+            <div class="loading-spinner"></div>
+
+            <p>
+                Loading posts...
+            </p>
+
+        </section>
+
+
+    </section>
+
+</main>
+
+
+<!-- =========================================
+     COMMENT MODAL
+========================================== -->
+
+<div
+    id="commentModal"
+    class="modal hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="commentModalTitle"
+>
+
+    <div class="modal-panel">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="small-label">
+                    DISCUSSION
+                </span>
+
+                <h2 id="commentModalTitle">
+                    Comments
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="closeModalButton"
+                class="close-button"
+                aria-label="Close comments"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            id="commentsList"
+            class="comments-list"
+        ></div>
+
+
+        <form
+            id="commentForm"
+            class="comment-form"
+        >
+
+            <textarea
+                id="commentText"
+                maxlength="1000"
+                rows="3"
+                placeholder="Write a comment..."
+            ></textarea>
+
+
+            <div class="comment-form-footer">
+
+                <span id="commentCounter">
+                    0 / 1000
+                </span>
+
+                <button
+                    type="submit"
+                    id="commentButton"
+                    class="primary-button"
+                >
+                    💬 Comment
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     TOAST
+========================================== -->
+
+<div
+    id="toast"
+    class="toast"
+    aria-live="polite"
+></div>
+```
+
+</body>
+
+</html>
