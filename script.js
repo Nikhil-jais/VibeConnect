@@ -1,9 +1,13 @@
 /* =========================================================
    VIBECONNECT
-   APPLICATION FOUNDATION
+   MAIN APPLICATION CONTROLLER
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    /* =====================================================
+       START / LOGIN ELEMENTS
+    ===================================================== */
 
     const preface = document.getElementById("preface");
     const onboarding = document.getElementById("onboarding");
@@ -42,71 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       APP STATE
-    ====================================================== */
+       ONBOARDING
+    ===================================================== */
 
     let currentSlide = 0;
-
-
-    /* =====================================================
-       SHOW / HIDE SCREENS
-    ====================================================== */
-
-    function showScreen(screen) {
-
-        [
-            preface,
-            onboarding,
-            loginScreen
-        ].forEach(element => {
-
-            if (element) {
-                element.classList.add("hidden");
-            }
-
-        });
-
-        if (screen) {
-            screen.classList.remove("hidden");
-        }
-
-    }
-
-
-    function enterApp() {
-
-        preface.classList.add("hidden");
-        onboarding.classList.add("hidden");
-        loginScreen.classList.add("hidden");
-
-        app.classList.remove("hidden");
-
-        document.body.classList.add("app-active");
-
-    }
-
-
-    /* =====================================================
-       PREFACE
-    ====================================================== */
-
-    getStartedButton.addEventListener("click", () => {
-
-        enterApp();
-
-    });
-
-
-    loginButton.addEventListener("click", () => {
-
-        showScreen(loginScreen);
-
-    });
-
-
-    /* =====================================================
-       ONBOARDING
-    ====================================================== */
 
     function updateOnboarding() {
 
@@ -119,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
-
         onboardingDots.forEach((dot, index) => {
 
             dot.classList.toggle(
@@ -129,217 +71,127 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
+        if (onboardingCounter) {
 
-        onboardingCounter.textContent =
-            `${currentSlide + 1}/4`;
+            onboardingCounter.textContent =
+                `${currentSlide + 1}/${onboardingSlides.length}`;
 
+        }
 
-        if (currentSlide === onboardingSlides.length - 1) {
+        if (nextOnboardingButton) {
 
-            nextOnboardingButton.innerHTML =
-                `Join Vibe <span>→</span>`;
+            if (
+                currentSlide ===
+                onboardingSlides.length - 1
+            ) {
 
-        } else {
+                nextOnboardingButton.innerHTML =
+                    'Join Vibe <span>→</span>';
 
-            nextOnboardingButton.innerHTML =
-                `Next <span>→</span>`;
+            } else {
+
+                nextOnboardingButton.innerHTML =
+                    'Next <span>→</span>';
+
+            }
 
         }
 
     }
 
 
-    nextOnboardingButton.addEventListener("click", () => {
+    /* =====================================================
+       SHOW START SCREEN
+    ===================================================== */
 
-        if (
-            currentSlide <
-            onboardingSlides.length - 1
-        ) {
+    function hideStartScreens() {
 
-            currentSlide++;
-
-            updateOnboarding();
-
-        } else {
-
-            enterApp();
-
+        if (preface) {
+            preface.classList.add("hidden");
         }
 
-    });
+        if (onboarding) {
+            onboarding.classList.add("hidden");
+        }
+
+        if (loginScreen) {
+            loginScreen.classList.add("hidden");
+        }
+
+    }
 
 
-    onboardingDots.forEach((dot, index) => {
+    function showScreen(screen) {
 
-        dot.addEventListener("click", () => {
+        hideStartScreens();
 
-            currentSlide = index;
+        if (screen) {
+            screen.classList.remove("hidden");
+        }
 
-            updateOnboarding();
+    }
 
-        });
 
-    });
+    /* =====================================================
+       ENTER MAIN APP
+    ===================================================== */
+
+    function enterApplication() {
+
+        hideStartScreens();
+
+        if (app) {
+            app.classList.remove("hidden");
+        }
+
+        document.body.classList.add("app-active");
+
+    }
+
+
+    /* =====================================================
+       GET STARTED
+    ===================================================== */
+
+    if (getStartedButton) {
+
+        getStartedButton.addEventListener(
+            "click",
+            () => {
+
+                enterApplication();
+
+            }
+        );
+
+    }
 
 
     /* =====================================================
        LOGIN
-    ====================================================== */
+    ===================================================== */
 
-    backFromLogin.addEventListener("click", () => {
+    if (loginButton) {
 
-        showScreen(preface);
-
-    });
-
-
-    togglePassword.addEventListener("click", () => {
-
-        const isPassword =
-            loginPassword.type === "password";
-
-        loginPassword.type =
-            isPassword
-                ? "text"
-                : "password";
-
-        togglePassword.textContent =
-            isPassword
-                ? "◉"
-                : "◌";
-
-    });
-
-
-    loginForm.addEventListener("submit", event => {
-
-        event.preventDefault();
-
-        /*
-           Temporary local login behavior.
-
-           Real account authentication will be added
-           when we build the account system.
-        */
-
-        enterApp();
-
-    });
-
-
-    /* =====================================================
-       MAIN NAVIGATION
-    ====================================================== */
-
-    const navigationItems =
-        document.querySelectorAll(
-            "[data-section]"
-        );
-
-
-    function switchSection(sectionName) {
-
-        const sections =
-            document.querySelectorAll(
-                ".app-section"
-            );
-
-        sections.forEach(section => {
-
-            section.classList.remove(
-                "active-section"
-            );
-
-        });
-
-
-        const target =
-            document.getElementById(
-                `section-${sectionName}`
-            );
-
-        if (target) {
-
-            target.classList.add(
-                "active-section"
-            );
-
-        }
-
-
-        navigationItems.forEach(item => {
-
-            item.classList.toggle(
-                "active",
-                item.dataset.section === sectionName
-            );
-
-        });
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-
-
-    navigationItems.forEach(item => {
-
-        item.addEventListener("click", () => {
-
-            const section =
-                item.dataset.section;
-
-            switchSection(section);
-
-        });
-
-    });
-
-
-    /* =====================================================
-       QUICK CREATE
-    ====================================================== */
-
-    const quickCreateButton =
-        document.getElementById(
-            "quickCreateButton"
-        );
-
-    if (quickCreateButton) {
-
-        quickCreateButton.addEventListener(
+        loginButton.addEventListener(
             "click",
             () => {
-                switchSection("create");
+
+                showScreen(loginScreen);
+
             }
         );
 
     }
 
 
-    /* =====================================================
-       ADD STORY
-    ====================================================== */
+    if (backFromLogin) {
 
-    const addStoryButton =
-        document.getElementById(
-            "addStoryButton"
-        );
-
-    if (addStoryButton) {
-
-        addStoryButton.addEventListener(
+        backFromLogin.addEventListener(
             "click",
             () => {
 
-                /*
-                   Real story upload is coming
-                   in the next build stage.
-                */
-
-                switchSection("create");
+                showScreen(preface);
 
             }
         );
@@ -348,41 +200,237 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       CREATE BUTTONS
-    ====================================================== */
+       PASSWORD TOGGLE
+    ===================================================== */
 
-    document
-        .querySelectorAll(".create-option")
-        .forEach(button => {
+    if (
+        togglePassword &&
+        loginPassword
+    ) {
 
-            button.addEventListener(
+        togglePassword.addEventListener(
+            "click",
+            () => {
+
+                const hidden =
+                    loginPassword.type === "password";
+
+                loginPassword.type =
+                    hidden
+                        ? "text"
+                        : "password";
+
+                togglePassword.textContent =
+                    hidden
+                        ? "◉"
+                        : "◌";
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       LOGIN FORM
+    ===================================================== */
+
+    if (loginForm) {
+
+        loginForm.addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+                enterApplication();
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       ONBOARDING NEXT BUTTON
+    ===================================================== */
+
+    if (nextOnboardingButton) {
+
+        nextOnboardingButton.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    currentSlide <
+                    onboardingSlides.length - 1
+                ) {
+
+                    currentSlide++;
+
+                    updateOnboarding();
+
+                } else {
+
+                    enterApplication();
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       ONBOARDING DOTS
+    ===================================================== */
+
+    onboardingDots.forEach(
+        (dot, index) => {
+
+            dot.addEventListener(
                 "click",
                 () => {
 
-                    alert(
-                        "This creator will become fully functional in the next step."
-                    );
+                    currentSlide = index;
+
+                    updateOnboarding();
 
                 }
             );
 
-        });
+        }
+    );
+
+
+    /* =====================================================
+       REAL PAGE ROUTES
+    ===================================================== */
+
+    const PAGE_ROUTES = {
+
+        home: "home.html",
+
+        explore: "explore.html",
+
+        reels: "reels.html",
+
+        messages: "messages-data.html",
+
+        notifications: "notification-data.html",
+
+        create: "create-real.html",
+
+        profile: "profile-data.html",
+
+        saved: "saved.html",
+
+        settings: "settings.html"
+
+    };
+
+
+    /* =====================================================
+       OPEN REAL PAGE
+    ===================================================== */
+
+    function openRealPage(section) {
+
+        const page = PAGE_ROUTES[section];
+
+        if (!page) {
+
+            console.warn(
+                "VibeConnect: No page configured for:",
+                section
+            );
+
+            return;
+
+        }
+
+        window.location.href = page;
+
+    }
+
+
+    /* =====================================================
+       MAIN NAVIGATION
+       Converts the old internal navigation into
+       separate HTML page navigation.
+    ===================================================== */
+
+    const navigationItems =
+        document.querySelectorAll("[data-section]");
+
+
+    navigationItems.forEach(item => {
+
+        item.addEventListener(
+            "click",
+            event => {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                const section =
+                    item.getAttribute("data-section");
+
+                openRealPage(section);
+
+            },
+            true
+        );
+
+    });
+
+
+    /* =====================================================
+       CREATE BUTTONS
+    ===================================================== */
+
+    const createButtons =
+        document.querySelectorAll(
+            ".create-option, #quickCreateButton, #addStoryButton"
+        );
+
+
+    createButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            event => {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                openRealPage("create");
+
+            },
+            true
+        );
+
+    });
 
 
     /* =====================================================
        GLOBAL SEARCH
-    ====================================================== */
+    ===================================================== */
 
     const globalSearch =
-        document.getElementById(
-            "globalSearch"
-        );
+        document.getElementById("globalSearch");
 
-    globalSearch.addEventListener(
-        "keydown",
-        event => {
 
-            if (event.key === "Enter") {
+    if (globalSearch) {
+
+        globalSearch.addEventListener(
+            "keydown",
+            event => {
+
+                if (event.key !== "Enter") {
+                    return;
+                }
 
                 const searchValue =
                     globalSearch.value.trim();
@@ -391,23 +439,29 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-                switchSection("explore");
-
-                console.log(
-                    "VibeConnect search:",
-                    searchValue
-                );
+                window.location.href =
+                    "search.html";
 
             }
+        );
 
-        }
-    );
+    }
 
 
     /* =====================================================
-       START
-    ====================================================== */
+       INITIALIZE
+    ===================================================== */
 
-    showScreen(preface);
+    updateOnboarding();
+
+
+    if (app) {
+        app.classList.add("hidden");
+    }
+
+
+    console.log(
+        "VibeConnect: new navigation controller loaded."
+    );
 
 });
