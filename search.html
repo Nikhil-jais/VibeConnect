@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VibeConnect • Search & Discover</title>
+
+    <link
+        rel="stylesheet"
+        href="search.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="search-header">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ✦
+            </div>
+
+            <div>
+
+                <h1>
+                    VibeConnect
+                </h1>
+
+                <p>
+                    Search & Discover
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="app.html"
+            class="back-button"
+        >
+            ← Back to App
+        </a>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="search-wrapper">
+
+
+        <!-- =================================================
+             SEARCH HERO
+        ================================================== -->
+
+        <section class="search-hero">
+
+            <div class="hero-icon">
+                🔎
+            </div>
+
+            <div class="hero-content">
+
+                <h2>
+                    Discover something new
+                </h2>
+
+                <p>
+                    Find people, posts, topics and communities
+                    on VibeConnect.
+                </p>
+
+            </div>
+
+
+            <!-- SEARCH BOX -->
+
+            <div class="search-box">
+
+                <span class="search-icon">
+                    🔍
+                </span>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search people, posts or topics..."
+                    autocomplete="off"
+                >
+
+                <button
+                    type="button"
+                    id="clearSearch"
+                    class="clear-search"
+                    aria-label="Clear search"
+                >
+                    ×
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SEARCH RESULTS
+        ================================================== -->
+
+        <section
+            id="resultsSection"
+            class="results-section"
+            hidden
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Search Results
+                    </h2>
+
+                    <p id="resultDescription">
+                        Results
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="searchResults"
+                class="search-results"
+            ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DEFAULT DISCOVER CONTENT
+        ================================================== -->
+
+        <section
+            id="discoverSection"
+            class="discover-section"
+        >
+
+
+            <!-- =================================================
+                 CATEGORIES
+            ================================================== -->
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Explore topics
+                    </h2>
+
+                    <p>
+                        Find content based on your interests.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="topic-grid">
+
+                <button
+                    class="topic-card"
+                    data-topic="Technology"
+                >
+
+                    <span>
+                        💻
+                    </span>
+
+                    <strong>
+                        Technology
+                    </strong>
+
+                    <small>
+                        Tech & coding
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="topic-card"
+                    data-topic="AI"
+                >
+
+                    <span>
+                        🤖
+                    </span>
+
+                    <strong>
+                        Artificial Intelligence
+                    </strong>
+
+                    <small>
+                        AI & innovation
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="topic-card"
+                    data-topic="Gaming"
+                >
+
+                    <span>
+                        🎮
+                    </span>
+
+                    <strong>
+                        Gaming
+                    </strong>
+
+                    <small>
+                        Games & players
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="topic-card"
+                    data-topic="Photography"
+                >
+
+                    <span>
+                        📸
+                    </span>
+
+                    <strong>
+                        Photography
+                    </strong>
+
+                    <small>
+                        Photos & creativity
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="topic-card"
+                    data-topic="Music"
+                >
+
+                    <span>
+                        🎵
+                    </span>
+
+                    <strong>
+                        Music
+                    </strong>
+
+                    <small>
+                        Artists & sounds
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="topic-card"
+                    data-topic="Education"
+                >
+
+                    <span>
+                        📚
+                    </span>
+
+                    <strong>
+                        Education
+                    </strong>
+
+                    <small>
+                        Learning & study
+                    </small>
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TRENDING
+            ================================================== -->
+
+            <div class="section-heading trending-heading">
+
+                <div>
+
+                    <h2>
+                        Trending on VibeConnect
+                    </h2>
+
+                    <p>
+                        Popular topics people are talking about.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="trendingList"
+                class="trending-list"
+            ></div>
+
+
+
+            <!-- =================================================
+                 RECENT SEARCHES
+            ================================================== -->
+
+            <div
+                id="recentSearchSection"
+                class="section-heading recent-heading"
+                hidden
+            >
+
+                <div>
+
+                    <h2>
+                        Recent searches
+                    </h2>
+
+                    <p>
+                        Quickly return to something you searched.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="clearRecent"
+                    class="clear-recent"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <div
+                id="recentSearches"
+                class="recent-searches"
+            ></div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        id="toast"
+        class="toast"
+    ></div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script
+        src="search.js"
+    ></script>
+
+
+</body>
+
+</html>
