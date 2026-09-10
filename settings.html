@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings • VibeConnect</title>
+
+    <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+
+<header class="settings-header">
+
+    <div class="header-left">
+
+        <button
+            class="back-btn"
+            onclick="window.location.href='app.html'">
+            ←
+        </button>
+
+        <div>
+            <h1>Settings</h1>
+            <p>Manage your VibeConnect experience</p>
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="settings-container">
+
+    <!-- PROFILE PREVIEW -->
+
+    <section class="profile-card">
+
+        <div class="profile-avatar">
+            N
+        </div>
+
+        <div class="profile-info">
+            <h2 id="profileName">Nikhil</h2>
+            <p id="profileUsername">@nikhil</p>
+        </div>
+
+        <button
+            class="edit-profile-btn"
+            onclick="window.location.href='profile.html'">
+            Edit Profile
+        </button>
+
+    </section>
+
+
+    <!-- ACCOUNT -->
+
+    <section class="settings-section">
+
+        <div class="section-title">
+
+            <span class="section-icon">
+                👤
+            </span>
+
+            <div>
+                <h2>Account</h2>
+                <p>Manage your account information</p>
+            </div>
+
+        </div>
+
+
+        <div class="settings-list">
+
+            <button
+                class="setting-item"
+                data-action="username">
+
+                <div class="setting-icon">
+                    @
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>Username</strong>
+
+                    <span id="usernameValue">
+                        @nikhil
+                    </span>
+
+                </div>
+
+                <span class="arrow">
+                    ›
+                </span>
+
+            </button>
+
+
+            <button
+                class="setting-item"
+                data-action="email">
+
+                <div class="setting-icon">
+                    ✉️
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>Email</strong>
+
+                    <span>
+                        Manage your email address
+                    </span>
+
+                </div>
+
+                <span class="arrow">
+                    ›
+                </span>
+
+            </button>
+
+
+            <button
+                class="setting-item"
+                data-action="password">
+
+                <div class="setting-icon">
+                    🔑
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>Password</strong>
+
+                    <span>
+                        Change your password
+                    </span>
+
+                </div>
+
+                <span class="arrow">
+                    ›
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRIVACY -->
+
+    <section class="settings-section">
+
+        <div class="section-title">
+
+            <span class="section-icon">
+                🔒
+            </span>
+
+            <div>
+                <h2>Privacy</h2>
+                <p>Control who can interact with you</p>
+            </div>
+
+        </div>
+
+
+        <div class="settings-list">
+
+            <div class="setting-item toggle-item">
+
+                <div class="setting-icon">
+                    👁️
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>Private Account</strong>
+
+                    <span>
+                        Only approved followers can see your content
+                    </span>
+
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="privateAccount">
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-item toggle-item">
+
+                <div class="setting-icon">
+                    💬
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>Allow Comments</strong>
+
+                    <span>
+                        Let people comment on your posts
+                    </span>
+
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="allowComments"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-item toggle-item">
+
+                <div class="setting-icon">
+                    ✉️
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>Message Requests</strong>
+
+                    <span>
+                        Allow messages from people you don't follow
+                    </span>
+
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="messageRequests"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-item toggle-item">
+
+                <div class="setting-icon">
+                    👥
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>Show Activity Status</strong>
+
+                    <span>
+                        Let others see when you're active
+                    </span>
+
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="activityStatus"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NOTIFICATIONS -->
+
+    <section class="settings-section">
+
+        <div class="section-title">
+
+            <span class="section-icon">
+                🔔
+            </span>
+
+            <div>
+                <h2>Notifications</h2>
+                <p>Choose what notifications you receive</p>
+            </div>
+
+        </div>
+
+
+        <div class="settings-list">
+
+            <div class="setting-item toggle-item">
+
+                <div class="setting-icon">
+                    ❤️
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>Likes</strong>
+
+                    <span>
+                        Notify me when someone likes my post
+                    </span>
+
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="likeNotifications"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-item toggle-item">
+
+                <div class="setting-icon">
+                    💬
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>Comments</strong>
+
+                    <span>
+                        Notify me about comments
+                    </span>
+
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="commentNotifications"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-item toggle-item">
+
+                <div class="setting-icon">
+                    👤
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>New Followers</strong>
+
+                    <span>
+                        Notify me when someone follows me
+                    </span>
+
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="followNotifications"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-item toggle-item">
+
+                <div class="setting-icon">
+                    📢
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>VibeConnect Updates</strong>
+
+                    <span>
+                        Product news and important updates
+                    </span>
+
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="systemNotifications"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- APPEARANCE -->
+
+    <section class="settings-section">
+
+        <div class="section-title">
+
+            <span class="section-icon">
+                🎨
+            </span>
+
+            <div>
+                <h2>Appearance</h2>
+                <p>Customize how VibeConnect looks</p>
+            </div>
+
+        </div>
+
+
+        <div class="theme-options">
+
+            <button
+                class="theme-card active"
+                data-theme="light">
+
+                <div class="theme-preview light-preview">
+                    ☀️
+                </div>
+
+                <strong>Light</strong>
+
+                <span>
+                    Bright and clean
+                </span>
+
+            </button>
+
+
+            <button
+                class="theme-card"
+                data-theme="dark">
+
+                <div class="theme-preview dark-preview">
+                    🌙
+                </div>
+
+                <strong>Dark</strong>
+
+                <span>
+                    Easy on the eyes
+                </span>
+
+            </button>
+
+
+            <button
+                class="theme-card"
+                data-theme="system">
+
+                <div class="theme-preview system-preview">
+                    💻
+                </div>
+
+                <strong>System</strong>
+
+                <span>
+                    Follow device settings
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECURITY -->
+
+    <section class="settings-section">
+
+        <div class="section-title">
+
+            <span class="section-icon">
+                🛡️
+            </span>
+
+            <div>
+                <h2>Security</h2>
+                <p>Protect your VibeConnect account</p>
+            </div>
+
+        </div>
+
+
+        <div class="settings-list">
+
+            <button
+                class="setting-item"
+                data-action="sessions">
+
+                <div class="setting-icon">
+                    💻
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>Login Activity</strong>
+
+                    <span>
+                        Review devices logged into your account
+                    </span>
+
+                </div>
+
+                <span class="arrow">
+                    ›
+                </span>
+
+            </button>
+
+
+            <button
+                class="setting-item"
+                data-action="twofactor">
+
+                <div class="setting-icon">
+                    🔐
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>Two-Factor Authentication</strong>
+
+                    <span>
+                        Add another layer of account security
+                    </span>
+
+                </div>
+
+                <span class="arrow">
+                    ›
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- DATA -->
+
+    <section class="settings-section">
+
+        <div class="section-title">
+
+            <span class="section-icon">
+                💾
+            </span>
+
+            <div>
+                <h2>Your Data</h2>
+                <p>Manage information stored by VibeConnect</p>
+            </div>
+
+        </div>
+
+
+        <div class="settings-list">
+
+            <button
+                class="setting-item"
+                data-action="download">
+
+                <div class="setting-icon">
+                    📥
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>Download Your Data</strong>
+
+                    <span>
+                        Request a copy of your information
+                    </span>
+
+                </div>
+
+                <span class="arrow">
+                    ›
+                </span>
+
+            </button>
+
+
+            <button
+                class="setting-item danger-item"
+                data-action="clear">
+
+                <div class="setting-icon">
+                    🗑️
+                </div>
+
+                <div class="setting-content">
+
+                    <strong>Clear Local Data</strong>
+
+                    <span>
+                        Remove VibeConnect settings from this browser
+                    </span>
+
+                </div>
+
+                <span class="arrow">
+                    ›
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about-card">
+
+        <div class="about-logo">
+            ✦
+        </div>
+
+        <h2>VibeConnect</h2>
+
+        <p>
+            Connect. Share. Discover.
+        </p>
+
+        <span>
+            Version 1.0 • Built with care
+        </span>
+
+    </section>
+
+</main>
+
+
+<div
+    id="settingsToast"
+    class="settings-toast">
+</div>
+
+
+<script src="settings.js"></script>
+
+</body>
+</html>
