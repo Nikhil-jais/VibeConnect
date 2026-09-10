@@ -1,0 +1,384 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VibeConnect — Stories & Reels</title>
+
+    <link
+        rel="stylesheet"
+        href="stories-data.css"
+    >
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="supabase.js"></script>
+
+    <script
+        src="stories-data.js"
+        defer
+    ></script>
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="stories-header">
+
+        <div class="header-left">
+
+            <button
+                class="back-button"
+                id="backButton"
+                type="button"
+            >
+                ←
+            </button>
+
+            <div>
+
+                <span class="eyebrow">
+                    VIBECONNECT
+                </span>
+
+                <h1>
+                    Stories & Reels
+                </h1>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="refresh-button"
+            id="refreshButton"
+            type="button"
+        >
+            ↻ Refresh
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="page-container">
+
+
+        <!-- Connection -->
+        <section class="connection-card">
+
+            <div class="connection-icon">
+                ☁️
+            </div>
+
+            <div class="connection-info">
+
+                <strong>
+                    Supabase Connection
+                </strong>
+
+                <span id="connectionStatus">
+                    Checking connection...
+                </span>
+
+            </div>
+
+            <span
+                class="status-dot"
+                id="statusDot"
+            ></span>
+
+        </section>
+
+
+        <!-- Login -->
+        <section
+            class="login-card hidden"
+            id="loginCard"
+        >
+
+            <div class="login-icon">
+                🔐
+            </div>
+
+            <h2>
+                Sign in to continue
+            </h2>
+
+            <p>
+                Sign in to view Stories and Reels
+                from the VibeConnect community.
+            </p>
+
+            <button
+                class="primary-button"
+                id="loginButton"
+                type="button"
+            >
+                Go to Login
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             APP
+             ================================================= -->
+
+        <section
+            class="content hidden"
+            id="mainContent"
+        >
+
+
+            <!-- Hero -->
+            <section class="hero-card">
+
+                <div>
+
+                    <span class="section-label">
+                        REAL CONTENT
+                    </span>
+
+                    <h2>
+                        Stories today. Reels anytime.
+                    </h2>
+
+                    <p>
+                        Explore content directly from
+                        your VibeConnect Supabase database.
+                    </p>
+
+                </div>
+
+                <div class="hero-icon">
+                    🎬
+                </div>
+
+            </section>
+
+
+            <!-- Tabs -->
+            <nav class="tabs">
+
+                <button
+                    class="tab active"
+                    data-tab="stories"
+                    type="button"
+                >
+                    📸 Stories
+                </button>
+
+                <button
+                    class="tab"
+                    data-tab="reels"
+                    type="button"
+                >
+                    🎬 Reels
+                </button>
+
+            </nav>
+
+
+            <!-- =================================================
+                 STORIES
+                 ================================================= -->
+
+            <section
+                class="content-section"
+                id="storiesSection"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            24 HOURS
+                        </span>
+
+                        <h2>
+                            Latest Stories
+                        </h2>
+
+                    </div>
+
+                    <span
+                        class="result-count"
+                        id="storyCount"
+                    >
+                        0 stories
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="story-grid"
+                    id="storyGrid"
+                >
+
+                    <div class="loading-state">
+
+                        <div class="spinner"></div>
+
+                        <p>
+                            Loading stories...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 REELS
+                 ================================================= -->
+
+            <section
+                class="content-section hidden"
+                id="reelsSection"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            VIDEO
+                        </span>
+
+                        <h2>
+                            Reels
+                        </h2>
+
+                    </div>
+
+                    <span
+                        class="result-count"
+                        id="reelCount"
+                    >
+                        0 reels
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="reels-grid"
+                    id="reelsGrid"
+                >
+
+                    <div class="loading-state">
+
+                        <div class="spinner"></div>
+
+                        <p>
+                            Loading Reels...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         STORY VIEWER
+         ===================================================== -->
+
+    <div
+        class="viewer hidden"
+        id="storyViewer"
+    >
+
+        <div
+            class="viewer-backdrop"
+            id="viewerBackdrop"
+        ></div>
+
+
+        <div class="viewer-card">
+
+            <button
+                class="viewer-close"
+                id="viewerClose"
+                type="button"
+            >
+                ×
+            </button>
+
+
+            <div
+                class="viewer-progress"
+                id="viewerProgress"
+            ></div>
+
+
+            <div
+                class="viewer-user"
+                id="viewerUser"
+            ></div>
+
+
+            <div
+                class="viewer-content"
+                id="viewerContent"
+            ></div>
+
+
+            <div
+                class="viewer-caption"
+                id="viewerCaption"
+            ></div>
+
+
+            <button
+                class="viewer-delete hidden"
+                id="viewerDelete"
+                type="button"
+            >
+                Delete my story
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         TOAST
+         ===================================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+    ></div>
+
+</body>
+</html>
+```
