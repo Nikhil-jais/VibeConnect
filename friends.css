@@ -1,0 +1,660 @@
+/* =========================================================
+   VIBECONNECT — FRIENDS & CONNECTIONS
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f3ff,
+            #ffffff 45%,
+            #f3f7ff
+        );
+
+    color: #202124;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.friends-header {
+    min-height: 76px;
+    padding: 14px 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border-bottom: 1px solid #e8e2f4;
+
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    backdrop-filter: blur(14px);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.back-button {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    border-radius: 14px;
+
+    background: #f2edff;
+    color: #6d3df5;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.back-button:hover {
+    background: #e7ddff;
+    transform: translateX(-2px);
+}
+
+.header-left h1 {
+    font-size: 23px;
+    margin-bottom: 3px;
+}
+
+.header-left p {
+    color: #777;
+    font-size: 13px;
+}
+
+.header-logo {
+    font-weight: 800;
+    color: #5f2eea;
+}
+
+.header-logo span {
+    margin-right: 5px;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.friends-container {
+    width: min(1100px, 92%);
+    margin: 35px auto 70px;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.friends-hero {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d3df5,
+            #8d5cf6
+        );
+
+    color: white;
+
+    box-shadow:
+        0 18px 45px rgba(91, 48, 190, 0.18);
+
+    margin-bottom: 24px;
+}
+
+.hero-icon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.16);
+
+    font-size: 35px;
+}
+
+.friends-hero h2 {
+    font-size: 25px;
+    margin-bottom: 7px;
+}
+
+.friends-hero p {
+    max-width: 650px;
+    line-height: 1.6;
+
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.connection-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background: white;
+
+    border: 1px solid #ece7f6;
+
+    border-radius: 20px;
+
+    padding: 22px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow:
+        0 8px 25px rgba(50, 30, 90, 0.05);
+}
+
+.stat-icon {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.stat-card strong {
+    font-size: 25px;
+    color: #5425d5;
+}
+
+.stat-card small {
+    color: #777;
+    margin-top: 3px;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.friends-search {
+    background: white;
+
+    border: 1px solid #e5def2;
+
+    border-radius: 17px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 17px;
+
+    height: 55px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 5px 20px rgba(50, 30, 90, 0.04);
+}
+
+.friends-search span {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.friends-search input {
+    border: none;
+    outline: none;
+
+    width: 100%;
+
+    font-size: 15px;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   TABS
+   ========================================================= */
+
+.friends-tabs {
+    display: flex;
+    gap: 10px;
+
+    overflow-x: auto;
+
+    margin-bottom: 22px;
+
+    padding-bottom: 4px;
+}
+
+.friend-tab {
+    border: none;
+
+    background: white;
+
+    border: 1px solid #e5def2;
+
+    color: #666;
+
+    padding: 11px 18px;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.friend-tab:hover {
+    border-color: #a987f5;
+    color: #6432df;
+}
+
+.friend-tab.active {
+    background: #6d3df5;
+    color: white;
+
+    border-color: #6d3df5;
+}
+
+
+/* =========================================================
+   PEOPLE GRID
+   ========================================================= */
+
+.people-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.person-card {
+    background: white;
+
+    border: 1px solid #ebe5f5;
+
+    border-radius: 22px;
+
+    padding: 22px;
+
+    text-align: center;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.person-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 30px rgba(45, 25, 90, 0.09);
+}
+
+.person-avatar {
+    width: 76px;
+    height: 76px;
+
+    margin: 0 auto 13px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f0eaff;
+
+    font-size: 32px;
+
+    overflow: hidden;
+}
+
+.person-avatar img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.person-card h3 {
+    font-size: 17px;
+
+    margin-bottom: 4px;
+}
+
+.person-username {
+    color: #7659aa;
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+}
+
+.person-bio {
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    min-height: 39px;
+
+    margin-bottom: 16px;
+}
+
+.person-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.follow-button,
+.profile-button {
+    flex: 1;
+
+    border-radius: 12px;
+
+    padding: 10px 8px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+.follow-button {
+    border: none;
+
+    background: #6d3df5;
+
+    color: white;
+}
+
+.follow-button:hover {
+    background: #5425d5;
+}
+
+.follow-button.following {
+    background: #eee9f8;
+
+    color: #5d4d77;
+}
+
+.profile-button {
+    background: white;
+
+    border: 1px solid #ddd4ed;
+
+    color: #5e4a7e;
+}
+
+.profile-button:hover {
+    background: #f7f3ff;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-friends {
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background: white;
+
+    border: 1px dashed #d8cce9;
+
+    border-radius: 22px;
+}
+
+.empty-icon {
+    font-size: 40px;
+
+    margin-bottom: 12px;
+}
+
+.empty-friends h3 {
+    margin-bottom: 7px;
+}
+
+.empty-friends p {
+    color: #777;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   DISCOVER CARD
+   ========================================================= */
+
+.discover-card {
+    margin-top: 30px;
+
+    padding: 22px;
+
+    background: white;
+
+    border: 1px solid #e7def4;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.discover-icon {
+    font-size: 30px;
+}
+
+.discover-card h3 {
+    margin-bottom: 5px;
+}
+
+.discover-card p {
+    color: #777;
+
+    font-size: 13px;
+}
+
+.discover-button {
+    margin-left: auto;
+
+    text-decoration: none;
+
+    background: #6d3df5;
+
+    color: white;
+
+    padding: 11px 17px;
+
+    border-radius: 12px;
+
+    font-weight: 700;
+
+    font-size: 13px;
+}
+
+.discover-button:hover {
+    background: #5425d5;
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.friends-toast {
+    position: fixed;
+
+    bottom: 25px;
+    left: 50%;
+
+    transform:
+        translate(-50%, 20px);
+
+    background: #202124;
+
+    color: white;
+
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: 0.3s ease;
+
+    z-index: 100;
+}
+
+.friends-toast.show {
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .people-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .friends-header {
+        padding: 12px 4%;
+    }
+
+    .header-logo {
+        display: none;
+    }
+
+    .friends-container {
+        width: 94%;
+        margin-top: 22px;
+    }
+
+    .friends-hero {
+        padding: 22px;
+
+        align-items: flex-start;
+    }
+
+    .hero-icon {
+        width: 55px;
+        height: 55px;
+
+        font-size: 27px;
+    }
+
+    .friends-hero h2 {
+        font-size: 21px;
+    }
+
+    .connection-stats {
+        gap: 9px;
+    }
+
+    .stat-card {
+        padding: 15px 8px;
+    }
+
+    .stat-card strong {
+        font-size: 20px;
+    }
+
+    .people-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .discover-card {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .discover-button {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+}
