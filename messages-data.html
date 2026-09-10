@@ -1,0 +1,341 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VibeConnect — Messages</title>
+
+    <link rel="stylesheet" href="messages-data.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="messages-data.js" defer></script>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="messages-header">
+
+        <div class="header-left">
+
+            <button
+                class="back-button"
+                id="backButton"
+                type="button"
+                aria-label="Go back"
+            >
+                ←
+            </button>
+
+            <div>
+                <span class="eyebrow">
+                    VIBECONNECT
+                </span>
+
+                <h1>
+                    Messages
+                </h1>
+            </div>
+
+        </div>
+
+        <button
+            class="refresh-button"
+            id="refreshButton"
+            type="button"
+        >
+            ↻ Refresh
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="messages-container">
+
+        <!-- Connection -->
+        <section class="connection-card">
+
+            <div class="connection-icon">
+                ☁️
+            </div>
+
+            <div class="connection-info">
+
+                <strong>
+                    Supabase Connection
+                </strong>
+
+                <span id="connectionStatus">
+                    Checking connection...
+                </span>
+
+            </div>
+
+            <span
+                class="status-dot"
+                id="statusDot"
+            ></span>
+
+        </section>
+
+
+        <!-- Login -->
+        <section
+            class="login-card hidden"
+            id="loginCard"
+        >
+
+            <div class="login-icon">
+                🔐
+            </div>
+
+            <h2>
+                Sign in to message
+            </h2>
+
+            <p>
+                Sign in to start conversations with
+                people on VibeConnect.
+            </p>
+
+            <button
+                class="primary-button"
+                id="loginButton"
+                type="button"
+            >
+                Go to Login
+            </button>
+
+        </section>
+
+
+        <!-- App -->
+        <section
+            class="messages-app hidden"
+            id="messagesApp"
+        >
+
+            <!-- =============================================
+                 CONVERSATION SIDEBAR
+                 ============================================= -->
+
+            <aside class="conversation-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <span class="section-label">
+                            INBOX
+                        </span>
+
+                        <h2>
+                            Conversations
+                        </h2>
+                    </div>
+
+                    <span
+                        class="conversation-count"
+                        id="conversationCount"
+                    >
+                        0
+                    </span>
+
+                </div>
+
+
+                <div class="search-box">
+
+                    <span>
+                        🔎
+                    </span>
+
+                    <input
+                        type="search"
+                        id="userSearch"
+                        placeholder="Search people..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div
+                    class="conversation-list"
+                    id="conversationList"
+                >
+
+                    <div class="loading-state">
+
+                        <div class="spinner"></div>
+
+                        <p>
+                            Loading conversations...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+
+            <!-- =============================================
+                 CHAT PANEL
+                 ============================================= -->
+
+            <section class="chat-panel">
+
+                <!-- Empty chat -->
+                <div
+                    class="chat-empty"
+                    id="chatEmpty"
+                >
+
+                    <div class="chat-empty-icon">
+                        💬
+                    </div>
+
+                    <h2>
+                        Your messages
+                    </h2>
+
+                    <p>
+                        Select someone from the left
+                        to start chatting.
+                    </p>
+
+                </div>
+
+
+                <!-- Active chat -->
+                <div
+                    class="active-chat hidden"
+                    id="activeChat"
+                >
+
+                    <div class="chat-header">
+
+                        <div class="chat-person">
+
+                            <div
+                                class="chat-avatar"
+                                id="chatAvatar"
+                            >
+                                V
+                            </div>
+
+                            <div>
+
+                                <strong
+                                    id="chatName"
+                                >
+                                    User
+                                </strong>
+
+                                <span
+                                    id="chatUsername"
+                                >
+                                    @user
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <button
+                            class="close-chat"
+                            id="closeChat"
+                            type="button"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <!-- Messages -->
+                    <div
+                        class="messages-list"
+                        id="messagesList"
+                    >
+
+                        <div class="loading-state">
+
+                            <div class="spinner"></div>
+
+                            <p>
+                                Loading messages...
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Composer -->
+                    <form
+                        class="message-form"
+                        id="messageForm"
+                    >
+
+                        <textarea
+                            id="messageInput"
+                            rows="1"
+                            maxlength="2000"
+                            placeholder="Write a message..."
+                            autocomplete="off"
+                            required
+                        ></textarea>
+
+                        <button
+                            class="send-button"
+                            id="sendButton"
+                            type="submit"
+                        >
+                            Send
+                        </button>
+
+                    </form>
+
+                    <div class="composer-info">
+                        <span id="characterCount">
+                            0 / 2000
+                        </span>
+
+                        <span>
+                            Your messages are stored in Supabase.
+                        </span>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- Toast -->
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+    ></div>
+
+</body>
+</html>
+```
