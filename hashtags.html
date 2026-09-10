@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>VibeConnect — Hashtags</title>
+
+<link
+    rel="stylesheet"
+    href="hashtags.css"
+>
+
+<script
+    src="hashtags.js"
+    defer
+></script>
+```
+
+</head>
+
+<body>
+
+```
+<!-- =========================================
+     HEADER
+========================================== -->
+
+<header class="hashtags-header">
+
+    <div class="header-left">
+
+        <button
+            type="button"
+            class="back-button"
+            id="backButton"
+            aria-label="Go back"
+        >
+            ←
+        </button>
+
+        <div>
+
+            <span class="header-label">
+                DISCOVER
+            </span>
+
+            <h1>Hashtags & Trends</h1>
+
+        </div>
+
+    </div>
+
+    <div class="brand-mark">
+        ✦ VibeConnect
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     MAIN
+========================================== -->
+
+<main class="hashtags-container">
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <section class="trend-hero">
+
+        <div class="hero-content">
+
+            <span class="hero-eyebrow">
+                WHAT'S HAPPENING
+            </span>
+
+            <h2>
+                Find your next
+                <span>vibe.</span>
+            </h2>
+
+            <p>
+                Explore conversations, discover communities,
+                and follow the topics you care about.
+            </p>
+
+        </div>
+
+        <div class="hero-symbol">
+            #
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         SEARCH
+    ====================================== -->
+
+    <section class="search-section">
+
+        <div class="search-box">
+
+            <span class="search-icon">
+                🔍
+            </span>
+
+            <input
+                type="search"
+                id="hashtagSearch"
+                placeholder="Search hashtags or topics..."
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                id="clearSearch"
+                class="clear-search hidden"
+                aria-label="Clear search"
+            >
+                ×
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         CATEGORY FILTERS
+    ====================================== -->
+
+    <section class="category-section">
+
+        <button
+            type="button"
+            class="category-button active"
+            data-category="all"
+        >
+            All
+        </button>
+
+        <button
+            type="button"
+            class="category-button"
+            data-category="technology"
+        >
+            💻 Technology
+        </button>
+
+        <button
+            type="button"
+            class="category-button"
+            data-category="ai"
+        >
+            🤖 AI
+        </button>
+
+        <button
+            type="button"
+            class="category-button"
+            data-category="gaming"
+        >
+            🎮 Gaming
+        </button>
+
+        <button
+            type="button"
+            class="category-button"
+            data-category="education"
+        >
+            📚 Education
+        </button>
+
+        <button
+            type="button"
+            class="category-button"
+            data-category="creative"
+        >
+            🎨 Creative
+        </button>
+
+        <button
+            type="button"
+            class="category-button"
+            data-category="lifestyle"
+        >
+            ✨ Lifestyle
+        </button>
+
+    </section>
+
+
+    <!-- =====================================
+         FOLLOWED HASHTAGS
+    ====================================== -->
+
+    <section
+        class="followed-section hidden"
+        id="followedSection"
+    >
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    YOUR INTERESTS
+                </span>
+
+                <h2>Following</h2>
+
+            </div>
+
+            <span
+                class="section-count"
+                id="followedCount"
+            >
+                0
+            </span>
+
+        </div>
+
+        <div
+            class="followed-list"
+            id="followedList"
+        ></div>
+
+    </section>
+
+
+    <!-- =====================================
+         TRENDING NOW
+    ====================================== -->
+
+    <section class="trending-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    TRENDING NOW
+                </span>
+
+                <h2>What's hot 🔥</h2>
+
+            </div>
+
+            <span class="live-indicator">
+                ● LIVE
+            </span>
+
+        </div>
+
+
+        <div
+            class="trending-grid"
+            id="trendingGrid"
+        ></div>
+
+    </section>
+
+
+    <!-- =====================================
+         RISING TOPICS
+    ====================================== -->
+
+    <section class="rising-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    ON THE RISE
+                </span>
+
+                <h2>Rising topics 📈</h2>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="rising-list"
+            id="risingList"
+        ></div>
+
+    </section>
+
+
+    <!-- =====================================
+         SEARCH RESULTS
+    ====================================== -->
+
+    <section
+        class="results-section hidden"
+        id="resultsSection"
+    >
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    SEARCH RESULTS
+                </span>
+
+                <h2 id="resultsTitle">
+                    Results
+                </h2>
+
+            </div>
+
+            <span
+                class="section-count"
+                id="resultsCount"
+            >
+                0
+            </span>
+
+        </div>
+
+
+        <div
+            class="results-grid"
+            id="resultsGrid"
+        ></div>
+
+
+        <div
+            class="no-results hidden"
+            id="noResults"
+        >
+
+            <div>
+                🔎
+            </div>
+
+            <h3>
+                Nothing found
+            </h3>
+
+            <p>
+                Try searching for another hashtag or topic.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         RECENT SEARCHES
+    ====================================== -->
+
+    <section
+        class="recent-section"
+        id="recentSection"
+    >
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    YOUR SEARCHES
+                </span>
+
+                <h2>Recent</h2>
+
+            </div>
+
+            <button
+                type="button"
+                class="clear-recent"
+                id="clearRecent"
+            >
+                Clear
+            </button>
+
+        </div>
+
+
+        <div
+            class="recent-list"
+            id="recentList"
+        ></div>
+
+    </section>
+
+
+    <!-- =====================================
+         INFO
+    ====================================== -->
+
+    <section class="info-card">
+
+        <div class="info-icon">
+            ✦
+        </div>
+
+        <div>
+
+            <strong>
+                Discover more of what you love
+            </strong>
+
+            <p>
+                Follow hashtags to personalize your
+                VibeConnect discovery experience.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- =========================================
+     HASHTAG DETAIL MODAL
+========================================== -->
+
+<div
+    class="modal-backdrop hidden"
+    id="hashtagModal"
+>
+
+    <div
+        class="hashtag-modal"
+        role="dialog"
+        aria-modal="true"
+    >
+
+        <button
+            type="button"
+            class="modal-close"
+            id="modalClose"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+        <div class="modal-hash">
+            #
+        </div>
+
+        <span
+            class="modal-category"
+            id="modalCategory"
+        >
+            Topic
+        </span>
+
+        <h2 id="modalTitle">
+            #Technology
+        </h2>
+
+        <p
+            class="modal-description"
+            id="modalDescription"
+        >
+            Discover posts from this community.
+        </p>
+
+        <div class="modal-stats">
+
+            <div>
+                <strong id="modalPosts">
+                    0
+                </strong>
+
+                <span>
+                    Posts
+                </span>
+            </div>
+
+            <div>
+                <strong id="modalPeople">
+                    0
+                </strong>
+
+                <span>
+                    People
+                </span>
+            </div>
+
+        </div>
+
+        <button
+            type="button"
+            class="modal-follow"
+            id="modalFollow"
+        >
+            Follow hashtag
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     TOAST
+========================================== -->
+
+<div
+    class="toast"
+    id="toast"
+    aria-live="polite"
+></div>
+```
+
+</body>
+
+</html>
