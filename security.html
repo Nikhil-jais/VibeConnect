@@ -1,0 +1,287 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VibeConnect — Security Center</title>
+
+    <link rel="stylesheet" href="security.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+        <div class="brand-icon">🔐</div>
+
+        <div>
+            <h1>Security Center</h1>
+            <p>Protect your VibeConnect account and data</p>
+        </div>
+    </div>
+
+    <button id="refreshBtn" class="header-btn">
+        ↻ Refresh
+    </button>
+
+</header>
+
+
+<main class="container">
+
+    <section class="hero">
+
+        <div class="hero-icon">
+            🛡️
+        </div>
+
+        <div>
+            <span class="eyebrow">
+                VIBECONNECT SECURITY
+            </span>
+
+            <h2>
+                Your data deserves strong protection.
+            </h2>
+
+            <p>
+                This security center checks your authentication
+                and Supabase connection before showing your
+                account security status.
+            </p>
+        </div>
+
+    </section>
+
+
+    <section class="status-grid">
+
+        <article class="status-card">
+
+            <div class="status-card-top">
+                <span class="status-icon">🔗</span>
+                <span id="supabaseBadge" class="badge checking">
+                    Checking
+                </span>
+            </div>
+
+            <h3>Supabase</h3>
+
+            <p id="supabaseStatus">
+                Checking backend connection...
+            </p>
+
+        </article>
+
+
+        <article class="status-card">
+
+            <div class="status-card-top">
+                <span class="status-icon">👤</span>
+                <span id="authBadge" class="badge checking">
+                    Checking
+                </span>
+            </div>
+
+            <h3>Authentication</h3>
+
+            <p id="authStatus">
+                Checking your login session...
+            </p>
+
+        </article>
+
+
+        <article class="status-card">
+
+            <div class="status-card-top">
+                <span class="status-icon">🛡️</span>
+                <span id="rlsBadge" class="badge checking">
+                    Protected
+                </span>
+            </div>
+
+            <h3>Data Protection</h3>
+
+            <p>
+                Database access is controlled through
+                Supabase Row Level Security policies.
+            </p>
+
+        </article>
+
+    </section>
+
+
+    <section class="account-card">
+
+        <div class="section-title">
+
+            <div>
+                <span class="eyebrow">
+                    ACCOUNT
+                </span>
+
+                <h2>Current session</h2>
+            </div>
+
+            <span id="sessionBadge" class="session-badge">
+                Checking
+            </span>
+
+        </div>
+
+
+        <div id="accountInfo" class="account-info">
+
+            <div class="loading">
+                Loading account information...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="security-grid">
+
+        <article class="security-card">
+
+            <div class="card-icon">🔑</div>
+
+            <h3>Authentication</h3>
+
+            <p>
+                VibeConnect uses Supabase Authentication
+                instead of storing account passwords inside
+                your website code.
+            </p>
+
+            <ul>
+                <li>Secure sign-in sessions</li>
+                <li>Email/password authentication</li>
+                <li>Authenticated user IDs</li>
+            </ul>
+
+        </article>
+
+
+        <article class="security-card">
+
+            <div class="card-icon">🚧</div>
+
+            <h3>Row Level Security</h3>
+
+            <p>
+                RLS policies restrict database operations
+                according to the currently authenticated
+                user.
+            </p>
+
+            <ul>
+                <li>Users access their own private data</li>
+                <li>Users cannot edit another account</li>
+                <li>Database policies enforce permissions</li>
+            </ul>
+
+        </article>
+
+
+        <article class="security-card">
+
+            <div class="card-icon">📦</div>
+
+            <h3>Frontend Safety</h3>
+
+            <p>
+                Public frontend code should never contain
+                privileged Supabase credentials.
+            </p>
+
+            <ul>
+                <li>Never expose service-role keys</li>
+                <li>Use the publishable/anon key</li>
+                <li>Keep database rules enabled</li>
+            </ul>
+
+        </article>
+
+
+        <article class="security-card">
+
+            <div class="card-icon">🧹</div>
+
+            <h3>Safe User Input</h3>
+
+            <p>
+                User-generated content should be handled
+                carefully before being displayed.
+            </p>
+
+            <ul>
+                <li>Validate form input</li>
+                <li>Escape displayed text</li>
+                <li>Use database policies for authorization</li>
+            </ul>
+
+        </article>
+
+    </section>
+
+
+    <section class="check-card">
+
+        <div>
+            <span class="eyebrow">
+                SECURITY CHECK
+            </span>
+
+            <h2>Run a connection check</h2>
+
+            <p id="checkMessage">
+                Verify that your VibeConnect frontend
+                can communicate with Supabase.
+            </p>
+        </div>
+
+        <button id="checkBtn" class="primary-btn">
+            Run Security Check
+        </button>
+
+    </section>
+
+
+    <section class="warning-card">
+
+        <div class="warning-icon">
+            ⚠️
+        </div>
+
+        <div>
+            <h3>Important</h3>
+
+            <p>
+                Never put a Supabase service-role or secret key
+                inside HTML, CSS, JavaScript, GitHub Pages,
+                or any other client-side code.
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+
+<div id="toast" class="toast"></div>
+
+<script src="security.js"></script>
+
+</body>
+</html>
+```
