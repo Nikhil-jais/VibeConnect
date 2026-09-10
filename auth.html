@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>VibeConnect — Account</title>
+
+<link rel="stylesheet" href="auth.css">
+
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- VibeConnect Supabase connection -->
+<script src="supabase.js" defer></script>
+
+<!-- Authentication -->
+<script src="auth.js" defer></script>
+```
+
+</head>
+
+<body>
+
+```
+<main class="auth-page">
+
+    <!-- LEFT BRAND PANEL -->
+    <section class="brand-panel">
+
+        <div class="brand-content">
+
+            <div class="brand-icon">✦</div>
+
+            <h1>VibeConnect</h1>
+
+            <p class="brand-tagline">
+                Connect. Create. Share your vibe.
+            </p>
+
+            <div class="brand-features">
+
+                <div class="feature">
+                    <span>👥</span>
+                    <div>
+                        <strong>Connect</strong>
+                        <small>Find people and build your community.</small>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <span>📸</span>
+                    <div>
+                        <strong>Share</strong>
+                        <small>Post moments, stories, reels and ideas.</small>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <span>💬</span>
+                    <div>
+                        <strong>Vibe</strong>
+                        <small>Chat, interact and discover new content.</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- AUTH PANEL -->
+    <section class="auth-panel">
+
+        <div class="auth-card">
+
+            <div class="mobile-brand">
+                <div class="brand-icon">✦</div>
+                <span>VibeConnect</span>
+            </div>
+
+            <!-- LOGIN -->
+            <div id="loginSection">
+
+                <div class="auth-heading">
+                    <span class="eyebrow">WELCOME BACK</span>
+                    <h2>Sign in</h2>
+                    <p>Continue to your VibeConnect account.</p>
+                </div>
+
+                <form id="loginForm">
+
+                    <label for="loginEmail">
+                        Email address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="loginPassword">
+                        Password
+                    </label>
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="loginPassword"
+                            aria-label="Show password"
+                        >
+                            👁️
+                        </button>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                        id="loginButton"
+                    >
+                        <span>Sign In</span>
+                        <span>→</span>
+                    </button>
+
+                </form>
+
+                <div class="divider">
+                    <span>NEW TO VIBECONNECT?</span>
+                </div>
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="showSignup"
+                >
+                    Create an account
+                </button>
+
+            </div>
+
+
+            <!-- SIGN UP -->
+            <div id="signupSection" class="hidden">
+
+                <div class="auth-heading">
+
+                    <span class="eyebrow">JOIN VIBECONNECT</span>
+
+                    <h2>Create account</h2>
+
+                    <p>
+                        Start building your social world.
+                    </p>
+
+                </div>
+
+                <form id="signupForm">
+
+                    <label for="signupName">
+                        Display name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="signupName"
+                        placeholder="Your name"
+                        maxlength="60"
+                        autocomplete="name"
+                        required
+                    >
+
+                    <label for="signupUsername">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="signupUsername"
+                        placeholder="@yourusername"
+                        maxlength="30"
+                        autocomplete="username"
+                        required
+                    >
+
+                    <label for="signupEmail">
+                        Email address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="signupPassword">
+                        Password
+                    </label>
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="signupPassword"
+                            placeholder="Create a password"
+                            minlength="6"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="signupPassword"
+                            aria-label="Show password"
+                        >
+                            👁️
+                        </button>
+
+                    </div>
+
+                    <div class="password-strength">
+
+                        <div class="strength-track">
+                            <div id="strengthBar"></div>
+                        </div>
+
+                        <span id="strengthText">
+                            Use at least 6 characters.
+                        </span>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                        id="signupButton"
+                    >
+                        <span>Create Account</span>
+                        <span>→</span>
+                    </button>
+
+                </form>
+
+                <div class="divider">
+                    <span>ALREADY HAVE AN ACCOUNT?</span>
+                </div>
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="showLogin"
+                >
+                    Back to sign in
+                </button>
+
+            </div>
+
+
+            <!-- AUTH STATUS -->
+            <div
+                id="authStatus"
+                class="auth-status"
+                aria-live="polite"
+            ></div>
+
+
+            <!-- LOGGED-IN STATE -->
+            <div
+                id="loggedInSection"
+                class="logged-in hidden"
+            >
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <span class="eyebrow">
+                    AUTHENTICATED
+                </span>
+
+                <h2>You're signed in</h2>
+
+                <p id="loggedInEmail">
+                    Account connected successfully.
+                </p>
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    id="continueButton"
+                >
+                    <span>Continue to VibeConnect</span>
+                    <span>→</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    id="logoutButton"
+                >
+                    Sign out
+                </button>
+
+            </div>
+
+            <p class="auth-footer">
+                VibeConnect · Your community, your vibe.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+```
+
+</body>
+</html>
