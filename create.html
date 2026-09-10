@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VibeConnect — Create Post</title>
+
+    <link rel="stylesheet" href="create.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="create-header">
+
+        <a
+            href="feed.html"
+            class="back-button"
+        >
+            ←
+        </a>
+
+        <h1>Create Post</h1>
+
+        <button
+            id="clearButton"
+            class="clear-button"
+            type="button"
+        >
+            Clear
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="create-container">
+
+        <section class="create-card">
+
+
+            <!-- =================================================
+                 USER
+                 ================================================= -->
+
+            <div class="creator">
+
+                <div
+                    id="creatorAvatar"
+                    class="creator-avatar"
+                >
+                    👤
+                </div>
+
+                <div>
+
+                    <strong id="creatorName">
+                        Your Name
+                    </strong>
+
+                    <span>
+                        Public post
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TEXT
+                 ================================================= -->
+
+            <textarea
+                id="postText"
+                class="post-textarea"
+                placeholder="What's on your mind?"
+                maxlength="5000"
+            ></textarea>
+
+            <div class="character-count">
+
+                <span id="characterCount">
+                    0
+                </span>
+
+                / 5000
+
+            </div>
+
+
+            <!-- =================================================
+                 MEDIA PREVIEW
+                 ================================================= -->
+
+            <div
+                id="mediaPreview"
+                class="media-preview hidden"
+            ></div>
+
+
+            <!-- =================================================
+                 POLL
+                 ================================================= -->
+
+            <div
+                id="pollCreator"
+                class="poll-creator hidden"
+            >
+
+                <div class="poll-heading">
+
+                    <h2>
+                        📊 Create a Poll
+                    </h2>
+
+                    <button
+                        id="closePollButton"
+                        type="button"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <input
+                    id="pollQuestion"
+                    class="poll-question"
+                    type="text"
+                    placeholder="Ask a question..."
+                    maxlength="200"
+                >
+
+
+                <div
+                    id="pollOptions"
+                    class="poll-options"
+                >
+
+                    <input
+                        class="poll-option"
+                        type="text"
+                        placeholder="Option 1"
+                        maxlength="100"
+                    >
+
+                    <input
+                        class="poll-option"
+                        type="text"
+                        placeholder="Option 2"
+                        maxlength="100"
+                    >
+
+                </div>
+
+
+                <button
+                    id="addPollOption"
+                    class="add-option-button"
+                    type="button"
+                >
+                    + Add option
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 ATTACHMENT ACTIONS
+                 ================================================= -->
+
+            <div class="attachment-section">
+
+                <span>
+                    Add to your post
+                </span>
+
+                <div class="attachment-buttons">
+
+                    <button
+                        id="photoButton"
+                        type="button"
+                        class="attachment-button"
+                    >
+                        📸
+                        <span>Photo</span>
+                    </button>
+
+                    <button
+                        id="videoButton"
+                        type="button"
+                        class="attachment-button"
+                    >
+                        🎥
+                        <span>Video</span>
+                    </button>
+
+                    <button
+                        id="pollButton"
+                        type="button"
+                        class="attachment-button"
+                    >
+                        📊
+                        <span>Poll</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hidden inputs -->
+
+            <input
+                id="photoInput"
+                type="file"
+                accept="image/*"
+                multiple
+                hidden
+            >
+
+            <input
+                id="videoInput"
+                type="file"
+                accept="video/*"
+                hidden
+            >
+
+
+            <!-- =================================================
+                 POST BUTTON
+                 ================================================= -->
+
+            <button
+                id="createPostButton"
+                class="create-post-button"
+                type="button"
+            >
+                Create Post
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="create.js"></script>
+
+</body>
+
+</html>
