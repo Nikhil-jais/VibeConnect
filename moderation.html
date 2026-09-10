@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Safety & Moderation • VibeConnect</title>
+
+    <link
+        rel="stylesheet"
+        href="moderation.css">
+</head>
+
+<body>
+
+<header class="moderation-header">
+
+    <div class="header-left">
+
+        <button
+            class="back-btn"
+            onclick="window.location.href='app.html'">
+            ←
+        </button>
+
+        <div>
+            <h1>Safety & Moderation</h1>
+            <p>Manage your community experience</p>
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="moderation-container">
+
+    <!-- SAFETY HERO -->
+
+    <section class="safety-hero">
+
+        <div class="shield-icon">
+            🛡️
+        </div>
+
+        <div>
+
+            <span class="eyebrow">
+                YOUR SAFETY
+            </span>
+
+            <h2>
+                Stay in control
+            </h2>
+
+            <p>
+                Manage blocked and muted accounts,
+                and report content that doesn't belong
+                on VibeConnect.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUICK ACTIONS -->
+
+    <section class="moderation-section">
+
+        <div class="section-heading">
+
+            <span class="section-icon">
+                ⚡
+            </span>
+
+            <div>
+                <h2>Quick Actions</h2>
+                <p>
+                    Common safety tools
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="quick-grid">
+
+            <button
+                class="quick-card"
+                data-action="block">
+
+                <span>🚫</span>
+
+                <strong>
+                    Block Someone
+                </strong>
+
+                <small>
+                    Stop seeing their content
+                </small>
+
+            </button>
+
+
+            <button
+                class="quick-card"
+                data-action="mute">
+
+                <span>🔇</span>
+
+                <strong>
+                    Mute Someone
+                </strong>
+
+                <small>
+                    Hide their posts without unfollowing
+                </small>
+
+            </button>
+
+
+            <button
+                class="quick-card"
+                data-action="report">
+
+                <span>⚠️</span>
+
+                <strong>
+                    Report Content
+                </strong>
+
+                <small>
+                    Tell VibeConnect about a problem
+                </small>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- BLOCKED -->
+
+    <section class="moderation-section">
+
+        <div class="section-heading">
+
+            <span class="section-icon">
+                🚫
+            </span>
+
+            <div>
+                <h2>Blocked Accounts</h2>
+
+                <p>
+                    People you've blocked
+                </p>
+            </div>
+
+            <span
+                id="blockedCount"
+                class="count-badge">
+                0
+            </span>
+
+        </div>
+
+
+        <div
+            id="blockedList"
+            class="people-list">
+        </div>
+
+    </section>
+
+
+    <!-- MUTED -->
+
+    <section class="moderation-section">
+
+        <div class="section-heading">
+
+            <span class="section-icon">
+                🔇
+            </span>
+
+            <div>
+                <h2>Muted Accounts</h2>
+
+                <p>
+                    Their content is hidden from your feed
+                </p>
+            </div>
+
+            <span
+                id="mutedCount"
+                class="count-badge">
+                0
+            </span>
+
+        </div>
+
+
+        <div
+            id="mutedList"
+            class="people-list">
+        </div>
+
+    </section>
+
+
+    <!-- REPORT HISTORY -->
+
+    <section class="moderation-section">
+
+        <div class="section-heading">
+
+            <span class="section-icon">
+                📋
+            </span>
+
+            <div>
+                <h2>Report History</h2>
+
+                <p>
+                    Reports submitted from this browser
+                </p>
+            </div>
+
+            <span
+                id="reportCount"
+                class="count-badge">
+                0
+            </span>
+
+        </div>
+
+
+        <div
+            id="reportList"
+            class="report-list">
+        </div>
+
+    </section>
+
+
+    <!-- SAFETY TIPS -->
+
+    <section class="tips-section">
+
+        <div class="tips-header">
+
+            <span>💡</span>
+
+            <div>
+                <h2>Safety Tips</h2>
+                <p>
+                    A few simple ways to stay safer online
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="tips-grid">
+
+            <div class="tip">
+                <span>🔐</span>
+                <p>
+                    Keep your account information private.
+                </p>
+            </div>
+
+            <div class="tip">
+                <span>👀</span>
+                <p>
+                    Review who can interact with your posts.
+                </p>
+            </div>
+
+            <div class="tip">
+                <span>⚠️</span>
+                <p>
+                    Report suspicious or inappropriate content.
+                </p>
+            </div>
+
+            <div class="tip">
+                <span>🛡️</span>
+                <p>
+                    Block accounts that make you uncomfortable.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ACTION MODAL -->
+
+<div
+    id="actionModal"
+    class="modal-overlay hidden">
+
+    <div class="modal-card">
+
+        <button
+            id="closeModal"
+            class="modal-close">
+            ×
+        </button>
+
+        <div
+            id="modalIcon"
+            class="modal-icon">
+            🚫
+        </div>
+
+        <h2 id="modalTitle">
+            Block Someone
+        </h2>
+
+        <p id="modalDescription">
+            Enter a username to continue.
+        </p>
+
+
+        <input
+            id="modalInput"
+            class="modal-input"
+            type="text"
+            placeholder="@username"
+            maxlength="40"
+            autocomplete="off">
+
+
+        <div
+            id="reportReasonArea"
+            class="report-reasons hidden">
+
+            <p>
+                Select a reason
+            </p>
+
+            <button data-reason="Spam">
+                📢 Spam
+            </button>
+
+            <button data-reason="Harassment">
+                😟 Harassment
+            </button>
+
+            <button data-reason="Inappropriate content">
+                ⚠️ Inappropriate content
+            </button>
+
+            <button data-reason="Fake account">
+                🎭 Fake account
+            </button>
+
+            <button data-reason="Other">
+                📝 Other
+            </button>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                id="cancelAction"
+                class="cancel-btn">
+                Cancel
+            </button>
+
+            <button
+                id="confirmAction"
+                class="confirm-btn">
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div
+    id="moderationToast"
+    class="moderation-toast">
+</div>
+
+
+<script src="moderation.js"></script>
+
+</body>
+</html>
