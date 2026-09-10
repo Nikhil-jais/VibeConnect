@@ -92,11 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     getStartedButton.addEventListener("click", () => {
 
-        showScreen(onboarding);
-
-        currentSlide = 0;
-
-        updateOnboarding();
+        enterApp();
 
     });
 
