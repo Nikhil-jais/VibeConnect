@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Stories | VibeConnect</title>
+
+    <link rel="stylesheet" href="stories.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="stories-header">
+
+        <div class="header-left">
+
+            <a
+                href="app.html"
+                class="back-button"
+                aria-label="Back"
+            >
+                ←
+            </a>
+
+            <div>
+                <h1>Stories</h1>
+                <p>Share moments that disappear</p>
+            </div>
+
+        </div>
+
+        <div class="header-brand">
+            <span>✦</span> VibeConnect
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="stories-container">
+
+        <!-- HERO -->
+
+        <section class="stories-hero">
+
+            <div class="hero-icon">
+                ✨
+            </div>
+
+            <div>
+                <h2>Share Your Moment</h2>
+
+                <p>
+                    Post a photo or quick thought and let
+                    your friends see what you're up to.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- CREATE STORY -->
+
+        <section class="create-story-card">
+
+            <div class="create-story-title">
+
+                <div class="section-icon">
+                    ➕
+                </div>
+
+                <div>
+                    <h2>Create a Story</h2>
+
+                    <p>
+                        Add something new to your story.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="story-type-buttons">
+
+                <button
+                    class="story-type active"
+                    data-type="text"
+                >
+                    ✍️ Text Story
+                </button>
+
+                <button
+                    class="story-type"
+                    data-type="image"
+                >
+                    🖼️ Photo Story
+                </button>
+
+            </div>
+
+
+            <!-- TEXT STORY -->
+
+            <div
+                id="textStoryCreator"
+                class="story-creator"
+            >
+
+                <textarea
+                    id="storyText"
+                    maxlength="220"
+                    placeholder="What's happening?"
+                ></textarea>
+
+                <div class="creator-bottom">
+
+                    <span id="storyCharacterCount">
+                        0 / 220
+                    </span>
+
+                    <button
+                        id="publishTextStory"
+                        class="publish-button"
+                    >
+                        Publish Story
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE STORY -->
+
+            <div
+                id="imageStoryCreator"
+                class="story-creator hidden"
+            >
+
+                <label
+                    for="storyImageInput"
+                    class="image-picker"
+                >
+
+                    <div class="picker-icon">
+                        🖼️
+                    </div>
+
+                    <strong>
+                        Choose a photo
+                    </strong>
+
+                    <span>
+                        JPG, PNG or WEBP
+                    </span>
+
+                </label>
+
+                <input
+                    type="file"
+                    id="storyImageInput"
+                    accept="image/png,image/jpeg,image/webp"
+                    hidden
+                >
+
+
+                <div
+                    id="imagePreviewContainer"
+                    class="image-preview-container hidden"
+                >
+
+                    <img
+                        id="storyImagePreview"
+                        alt="Story preview"
+                    >
+
+                    <button
+                        id="removeStoryImage"
+                        class="remove-image"
+                        type="button"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="storyCaption"
+                    class="story-caption"
+                    maxlength="120"
+                    placeholder="Add a caption..."
+                >
+
+
+                <button
+                    id="publishImageStory"
+                    class="publish-button"
+                    type="button"
+                >
+                    Publish Photo Story
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- STORIES -->
+
+        <section class="story-feed-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Recent Stories</h2>
+
+                    <p>
+                        Stories from your VibeConnect circle
+                    </p>
+                </div>
+
+                <span
+                    id="storyCount"
+                    class="story-count"
+                >
+                    0 stories
+                </span>
+
+            </div>
+
+
+            <div
+                id="storiesGrid"
+                class="stories-grid"
+            ></div>
+
+
+            <div
+                id="emptyStories"
+                class="empty-stories hidden"
+            >
+
+                <div class="empty-icon">
+                    📸
+                </div>
+
+                <h3>No stories yet</h3>
+
+                <p>
+                    Be the first person to share a moment.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFO -->
+
+        <section class="stories-info">
+
+            <div class="info-icon">
+                ⏱️
+            </div>
+
+            <div>
+
+                <h3>Stories are temporary</h3>
+
+                <p>
+                    In this frontend version, stories are saved
+                    on this device. Later, we'll connect them
+                    to Supabase for real accounts and storage.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         STORY VIEWER
+         ===================================================== -->
+
+    <div
+        id="storyViewer"
+        class="story-viewer hidden"
+    >
+
+        <div class="viewer-background"></div>
+
+
+        <div class="viewer-content">
+
+            <div class="viewer-top">
+
+                <div
+                    id="viewerProgress"
+                    class="viewer-progress"
+                ></div>
+
+                <button
+                    id="closeViewer"
+                    class="close-viewer"
+                    aria-label="Close story"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div
+                id="viewerUser"
+                class="viewer-user"
+            ></div>
+
+
+            <div
+                id="viewerStory"
+                class="viewer-story"
+            ></div>
+
+
+            <button
+                id="previousStory"
+                class="viewer-nav previous"
+                aria-label="Previous story"
+            >
+                ‹
+            </button>
+
+            <button
+                id="nextStory"
+                class="viewer-nav next"
+                aria-label="Next story"
+            >
+                ›
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         TOAST
+         ===================================================== -->
+
+    <div
+        id="storiesToast"
+        class="stories-toast"
+    ></div>
+
+
+    <script src="stories.js"></script>
+
+</body>
+</html>
