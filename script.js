@@ -1,254 +1,417 @@
-// ============================
-// PAGE NAVIGATION
-// ============================
+/* =========================================================
+   VIBECONNECT
+   APPLICATION FOUNDATION
+========================================================= */
 
-function showPage(pageName) {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const pages = document.querySelectorAll(".page");
+    const preface = document.getElementById("preface");
+    const onboarding = document.getElementById("onboarding");
+    const loginScreen = document.getElementById("loginScreen");
+    const app = document.getElementById("app");
 
-    pages.forEach(page => {
-        page.classList.remove("active");
-    });
+    const getStartedButton =
+        document.getElementById("getStartedButton");
 
-    const selectedPage = document.getElementById(pageName);
+    const loginButton =
+        document.getElementById("loginButton");
 
-    if (selectedPage) {
-        selectedPage.classList.add("active");
-    }
+    const backFromLogin =
+        document.getElementById("backFromLogin");
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-}
+    const nextOnboardingButton =
+        document.getElementById("nextOnboardingButton");
 
+    const onboardingSlides =
+        document.querySelectorAll(".onboarding-slide");
 
-// ============================
-// LIKE POST
-// ============================
+    const onboardingDots =
+        document.querySelectorAll(".onboarding-dots .dot");
 
-function likePost(button) {
+    const onboardingCounter =
+        document.getElementById("onboardingCounter");
 
-    const post = button.closest(".post");
+    const togglePassword =
+        document.getElementById("togglePassword");
 
-    const count = post.querySelector(".like-count");
+    const loginPassword =
+        document.getElementById("loginPassword");
 
-    let likes = parseInt(count.textContent);
+    const loginForm =
+        document.getElementById("loginForm");
 
-    if (button.dataset.liked === "true") {
 
-        likes--;
+    /* =====================================================
+       APP STATE
+    ====================================================== */
 
-        button.textContent = "♡";
+    let currentSlide = 0;
 
-        button.dataset.liked = "false";
 
-    } else {
+    /* =====================================================
+       SHOW / HIDE SCREENS
+    ====================================================== */
 
-        likes++;
+    function showScreen(screen) {
 
-        button.textContent = "♥";
+        [
+            preface,
+            onboarding,
+            loginScreen
+        ].forEach(element => {
 
-        button.dataset.liked = "true";
-    }
-
-    count.textContent = likes;
-}
-
-
-// ============================
-// LIKE REEL
-// ============================
-
-function likeReel(button) {
-
-    const span = button.querySelector("span");
-
-    let number = parseFloat(span.textContent);
-
-    if (button.dataset.liked === "true") {
-
-        number--;
-
-        button.dataset.liked = "false";
-
-    } else {
-
-        number++;
-
-        button.dataset.liked = "true";
-    }
-
-    span.textContent = number + "K";
-}
-
-
-// ============================
-// CREATE POST
-// ============================
-
-function createPost() {
-
-    const username =
-        document.getElementById("username").value.trim();
-
-    const caption =
-        document.getElementById("caption").value.trim();
-
-    const emoji =
-        document.getElementById("emoji").value.trim();
-
-
-    if (!username || !caption) {
-
-        alert("Please enter your username and caption.");
-
-        return;
-    }
-
-
-    const post = document.createElement("article");
-
-    post.className = "post";
-
-
-    post.innerHTML = `
-
-        <div class="post-header">
-
-            <div class="user-avatar">
-                👤
-            </div>
-
-            <div>
-
-                <strong>${username}</strong>
-
-                <p>@${username.toLowerCase()}</p>
-
-            </div>
-
-            <button class="more">
-                •••
-            </button>
-
-        </div>
-
-
-        <div class="post-image">
-
-            ${emoji || "✨"}
-
-        </div>
-
-
-        <div class="post-actions">
-
-            <button onclick="likePost(this)">
-                ♡
-            </button>
-
-            <button>
-                💬
-            </button>
-
-            <button>
-                ↗️
-            </button>
-
-            <button class="save">
-                🔖
-            </button>
-
-        </div>
-
-
-        <div class="likes">
-
-            <b class="like-count">
-                0
-            </b>
-
-            likes
-
-        </div>
-
-
-        <div class="caption">
-
-            <b>@${username.toLowerCase()}</b>
-            ${caption}
-
-        </div>
-
-
-        <div class="comments">
-
-            Be the first to comment
-
-        </div>
-
-    `;
-
-
-    document
-        .getElementById("postsContainer")
-        .prepend(post);
-
-
-    // Update profile post count
-
-    const posts =
-        document.querySelectorAll("#postsContainer .post").length;
-
-    document.getElementById("postCount").textContent = posts;
-
-
-    // Clear inputs
-
-    document.getElementById("username").value = "";
-
-    document.getElementById("caption").value = "";
-
-    document.getElementById("emoji").value = "";
-
-
-    // Return to home
-
-    showPage("home");
-}
-
-
-// ============================
-// SEARCH
-// ============================
-
-document
-    .getElementById("searchInput")
-    .addEventListener("input", function () {
-
-        const search =
-            this.value.toLowerCase();
-
-        const posts =
-            document.querySelectorAll(".post");
-
-
-        posts.forEach(post => {
-
-            const text =
-                post.textContent.toLowerCase();
-
-            if (text.includes(search)) {
-
-                post.style.display = "";
-
-            } else {
-
-                post.style.display = "none";
-
+            if (element) {
+                element.classList.add("hidden");
             }
 
         });
 
+        if (screen) {
+            screen.classList.remove("hidden");
+        }
+
+    }
+
+
+    function enterApp() {
+
+        preface.classList.add("hidden");
+        onboarding.classList.add("hidden");
+        loginScreen.classList.add("hidden");
+
+        app.classList.remove("hidden");
+
+        document.body.classList.add("app-active");
+
+    }
+
+
+    /* =====================================================
+       PREFACE
+    ====================================================== */
+
+    getStartedButton.addEventListener("click", () => {
+
+        showScreen(onboarding);
+
+        currentSlide = 0;
+
+        updateOnboarding();
+
     });
+
+
+    loginButton.addEventListener("click", () => {
+
+        showScreen(loginScreen);
+
+    });
+
+
+    /* =====================================================
+       ONBOARDING
+    ====================================================== */
+
+    function updateOnboarding() {
+
+        onboardingSlides.forEach((slide, index) => {
+
+            slide.classList.toggle(
+                "active",
+                index === currentSlide
+            );
+
+        });
+
+
+        onboardingDots.forEach((dot, index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === currentSlide
+            );
+
+        });
+
+
+        onboardingCounter.textContent =
+            `${currentSlide + 1}/4`;
+
+
+        if (currentSlide === onboardingSlides.length - 1) {
+
+            nextOnboardingButton.innerHTML =
+                `Join Vibe <span>→</span>`;
+
+        } else {
+
+            nextOnboardingButton.innerHTML =
+                `Next <span>→</span>`;
+
+        }
+
+    }
+
+
+    nextOnboardingButton.addEventListener("click", () => {
+
+        if (
+            currentSlide <
+            onboardingSlides.length - 1
+        ) {
+
+            currentSlide++;
+
+            updateOnboarding();
+
+        } else {
+
+            enterApp();
+
+        }
+
+    });
+
+
+    onboardingDots.forEach((dot, index) => {
+
+        dot.addEventListener("click", () => {
+
+            currentSlide = index;
+
+            updateOnboarding();
+
+        });
+
+    });
+
+
+    /* =====================================================
+       LOGIN
+    ====================================================== */
+
+    backFromLogin.addEventListener("click", () => {
+
+        showScreen(preface);
+
+    });
+
+
+    togglePassword.addEventListener("click", () => {
+
+        const isPassword =
+            loginPassword.type === "password";
+
+        loginPassword.type =
+            isPassword
+                ? "text"
+                : "password";
+
+        togglePassword.textContent =
+            isPassword
+                ? "◉"
+                : "◌";
+
+    });
+
+
+    loginForm.addEventListener("submit", event => {
+
+        event.preventDefault();
+
+        /*
+           Temporary local login behavior.
+
+           Real account authentication will be added
+           when we build the account system.
+        */
+
+        enterApp();
+
+    });
+
+
+    /* =====================================================
+       MAIN NAVIGATION
+    ====================================================== */
+
+    const navigationItems =
+        document.querySelectorAll(
+            "[data-section]"
+        );
+
+
+    function switchSection(sectionName) {
+
+        const sections =
+            document.querySelectorAll(
+                ".app-section"
+            );
+
+        sections.forEach(section => {
+
+            section.classList.remove(
+                "active-section"
+            );
+
+        });
+
+
+        const target =
+            document.getElementById(
+                `section-${sectionName}`
+            );
+
+        if (target) {
+
+            target.classList.add(
+                "active-section"
+            );
+
+        }
+
+
+        navigationItems.forEach(item => {
+
+            item.classList.toggle(
+                "active",
+                item.dataset.section === sectionName
+            );
+
+        });
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    navigationItems.forEach(item => {
+
+        item.addEventListener("click", () => {
+
+            const section =
+                item.dataset.section;
+
+            switchSection(section);
+
+        });
+
+    });
+
+
+    /* =====================================================
+       QUICK CREATE
+    ====================================================== */
+
+    const quickCreateButton =
+        document.getElementById(
+            "quickCreateButton"
+        );
+
+    if (quickCreateButton) {
+
+        quickCreateButton.addEventListener(
+            "click",
+            () => {
+                switchSection("create");
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       ADD STORY
+    ====================================================== */
+
+    const addStoryButton =
+        document.getElementById(
+            "addStoryButton"
+        );
+
+    if (addStoryButton) {
+
+        addStoryButton.addEventListener(
+            "click",
+            () => {
+
+                /*
+                   Real story upload is coming
+                   in the next build stage.
+                */
+
+                switchSection("create");
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       CREATE BUTTONS
+    ====================================================== */
+
+    document
+        .querySelectorAll(".create-option")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    alert(
+                        "This creator will become fully functional in the next step."
+                    );
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       GLOBAL SEARCH
+    ====================================================== */
+
+    const globalSearch =
+        document.getElementById(
+            "globalSearch"
+        );
+
+    globalSearch.addEventListener(
+        "keydown",
+        event => {
+
+            if (event.key === "Enter") {
+
+                const searchValue =
+                    globalSearch.value.trim();
+
+                if (!searchValue) {
+                    return;
+                }
+
+                switchSection("explore");
+
+                console.log(
+                    "VibeConnect search:",
+                    searchValue
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       START
+    ====================================================== */
+
+    showScreen(preface);
+
+});
