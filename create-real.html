@@ -1,0 +1,353 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VibeConnect — Create Post</title>
+
+    <link rel="stylesheet" href="create-real.css">
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         TOP BAR
+         ===================================================== -->
+
+    <header class="topbar">
+
+        <a href="home.html" class="back-button">
+            ← Home
+        </a>
+
+        <div class="brand">
+            <div class="brand-logo">V</div>
+
+            <div>
+                <strong>VibeConnect</strong>
+                <span>Create something</span>
+            </div>
+        </div>
+
+        <a href="account.html" class="profile-link">
+            👤 Account
+        </a>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="page">
+
+        <section class="hero">
+
+            <div class="hero-icon">
+                ✨
+            </div>
+
+            <div>
+                <p class="eyebrow">CREATE</p>
+
+                <h1>Share your vibe</h1>
+
+                <p>
+                    Post a thought, photo, or video and share
+                    it with the VibeConnect community.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LOGIN STATE
+             ================================================= -->
+
+        <section id="loginState" class="state-card hidden">
+
+            <div class="state-icon">
+                🔐
+            </div>
+
+            <h2>Sign in required</h2>
+
+            <p>
+                You need to sign in before creating a post.
+            </p>
+
+            <a href="auth.html" class="primary-button">
+                Sign In
+            </a>
+
+        </section>
+
+
+        <!-- =================================================
+             COMPOSER
+             ================================================= -->
+
+        <section id="composer" class="composer-card">
+
+            <div class="composer-header">
+
+                <div class="avatar" id="userAvatar">
+                    V
+                </div>
+
+                <div>
+                    <strong id="userName">
+                        Loading...
+                    </strong>
+
+                    <span id="userUsername">
+                        @user
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- TEXT -->
+
+            <label for="postContent" class="field-label">
+                What's on your mind?
+            </label>
+
+            <textarea
+                id="postContent"
+                class="post-input"
+                maxlength="5000"
+                placeholder="Share something with the community..."
+            ></textarea>
+
+            <div class="character-count">
+                <span id="characterCount">0</span> / 5000
+            </div>
+
+
+            <!-- =================================================
+                 MEDIA PICKER
+                 ================================================= -->
+
+            <div class="media-section">
+
+                <div class="section-title">
+                    <span>📸 Add media</span>
+
+                    <small>
+                        Image up to 10 MB · Video up to 50 MB
+                    </small>
+                </div>
+
+                <label
+                    for="mediaInput"
+                    class="upload-box"
+                    id="uploadBox"
+                >
+
+                    <div class="upload-icon">
+                        ☁️
+                    </div>
+
+                    <strong>
+                        Choose an image or video
+                    </strong>
+
+                    <span>
+                        PNG, JPG, WEBP, MP4, WEBM
+                    </span>
+
+                </label>
+
+                <input
+                    type="file"
+                    id="mediaInput"
+                    accept="image/*,video/*"
+                    hidden
+                >
+
+            </div>
+
+
+            <!-- =================================================
+                 PREVIEW
+                 ================================================= -->
+
+            <section
+                id="previewSection"
+                class="preview-section hidden"
+            >
+
+                <div class="preview-header">
+
+                    <strong>
+                        Media preview
+                    </strong>
+
+                    <button
+                        type="button"
+                        id="removeMedia"
+                        class="remove-button"
+                    >
+                        Remove
+                    </button>
+
+                </div>
+
+                <div id="mediaPreview" class="media-preview"></div>
+
+                <div
+                    id="fileInfo"
+                    class="file-info"
+                ></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 UPLOAD PROGRESS
+                 ================================================= -->
+
+            <section
+                id="progressSection"
+                class="progress-section hidden"
+            >
+
+                <div class="progress-top">
+
+                    <strong id="progressTitle">
+                        Uploading...
+                    </strong>
+
+                    <span id="progressPercent">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="progress-track">
+
+                    <div
+                        id="progressBar"
+                        class="progress-bar"
+                    ></div>
+
+                </div>
+
+                <p id="progressMessage">
+                    Preparing upload...
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 ACTIONS
+                 ================================================= -->
+
+            <div class="composer-actions">
+
+                <button
+                    type="button"
+                    id="clearButton"
+                    class="secondary-button"
+                >
+                    🧹 Clear
+                </button>
+
+                <button
+                    type="button"
+                    id="publishButton"
+                    class="primary-button"
+                >
+                    🚀 Publish Post
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             GUIDELINES
+             ===================================================== -->
+
+        <section class="guidelines">
+
+            <div class="guideline">
+                <span>🔒</span>
+
+                <div>
+                    <strong>Your account</strong>
+                    <p>
+                        Posts are connected to your authenticated
+                        VibeConnect account.
+                    </p>
+                </div>
+            </div>
+
+            <div class="guideline">
+                <span>☁️</span>
+
+                <div>
+                    <strong>Media storage</strong>
+                    <p>
+                        Images and videos are uploaded to your
+                        configured Supabase Storage bucket.
+                    </p>
+                </div>
+            </div>
+
+            <div class="guideline">
+                <span>✨</span>
+
+                <div>
+                    <strong>Keep it positive</strong>
+                    <p>
+                        Share content that helps make the community
+                        welcoming for everyone.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FOOTER
+             ===================================================== -->
+
+        <footer>
+
+            <strong>VibeConnect</strong>
+
+            <span>
+                Made with ❤️ by Nikhil
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================================
+         TOAST
+         ===================================================== -->
+
+    <div id="toast" class="toast"></div>
+
+
+    <script src="create-real.js"></script>
+
+</body>
+</html>
+```
