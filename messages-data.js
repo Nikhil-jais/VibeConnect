@@ -1,4 +1,3 @@
-```javascript
 /* =========================================================
    VIBECONNECT — REAL MESSAGING
    STEP 26
@@ -1534,4 +1533,3 @@ document.addEventListener(
         updateCharacterCount();
     }
 );
-```
