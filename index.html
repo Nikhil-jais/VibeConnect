@@ -1,311 +1,1288 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibe — Social App</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="VibeConnect — Connect, Share and Belong."
+    >
+
+    <meta
+        name="theme-color"
+        content="#080b18"
+    >
+
+    <title>VibeConnect — Connect • Share • Belong</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- TOP NAVBAR -->
-    <header class="navbar">
-        <div class="logo">Vibe</div>
+    <!-- =====================================================
+         VIBECONNECT PREFACE
+    ====================================================== -->
 
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search">
+    <section
+        id="preface"
+        class="screen preface-screen"
+    >
+
+        <div class="preface-glow glow-one"></div>
+        <div class="preface-glow glow-two"></div>
+
+        <div class="preface-content">
+
+            <div class="brand-logo">
+                Vibe<span>◆</span>
+            </div>
+
+            <div class="brand-tagline">
+                Connect&nbsp; • &nbsp;Share&nbsp; • &nbsp;Belong
+            </div>
+
+            <div class="preface-visual">
+
+                <div class="visual-orbit orbit-one"></div>
+                <div class="visual-orbit orbit-two"></div>
+
+                <div class="visual-card card-main">
+                    <div class="visual-avatar">☺</div>
+                    <div class="visual-line line-large"></div>
+                    <div class="visual-line"></div>
+                </div>
+
+                <div class="floating-icon icon-heart">♥</div>
+                <div class="floating-icon icon-chat">💬</div>
+                <div class="floating-icon icon-play">▶</div>
+                <div class="floating-icon icon-star">✦</div>
+
+            </div>
+
+            <h1>
+                Real people.<br>
+                <span>Real moments.</span>
+            </h1>
+
+            <p>
+                Your space to connect, share your world,
+                discover new people and express your Vibe.
+            </p>
+
+            <button
+                id="getStartedButton"
+                class="primary-button"
+                type="button"
+            >
+                Get Started
+                <span>→</span>
+            </button>
+
+            <p class="login-prompt">
+                Already have an account?
+                <button
+                    id="loginButton"
+                    class="text-button"
+                    type="button"
+                >
+                    Log in
+                </button>
+            </p>
+
         </div>
 
-        <div class="nav-icons">
-            <button onclick="showPage('home')">🏠</button>
-            <button onclick="showPage('reels')">🎬</button>
-            <button onclick="showPage('create')">➕</button>
-            <button onclick="showPage('profile')">👤</button>
+    </section>
+
+
+    <!-- =====================================================
+         ONBOARDING
+    ====================================================== -->
+
+    <section
+        id="onboarding"
+        class="screen onboarding-screen hidden"
+    >
+
+        <div class="onboarding-topbar">
+
+            <div class="mini-logo">
+                Vibe<span>◆</span>
+            </div>
+
+            <div id="onboardingCounter">
+                1/4
+            </div>
+
         </div>
-    </header>
 
 
-    <!-- MAIN APP -->
-    <main>
+        <!-- ONBOARDING SLIDES -->
 
-        <!-- HOME -->
-        <section id="home" class="page active">
+        <div class="onboarding-slides">
 
-            <!-- STORIES -->
-            <div class="stories">
+            <!-- Slide 1 -->
 
-                <div class="story">
-                    <div class="story-avatar">👤</div>
-                    <span>Your Story</span>
-                </div>
+            <article
+                class="onboarding-slide active"
+                data-slide="0"
+            >
 
-                <div class="story">
-                    <div class="story-avatar">😎</div>
-                    <span>David</span>
-                </div>
+                <div class="onboarding-illustration illustration-sharing">
 
-                <div class="story">
-                    <div class="story-avatar">🔥</div>
-                    <span>Nikhil</span>
-                </div>
+                    <div class="phone-frame">
 
-                <div class="story">
-                    <div class="story-avatar">🌸</div>
-                    <span>shambhavi</span>
-                </div>
+                        <div class="phone-screen">
 
-                <div class="story">
-                    <div class="story-avatar">🚀</div>
-                    <span>Tech</span>
-                </div>
+                            <div class="phone-image">
+                                ◇
+                            </div>
 
-            </div>
+                            <div class="phone-content-line"></div>
+                            <div class="phone-content-line short"></div>
 
-
-            <!-- POSTS -->
-            <div id="postsContainer">
-
-                <!-- POST 1 -->
-                <article class="post">
-
-                    <div class="post-header">
-                        <div class="user-avatar">😎</div>
-
-                        <div>
-                            <strong>NIkhil Jaiswal</strong>
-                            <p>@nikhil</p>
                         </div>
 
-                        <button class="more">•••</button>
                     </div>
 
-                    <div class="post-image">
-                        (●'◡'●)❤️
+                    <div class="floating-bubble bubble-heart">
+                        ♥
                     </div>
 
-                    <div class="post-actions">
-
-                        <button onclick="likePost(this)">♡</button>
-
-                        <button>💬</button>
-
-                        <button>↗️</button>
-
-                        <button class="save">🔖</button>
-
+                    <div class="floating-bubble bubble-play">
+                        ▶
                     </div>
 
-                    <div class="likes">
-                        <b class="like-count">89.3k</b> likes
+                </div>
+
+                <h2>
+                    Share Your Moments
+                </h2>
+
+                <p>
+                    Post photos, videos and thoughts.
+                    Let your friends be part of your journey.
+                </p>
+
+            </article>
+
+
+            <!-- Slide 2 -->
+
+            <article
+                class="onboarding-slide"
+                data-slide="1"
+            >
+
+                <div class="onboarding-illustration illustration-connect">
+
+                    <div class="people-circle">
+                        <span>☺</span>
+                        <span>☻</span>
+                        <span>☺</span>
+                        <span>☻</span>
                     </div>
 
-                    <div class="caption">
-                        <b>@rahul</b> Beautiful evening 🌆✨
-                    </div>
+                    <div class="connection-line line-a"></div>
+                    <div class="connection-line line-b"></div>
+                    <div class="connection-line line-c"></div>
 
-                    <div class="comments">
-                        View all 7.5k comments
-                    </div>
+                </div>
 
-                </article>
+                <h2>
+                    Stay Connected
+                </h2>
+
+                <p>
+                    Follow your friends, discover new people
+                    and become part of the Vibe community.
+                </p>
+
+            </article>
 
 
-                <!-- POST 2 -->
-                <article class="post">
+            <!-- Slide 3 -->
 
-                    <div class="post-header">
-                        <div class="user-avatar">🚀</div>
+            <article
+                class="onboarding-slide"
+                data-slide="2"
+            >
 
-                        <div>
-                            <strong>Tech World</strong>
-                            <p>@techworld</p>
+                <div class="onboarding-illustration illustration-explore">
+
+                    <div class="explore-phone">
+
+                        <div class="explore-screen">
+
+                            <div class="explore-tile"></div>
+                            <div class="explore-tile"></div>
+                            <div class="explore-tile"></div>
+                            <div class="explore-tile"></div>
+                            <div class="explore-tile"></div>
+                            <div class="explore-tile"></div>
+
                         </div>
 
-                        <button class="more">•••</button>
                     </div>
 
-                    <div class="post-image second">
-                        💻
+                    <div class="explore-symbol symbol-one">
+                        ✦
                     </div>
 
-                    <div class="post-actions">
-
-                        <button onclick="likePost(this)">♡</button>
-
-                        <button>💬</button>
-
-                        <button>↗️</button>
-
-                        <button class="save">🔖</button>
-
+                    <div class="explore-symbol symbol-two">
+                        ▶
                     </div>
 
-                    <div class="likes">
-                        <b class="like-count">7m</b> likes
+                    <div class="explore-symbol symbol-three">
+                        ♡
                     </div>
 
-                    <div class="caption">
-                        <b>@techworld</b> Building something amazing 🚀
-                    </div>
-
-                    <div class="comments">
-                        View all 2576 comments
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- REELS -->
-        <section id="reels" class="page">
-
-            <div class="section-title">
-                <h2>Reels 🎬</h2>
-                <p>Discover what's trending</p>
-            </div>
-
-            <div class="reels-container">
-
-                <div class="reel">
-                    <div class="reel-content">🔥</div>
-
-                    <div class="reel-info">
-                        <b>@trending</b>
-                        <p>This is trending right now!</p>
-
-                        <button onclick="likeReel(this)">
-                            ❤️ <span>1.2K</span>
-                        </button>
-                    </div>
                 </div>
 
+                <h2>
+                    Explore More
+                </h2>
 
-                <div class="reel">
-                    <div class="reel-content">🚀</div>
+                <p>
+                    Discover trending content, watch videos,
+                    explore Reels and find something new.
+                </p>
 
-                    <div class="reel-info">
-                        <b>@developer</b>
-                        <p>Code. Build. Repeat. 💻</p>
+            </article>
 
-                        <button onclick="likeReel(this)">
-                            ❤️ <span>856</span>
-                        </button>
+
+            <!-- Slide 4 -->
+
+            <article
+                class="onboarding-slide"
+                data-slide="3"
+            >
+
+                <div class="onboarding-illustration illustration-privacy">
+
+                    <div class="shield">
+                        <span>✓</span>
                     </div>
+
+                    <div class="privacy-orb orb-one"></div>
+                    <div class="privacy-orb orb-two"></div>
+                    <div class="privacy-orb orb-three"></div>
+
                 </div>
+
+                <h2>
+                    Your Space, Your Rules
+                </h2>
+
+                <p>
+                    Your privacy matters.
+                    Control your content and make VibeConnect yours.
+                </p>
+
+            </article>
+
+        </div>
+
+
+        <!-- ONBOARDING BOTTOM -->
+
+        <div class="onboarding-bottom">
+
+            <div
+                id="onboardingDots"
+                class="onboarding-dots"
+            >
+
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
 
             </div>
 
-        </section>
+            <button
+                id="nextOnboardingButton"
+                class="primary-button onboarding-button"
+                type="button"
+            >
+                Next
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </section>
 
 
-        <!-- CREATE POST -->
-        <section id="create" class="page">
+    <!-- =====================================================
+         LOGIN
+    ====================================================== -->
 
-            <div class="create-card">
+    <section
+        id="loginScreen"
+        class="screen auth-screen hidden"
+    >
 
-                <h2>Create a Post</h2>
+        <div class="auth-glow"></div>
 
-                <input
-                    type="text"
-                    id="username"
-                    placeholder="Your username"
+        <div class="auth-container">
+
+            <div class="auth-brand">
+                Vibe<span>◆</span>
+            </div>
+
+            <div class="auth-card">
+
+                <button
+                    id="backFromLogin"
+                    class="back-button"
+                    type="button"
                 >
-
-                <textarea
-                    id="caption"
-                    placeholder="Write a caption..."
-                ></textarea>
-
-                <input
-                    type="text"
-                    id="emoji"
-                    placeholder="Choose an emoji for your post 😊"
-                    maxlength="2"
-                >
-
-                <button class="create-btn" onclick="createPost()">
-                    Publish Post
+                    ←
                 </button>
 
-            </div>
+                <div class="auth-heading">
 
-        </section>
+                    <h1>
+                        Welcome Back
+                    </h1>
 
-
-        <!-- PROFILE -->
-        <section id="profile" class="page">
-
-            <div class="profile-card">
-
-                <div class="profile-avatar">
-                    👤
-                </div>
-
-                <h2>Your Profile</h2>
-
-                <p>@yourusername</p>
-
-                <div class="profile-stats">
-
-                    <div>
-                        <b id="postCount">0</b>
-                        <span>Posts</span>
-                    </div>
-
-                    <div>
-                        <b>85k</b>
-                        <span>Followers</span>
-                    </div>
-
-                    <div>
-                        <b>245</b>
-                        <span>Following</span>
-                    </div>
+                    <p>
+                        Sign in to continue to VibeConnect
+                    </p>
 
                 </div>
 
-                <button class="edit-btn">
-                    Edit Profile
+                <form id="loginForm">
+
+                    <label for="loginUsername">
+                        Email or username
+                    </label>
+
+                    <input
+                        id="loginUsername"
+                        type="text"
+                        placeholder="Enter your email or username"
+                        autocomplete="username"
+                        required
+                    >
+
+
+                    <label for="loginPassword">
+                        Password
+                    </label>
+
+                    <div class="password-field">
+
+                        <input
+                            id="loginPassword"
+                            type="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            id="togglePassword"
+                            type="button"
+                            aria-label="Show password"
+                        >
+                            ◉
+                        </button>
+
+                    </div>
+
+
+                    <button
+                        class="primary-button full-width"
+                        type="submit"
+                    >
+                        Log In
+                    </button>
+
+                </form>
+
+                <button
+                    class="forgot-button"
+                    type="button"
+                >
+                    Forgot password?
                 </button>
 
+                <div class="auth-divider">
+                    <span>or continue with</span>
+                </div>
+
+                <div class="social-login">
+
+                    <button
+                        type="button"
+                        class="social-button"
+                    >
+                        G
+                    </button>
+
+                    <button
+                        type="button"
+                        class="social-button"
+                    >
+                        ◉
+                    </button>
+
+                    <button
+                        type="button"
+                        class="social-button"
+                    >
+                        ✉
+                    </button>
+
+                </div>
+
+                <p class="signup-text">
+                    Don't have an account?
+                    <button
+                        id="signupButton"
+                        class="text-button"
+                        type="button"
+                    >
+                        Sign Up
+                    </button>
+                </p>
+
             </div>
 
-        </section>
+        </div>
 
-    </main>
+    </section>
 
 
-    <!-- MOBILE NAVIGATION -->
-    <nav class="bottom-nav">
+    <!-- =====================================================
+         MAIN APPLICATION
+    ====================================================== -->
 
-        <button onclick="showPage('home')">
-            🏠
-            <span>Home</span>
-        </button>
+    <div
+        id="app"
+        class="app hidden"
+    >
 
-        <button onclick="showPage('reels')">
-            🎬
-            <span>Reels</span>
-        </button>
+        <!-- DESKTOP SIDEBAR -->
 
-        <button onclick="showPage('create')">
-            ➕
-            <span>Create</span>
-        </button>
+        <aside class="sidebar">
 
-        <button onclick="showPage('profile')">
-            👤
-            <span>Profile</span>
-        </button>
+            <div class="sidebar-logo">
+                Vibe<span>◆</span>
+            </div>
 
-    </nav>
+            <nav class="main-navigation">
 
+                <button
+                    class="nav-item active"
+                    data-section="home"
+                >
+                    <span>⌂</span>
+                    <strong>Home</strong>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-section="explore"
+                >
+                    <span>⌕</span>
+                    <strong>Explore</strong>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-section="reels"
+                >
+                    <span>▶</span>
+                    <strong>Reels</strong>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-section="messages"
+                >
+                    <span>✉</span>
+                    <strong>Messages</strong>
+                    <em>0</em>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-section="notifications"
+                >
+                    <span>♡</span>
+                    <strong>Notifications</strong>
+                    <em>0</em>
+                </button>
+
+                <button
+                    class="nav-item create-nav"
+                    data-section="create"
+                >
+                    <span>＋</span>
+                    <strong>Create</strong>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-section="profile"
+                >
+                    <span>●</span>
+                    <strong>Profile</strong>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-section="saved"
+                >
+                    <span>▱</span>
+                    <strong>Saved</strong>
+                </button>
+
+            </nav>
+
+            <button
+                class="nav-item settings-nav"
+                data-section="settings"
+            >
+                <span>⚙</span>
+                <strong>Settings</strong>
+            </button>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+
+            <header class="app-header">
+
+                <div class="mobile-logo">
+                    Vibe<span>◆</span>
+                </div>
+
+                <div class="search-container">
+
+                    <span>⌕</span>
+
+                    <input
+                        id="globalSearch"
+                        type="search"
+                        placeholder="Search friends, posts, videos..."
+                    >
+
+                </div>
+
+                <div class="header-actions">
+
+                    <button
+                        class="header-button"
+                        data-section="notifications"
+                        aria-label="Notifications"
+                    >
+                        ♡
+                    </button>
+
+                    <button
+                        class="profile-mini-button"
+                        data-section="profile"
+                        aria-label="Profile"
+                    >
+                        ☻
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 HOME
+            ================================================== -->
+
+            <section
+                id="section-home"
+                class="app-section active-section"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            YOUR FEED
+                        </p>
+
+                        <h1>
+                            Home
+                        </h1>
+
+                    </div>
+
+                    <button
+                        class="mobile-create-button"
+                        data-section="create"
+                    >
+                        ＋
+                    </button>
+
+                </div>
+
+
+                <!-- STORIES -->
+
+                <div class="stories-section">
+
+                    <div class="stories-heading">
+
+                        <h2>
+                            Stories
+                        </h2>
+
+                        <button
+                            id="viewStoriesButton"
+                            type="button"
+                        >
+                            View all
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="storiesContainer"
+                        class="stories-container"
+                    >
+
+                        <!-- Real story upload will be added in Step 2 -->
+
+                        <button
+                            id="addStoryButton"
+                            class="story-card add-story-card"
+                            type="button"
+                        >
+
+                            <div class="story-add-icon">
+                                ＋
+                            </div>
+
+                            <strong>
+                                Add Story
+                            </strong>
+
+                            <small>
+                                Photo or video
+                            </small>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CREATE QUICK ACTION -->
+
+                <div class="quick-create-card">
+
+                    <div class="quick-avatar">
+                        ☻
+                    </div>
+
+                    <button
+                        id="quickCreateButton"
+                        type="button"
+                    >
+                        What's on your mind?
+                    </button>
+
+                </div>
+
+
+                <!-- EMPTY FEED -->
+
+                <div
+                    id="feedContainer"
+                    class="feed-container"
+                >
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            ✦
+                        </div>
+
+                        <h2>
+                            Your Vibe starts here
+                        </h2>
+
+                        <p>
+                            Share your first photo, video or thought
+                            and start building your feed.
+                        </p>
+
+                        <button
+                            class="primary-button small-button"
+                            data-section="create"
+                        >
+                            Create your first post
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 EXPLORE
+            ================================================== -->
+
+            <section
+                id="section-explore"
+                class="app-section"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            DISCOVER
+                        </p>
+
+                        <h1>
+                            Explore
+                        </h1>
+
+                    </div>
+
+                </div>
+
+                <div class="explore-tabs">
+
+                    <button class="explore-tab active">
+                        For You
+                    </button>
+
+                    <button class="explore-tab">
+                        Trending
+                    </button>
+
+                    <button class="explore-tab">
+                        People
+                    </button>
+
+                    <button class="explore-tab">
+                        Videos
+                    </button>
+
+                </div>
+
+                <div class="empty-state compact">
+
+                    <div class="empty-icon">
+                        ⌕
+                    </div>
+
+                    <h2>
+                        Discover something new
+                    </h2>
+
+                    <p>
+                        Explore posts, people and videos from the VibeConnect community.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 REELS
+            ================================================== -->
+
+            <section
+                id="section-reels"
+                class="app-section"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            SHORT VIDEOS
+                        </p>
+
+                        <h1>
+                            Reels
+                        </h1>
+
+                    </div>
+
+                </div>
+
+                <div class="empty-state compact">
+
+                    <div class="empty-icon">
+                        ▶
+                    </div>
+
+                    <h2>
+                        No Reels yet
+                    </h2>
+
+                    <p>
+                        Be the first person to share a Reel on VibeConnect.
+                    </p>
+
+                    <button
+                        class="primary-button small-button"
+                        data-section="create"
+                    >
+                        Create a Reel
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 MESSAGES
+            ================================================== -->
+
+            <section
+                id="section-messages"
+                class="app-section"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            CONNECT
+                        </p>
+
+                        <h1>
+                            Messages
+                        </h1>
+
+                    </div>
+
+                    <button
+                        class="round-action"
+                        type="button"
+                    >
+                        ＋
+                    </button>
+
+                </div>
+
+                <div class="message-search">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="search"
+                        placeholder="Search chats..."
+                    >
+
+                </div>
+
+                <div class="empty-state compact">
+
+                    <div class="empty-icon">
+                        ✉
+                    </div>
+
+                    <h2>
+                        Your messages
+                    </h2>
+
+                    <p>
+                        Start a conversation with someone on VibeConnect.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 NOTIFICATIONS
+            ================================================== -->
+
+            <section
+                id="section-notifications"
+                class="app-section"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            ACTIVITY
+                        </p>
+
+                        <h1>
+                            Notifications
+                        </h1>
+
+                    </div>
+
+                </div>
+
+                <div class="empty-state compact">
+
+                    <div class="empty-icon">
+                        ♡
+                    </div>
+
+                    <h2>
+                        You're all caught up
+                    </h2>
+
+                    <p>
+                        New likes, comments, follows and activity will appear here.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CREATE
+            ================================================== -->
+
+            <section
+                id="section-create"
+                class="app-section"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            CREATE
+                        </p>
+
+                        <h1>
+                            Create
+                        </h1>
+
+                    </div>
+
+                </div>
+
+                <div class="create-options">
+
+                    <button class="create-option">
+                        <span>📷</span>
+                        <strong>Photo</strong>
+                        <small>Share a photo</small>
+                    </button>
+
+                    <button class="create-option">
+                        <span>🎥</span>
+                        <strong>Video</strong>
+                        <small>Share a video</small>
+                    </button>
+
+                    <button class="create-option">
+                        <span>🎬</span>
+                        <strong>Reel</strong>
+                        <small>Create a Reel</small>
+                    </button>
+
+                    <button class="create-option">
+                        <span>📝</span>
+                        <strong>Text</strong>
+                        <small>Share your thoughts</small>
+                    </button>
+
+                    <button class="create-option">
+                        <span>📊</span>
+                        <strong>Poll</strong>
+                        <small>Ask your community</small>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROFILE
+            ================================================== -->
+
+            <section
+                id="section-profile"
+                class="app-section"
+            >
+
+                <div class="profile-page">
+
+                    <div class="profile-avatar-large">
+                        ☻
+                    </div>
+
+                    <h1>
+                        Your Profile
+                    </h1>
+
+                    <p class="profile-username">
+                        @yourusername
+                    </p>
+
+                    <div class="profile-stats">
+
+                        <div>
+                            <strong>0</strong>
+                            <span>Posts</span>
+                        </div>
+
+                        <div>
+                            <strong>0</strong>
+                            <span>Followers</span>
+                        </div>
+
+                        <div>
+                            <strong>0</strong>
+                            <span>Following</span>
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="secondary-button"
+                        type="button"
+                    >
+                        Edit Profile
+                    </button>
+
+                    <div class="profile-tabs">
+
+                        <button class="active">
+                            Posts
+                        </button>
+
+                        <button>
+                            Reels
+                        </button>
+
+                        <button>
+                            Saved
+                        </button>
+
+                        <button>
+                            Tagged
+                        </button>
+
+                    </div>
+
+                    <div class="profile-empty">
+
+                        <div>
+                            ✦
+                        </div>
+
+                        <h2>
+                            No posts yet
+                        </h2>
+
+                        <p>
+                            Share your first moment with the Vibe community.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SAVED
+            ================================================== -->
+
+            <section
+                id="section-saved"
+                class="app-section"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            YOUR COLLECTION
+                        </p>
+
+                        <h1>
+                            Saved
+                        </h1>
+
+                    </div>
+
+                </div>
+
+                <div class="empty-state compact">
+
+                    <div class="empty-icon">
+                        ▱
+                    </div>
+
+                    <h2>
+                        Nothing saved yet
+                    </h2>
+
+                    <p>
+                        Posts and Reels you save will appear here.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SETTINGS
+            ================================================== -->
+
+            <section
+                id="section-settings"
+                class="app-section"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            PERSONALIZE
+                        </p>
+
+                        <h1>
+                            Settings
+                        </h1>
+
+                    </div>
+
+                </div>
+
+                <div class="settings-list">
+
+                    <button>
+                        <span>👤</span>
+                        Account
+                        <b>›</b>
+                    </button>
+
+                    <button>
+                        <span>🔒</span>
+                        Privacy
+                        <b>›</b>
+                    </button>
+
+                    <button>
+                        <span>🔔</span>
+                        Notifications
+                        <b>›</b>
+                    </button>
+
+                    <button>
+                        <span>🎨</span>
+                        Appearance
+                        <b>›</b>
+                    </button>
+
+                    <button>
+                        <span>❓</span>
+                        Help
+                        <b>›</b>
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- MOBILE BOTTOM NAVIGATION -->
+
+        <nav class="mobile-navigation">
+
+            <button
+                class="mobile-nav-item active"
+                data-section="home"
+            >
+                <span>⌂</span>
+                <small>Home</small>
+            </button>
+
+            <button
+                class="mobile-nav-item"
+                data-section="explore"
+            >
+                <span>⌕</span>
+                <small>Explore</small>
+            </button>
+
+            <button
+                class="mobile-nav-item create-mobile"
+                data-section="create"
+            >
+                <span>＋</span>
+                <small>Create</small>
+            </button>
+
+            <button
+                class="mobile-nav-item"
+                data-section="reels"
+            >
+                <span>▶</span>
+                <small>Reels</small>
+            </button>
+
+            <button
+                class="mobile-nav-item"
+                data-section="profile"
+            >
+                <span>●</span>
+                <small>Profile</small>
+            </button>
+
+        </nav>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
