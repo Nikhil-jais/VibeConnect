@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Explore • VibeConnect</title>
+
+    <link
+        rel="stylesheet"
+        href="explore.css"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="explore-header">
+
+        <div class="header-left">
+
+            <a
+                href="app.html"
+                class="back-button"
+                aria-label="Back"
+            >
+                ←
+            </a>
+
+            <div class="brand-area">
+                <h1>Explore</h1>
+                <p>Discover what's happening</p>
+            </div>
+
+        </div>
+
+        <a
+            href="search.html"
+            class="search-link"
+        >
+            🔍 Search
+        </a>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="explore-page">
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="explore-hero">
+
+            <div class="hero-content">
+
+                <span class="hero-badge">
+                    ✨ DISCOVER
+                </span>
+
+                <h2>
+                    Find your next
+                    <span>Vibe</span>
+                </h2>
+
+                <p>
+                    Explore trending conversations,
+                    creators, communities and ideas
+                    across VibeConnect.
+                </p>
+
+            </div>
+
+            <div class="hero-visual">
+                🔥
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUICK SEARCH
+        ================================================== -->
+
+        <section class="explore-search">
+
+            <div class="search-icon">
+                🔍
+            </div>
+
+            <input
+                type="search"
+                id="exploreSearch"
+                placeholder="Search hashtags, topics or creators..."
+                autocomplete="off"
+            >
+
+            <button
+                id="clearSearch"
+                class="clear-search"
+                type="button"
+            >
+                ×
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             SEARCH RESULTS
+        ================================================== -->
+
+        <section
+            id="searchResults"
+            class="search-results hidden"
+        >
+
+            <div class="section-title">
+                <div>
+                    <h2>Search Results</h2>
+                    <p id="searchResultText">
+                        Discover matching content
+                    </p>
+                </div>
+            </div>
+
+            <div
+                id="resultsGrid"
+                class="results-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- =================================================
+             TOPICS
+        ================================================== -->
+
+        <section class="topics-section">
+
+            <div class="section-title">
+
+                <div>
+                    <span class="section-kicker">
+                        EXPLORE
+                    </span>
+
+                    <h2>Browse Topics</h2>
+
+                    <p>
+                        Find conversations based on
+                        what interests you.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div
+                id="topicsGrid"
+                class="topics-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- =================================================
+             TRENDING HASHTAGS
+        ================================================== -->
+
+        <section class="trending-section">
+
+            <div class="section-title">
+
+                <div>
+                    <span class="section-kicker">
+                        TRENDING NOW
+                    </span>
+
+                    <h2>Popular Hashtags</h2>
+
+                    <p>
+                        See what people are talking about.
+                    </p>
+                </div>
+
+                <button
+                    id="refreshTrends"
+                    class="refresh-button"
+                    type="button"
+                >
+                    ↻ Refresh
+                </button>
+
+            </div>
+
+
+            <div
+                id="hashtagsGrid"
+                class="hashtags-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- =================================================
+             SELECTED HASHTAG
+        ================================================== -->
+
+        <section
+            id="hashtagSection"
+            class="hashtag-section hidden"
+        >
+
+            <div class="hashtag-heading">
+
+                <button
+                    id="closeHashtag"
+                    class="close-hashtag"
+                    type="button"
+                >
+                    ×
+                </button>
+
+                <div class="hashtag-symbol">
+                    #
+                </div>
+
+                <div>
+                    <span>
+                        HASHTAG
+                    </span>
+
+                    <h2 id="selectedHashtag">
+                        #VibeConnect
+                    </h2>
+
+                    <p id="hashtagPostCount">
+                        0 posts
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div
+                id="hashtagPosts"
+                class="hashtag-posts"
+            ></div>
+
+        </section>
+
+
+        <!-- =================================================
+             POPULAR CREATORS
+        ================================================== -->
+
+        <section class="creators-section">
+
+            <div class="section-title">
+
+                <div>
+                    <span class="section-kicker">
+                        PEOPLE TO DISCOVER
+                    </span>
+
+                    <h2>Popular Creators</h2>
+
+                    <p>
+                        Find interesting people to follow.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div
+                id="creatorsGrid"
+                class="creators-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- =================================================
+             DISCOVERY INFO
+        ================================================== -->
+
+        <section class="discovery-info">
+
+            <div class="info-icon">
+                💡
+            </div>
+
+            <div>
+
+                <h3>
+                    Make Explore your own
+                </h3>
+
+                <p>
+                    Your future Explore page can become
+                    personalized using the people you
+                    follow, posts you interact with and
+                    topics you enjoy.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+    >
+
+        <span id="toastIcon">
+            ✓
+        </span>
+
+        <span id="toastMessage">
+            Done
+        </span>
+
+    </div>
+
+
+    <script src="explore.js"></script>
+
+</body>
+</html>
