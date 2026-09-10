@@ -1,0 +1,225 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VibeConnect — Follow & Friends</title>
+
+    <link rel="stylesheet" href="follow-data.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="follow-data.js" defer></script>
+</head>
+
+<body>
+
+    <header class="follow-header">
+        <div class="header-left">
+            <button class="back-button" id="backButton" type="button">
+                ←
+            </button>
+
+            <div>
+                <span class="eyebrow">VIBECONNECT</span>
+                <h1>Follow & Friends</h1>
+            </div>
+        </div>
+
+        <button class="refresh-button" id="refreshButton" type="button">
+            ↻ Refresh
+        </button>
+    </header>
+
+
+    <main class="follow-container">
+
+        <!-- Connection -->
+        <section class="connection-card">
+            <div class="connection-icon">☁️</div>
+
+            <div class="connection-info">
+                <strong>Supabase Connection</strong>
+                <span id="connectionStatus">
+                    Checking connection...
+                </span>
+            </div>
+
+            <span class="status-dot" id="statusDot"></span>
+        </section>
+
+
+        <!-- Login Required -->
+        <section class="login-card hidden" id="loginCard">
+
+            <div class="login-icon">🔐</div>
+
+            <h2>Sign in to connect</h2>
+
+            <p>
+                Create your VibeConnect network by following people
+                and building your friends list.
+            </p>
+
+            <button class="primary-button" id="loginButton" type="button">
+                Go to Login
+            </button>
+
+        </section>
+
+
+        <!-- Main Content -->
+        <section id="mainContent">
+
+            <div class="hero-card">
+
+                <div>
+                    <span class="section-label">YOUR NETWORK</span>
+
+                    <h2>
+                        Find people you vibe with.
+                    </h2>
+
+                    <p>
+                        Follow creators, friends and interesting people
+                        on VibeConnect.
+                    </p>
+                </div>
+
+                <div class="hero-emoji">
+                    👥
+                </div>
+
+            </div>
+
+
+            <!-- My Stats -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <span class="stat-icon">👤</span>
+                    <strong id="followingCount">0</strong>
+                    <span>Following</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">❤️</span>
+                    <strong id="followersCount">0</strong>
+                    <span>Followers</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">🤝</span>
+                    <strong id="mutualCount">0</strong>
+                    <span>Mutuals</span>
+                </div>
+
+            </section>
+
+
+            <!-- Search -->
+            <section class="search-card">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">DISCOVER</span>
+                        <h2>Find people</h2>
+                    </div>
+                </div>
+
+                <div class="search-box">
+
+                    <span>🔎</span>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search by name or username..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        id="clearSearch"
+                        class="clear-search hidden"
+                        type="button"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Filters -->
+            <div class="filter-row">
+
+                <button
+                    class="filter-button active"
+                    data-filter="discover"
+                    type="button"
+                >
+                    Discover
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="following"
+                    type="button"
+                >
+                    Following
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="followers"
+                    type="button"
+                >
+                    Followers
+                </button>
+
+            </div>
+
+
+            <!-- People -->
+            <section class="people-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="section-label">PEOPLE</span>
+                        <h2 id="peopleTitle">People you may know</h2>
+                    </div>
+
+                    <span class="result-count" id="resultCount">
+                        0 people
+                    </span>
+
+                </div>
+
+
+                <div id="peopleList" class="people-list">
+
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Loading people...</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- Toast -->
+    <div class="toast" id="toast" role="status"></div>
+
+
+</body>
+</html>
+```
