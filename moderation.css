@@ -1,0 +1,889 @@
+/* =========================================================
+   VIBECONNECT — STEP 17
+   BLOCK • MUTE • REPORT
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: #f6f7fb;
+    color: #17171c;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.moderation-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    height: 76px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 28px;
+
+    background: rgba(255,255,255,0.95);
+
+    border-bottom: 1px solid #e5e5eb;
+
+    backdrop-filter: blur(14px);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.header-left h1 {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.header-left p {
+    margin-top: 3px;
+
+    color: #858590;
+
+    font-size: 13px;
+}
+
+.back-btn {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #f0f1f5;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    background: #e4e5eb;
+
+    transform: translateX(-2px);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.moderation-container {
+    width: min(900px, calc(100% - 30px));
+
+    margin: auto;
+
+    padding: 30px 0 70px;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.safety-hero {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 26px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3efff,
+            #fff0f6
+        );
+
+    border: 1px solid #e5dff8;
+
+    margin-bottom: 22px;
+}
+
+.shield-icon {
+    width: 70px;
+    height: 70px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 20px;
+
+    background: white;
+
+    font-size: 34px;
+
+    box-shadow:
+        0 8px 25px rgba(60,40,100,0.08);
+}
+
+.eyebrow {
+    display: block;
+
+    color: #7c3aed;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 5px;
+}
+
+.safety-hero h2 {
+    font-size: 25px;
+}
+
+.safety-hero p {
+    margin-top: 6px;
+
+    color: #70707b;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    max-width: 600px;
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.moderation-section {
+    background: white;
+
+    border: 1px solid #e3e3e9;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-bottom: 18px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 20px;
+
+    border-bottom: 1px solid #eeeeF2;
+}
+
+.section-icon {
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: #f0ebff;
+
+    font-size: 19px;
+
+    flex-shrink: 0;
+}
+
+.section-heading h2 {
+    font-size: 17px;
+}
+
+.section-heading p {
+    color: #888;
+
+    font-size: 12px;
+
+    margin-top: 3px;
+}
+
+.count-badge {
+    margin-left: auto;
+
+    min-width: 28px;
+    height: 28px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0 8px;
+
+    border-radius: 20px;
+
+    background: #f0ebff;
+
+    color: #7c3aed;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+   ========================================================= */
+
+.quick-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 13px;
+
+    margin-bottom: 18px;
+}
+
+.quick-card {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    min-height: 150px;
+
+    padding: 20px;
+
+    border: 1px solid #e3e3e9;
+
+    background: white;
+
+    border-radius: 17px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: 0.2s;
+}
+
+.quick-card > span {
+    font-size: 26px;
+}
+
+.quick-card strong {
+    font-size: 14px;
+}
+
+.quick-card small {
+    color: #888;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+.quick-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #cfc1f5;
+
+    box-shadow:
+        0 8px 25px rgba(50,40,80,0.07);
+}
+
+
+/* =========================================================
+   PEOPLE LIST
+   ========================================================= */
+
+.people-list {
+    padding: 6px 20px 12px;
+}
+
+.person-row {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid #eeeeF2;
+}
+
+.person-row:last-child {
+    border-bottom: none;
+}
+
+.person-avatar {
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #ec4899
+        );
+
+    color: white;
+
+    font-weight: 800;
+}
+
+.person-info {
+    flex: 1;
+}
+
+.person-info strong {
+    display: block;
+
+    font-size: 14px;
+}
+
+.person-info span {
+    display: block;
+
+    color: #888;
+
+    font-size: 11px;
+
+    margin-top: 3px;
+}
+
+.restore-btn {
+    border: none;
+
+    background: #f0ebff;
+
+    color: #7c3aed;
+
+    padding: 8px 12px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.restore-btn:hover {
+    background: #e5dcff;
+}
+
+
+/* =========================================================
+   REPORTS
+   ========================================================= */
+
+.report-list {
+    padding: 8px 20px 15px;
+}
+
+.report-row {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid #eeeeF2;
+}
+
+.report-row:last-child {
+    border-bottom: none;
+}
+
+.report-icon {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: #fff5e8;
+
+    font-size: 18px;
+}
+
+.report-info {
+    flex: 1;
+}
+
+.report-info strong {
+    display: block;
+
+    font-size: 13px;
+}
+
+.report-info span {
+    display: block;
+
+    color: #888;
+
+    font-size: 11px;
+
+    margin-top: 3px;
+}
+
+.report-status {
+    padding: 6px 9px;
+
+    border-radius: 8px;
+
+    background: #f0fdf4;
+
+    color: #15803d;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    color: #888;
+}
+
+.empty-state-icon {
+    font-size: 32px;
+
+    margin-bottom: 8px;
+}
+
+.empty-state h3 {
+    color: #555;
+
+    font-size: 14px;
+}
+
+.empty-state p {
+    margin-top: 4px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   TIPS
+   ========================================================= */
+
+.tips-section {
+    padding: 23px;
+
+    background: white;
+
+    border: 1px solid #e3e3e9;
+
+    border-radius: 20px;
+}
+
+.tips-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.tips-header > span {
+    font-size: 25px;
+}
+
+.tips-header h2 {
+    font-size: 17px;
+}
+
+.tips-header p {
+    color: #888;
+
+    font-size: 12px;
+
+    margin-top: 3px;
+}
+
+.tips-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+.tip {
+    display: flex;
+
+    gap: 10px;
+
+    padding: 14px;
+
+    border-radius: 13px;
+
+    background: #f8f8fb;
+}
+
+.tip span {
+    font-size: 17px;
+}
+
+.tip p {
+    color: #666;
+
+    font-size: 12px;
+
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 500;
+
+    display: grid;
+
+    place-items: center;
+
+    padding: 20px;
+
+    background: rgba(10,10,15,0.55);
+
+    backdrop-filter: blur(5px);
+}
+
+.modal-card {
+    position: relative;
+
+    width: min(430px, 100%);
+
+    padding: 28px;
+
+    background: white;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.2);
+
+    text-align: center;
+}
+
+.modal-close {
+    position: absolute;
+
+    top: 12px;
+    right: 14px;
+
+    width: 34px;
+    height: 34px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f2f2f5;
+
+    font-size: 21px;
+
+    cursor: pointer;
+}
+
+.modal-icon {
+    width: 55px;
+    height: 55px;
+
+    display: grid;
+    place-items: center;
+
+    margin: 5px auto 14px;
+
+    border-radius: 16px;
+
+    background: #f0ebff;
+
+    font-size: 25px;
+}
+
+.modal-card h2 {
+    font-size: 20px;
+}
+
+.modal-card > p {
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    margin: 6px auto 16px;
+}
+
+.modal-input {
+    width: 100%;
+
+    height: 46px;
+
+    padding: 0 14px;
+
+    border: 1px solid #dedee6;
+
+    border-radius: 11px;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+.modal-input:focus {
+    border-color: #7c3aed;
+
+    box-shadow:
+        0 0 0 3px rgba(124,58,237,0.08);
+}
+
+
+/* =========================================================
+   REPORT REASONS
+   ========================================================= */
+
+.report-reasons {
+    text-align: left;
+
+    margin-top: 15px;
+}
+
+.report-reasons > p {
+    color: #777;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.report-reasons button {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    margin-bottom: 6px;
+
+    border: 1px solid #e4e4e9;
+
+    background: white;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    font-size: 12px;
+}
+
+.report-reasons button:hover,
+.report-reasons button.selected {
+    border-color: #7c3aed;
+
+    background: #f7f3ff;
+}
+
+
+/* =========================================================
+   MODAL ACTIONS
+   ========================================================= */
+
+.modal-actions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    flex: 1;
+
+    height: 43px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+}
+
+.cancel-btn {
+    border: 1px solid #dddde5;
+
+    background: white;
+}
+
+.confirm-btn {
+    border: none;
+
+    background: #17171c;
+
+    color: white;
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.moderation-toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 25px;
+
+    z-index: 700;
+
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    background: #17171c;
+
+    color: white;
+
+    font-size: 13px;
+
+    transform:
+        translate(-50%, 100px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: 0.3s;
+}
+
+.moderation-toast.show {
+    transform:
+        translate(-50%, 0);
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   HIDDEN
+   ========================================================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .moderation-header {
+        padding: 0 15px;
+    }
+
+    .moderation-container {
+        width: calc(100% - 20px);
+
+        padding-top: 20px;
+    }
+
+    .quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-card {
+        min-height: 115px;
+    }
+
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .safety-hero {
+        align-items: flex-start;
+    }
+
+    .shield-icon {
+        width: 55px;
+        height: 55px;
+
+        font-size: 27px;
+    }
+
+    .safety-hero h2 {
+        font-size: 21px;
+    }
+
+    .person-row {
+        align-items: flex-start;
+    }
+
+    .restore-btn {
+        align-self: center;
+    }
+}
