@@ -1,0 +1,134 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VibeConnect — Notifications</title>
+
+    <link rel="stylesheet" href="notifications-data.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-icon">🔔</span>
+            <div>
+                <h1>Notifications</h1>
+                <p>Stay updated with your VibeConnect activity</p>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button id="refreshBtn" class="header-btn">
+                ↻ Refresh
+            </button>
+
+            <button id="markAllBtn" class="header-btn primary">
+                ✓ Mark all read
+            </button>
+        </div>
+    </header>
+
+    <main class="page">
+
+        <section class="status-card">
+            <div>
+                <span class="status-label">DATABASE STATUS</span>
+                <h2 id="connectionStatus">Checking connection...</h2>
+                <p id="connectionMessage">
+                    Connecting to your VibeConnect backend.
+                </p>
+            </div>
+
+            <span id="statusDot" class="status-dot"></span>
+        </section>
+
+        <section class="summary-grid">
+
+            <div class="summary-card">
+                <span>🔔</span>
+                <strong id="totalCount">0</strong>
+                <small>Total notifications</small>
+            </div>
+
+            <div class="summary-card">
+                <span>🔵</span>
+                <strong id="unreadCount">0</strong>
+                <small>Unread</small>
+            </div>
+
+            <div class="summary-card">
+                <span>❤️</span>
+                <strong id="activityCount">0</strong>
+                <small>Recent activity</small>
+            </div>
+
+        </section>
+
+        <section class="filters">
+
+            <button class="filter active" data-filter="all">
+                All
+            </button>
+
+            <button class="filter" data-filter="unread">
+                Unread
+            </button>
+
+            <button class="filter" data-filter="like">
+                ❤️ Likes
+            </button>
+
+            <button class="filter" data-filter="comment">
+                💬 Comments
+            </button>
+
+            <button class="filter" data-filter="follow">
+                👤 Follows
+            </button>
+
+            <button class="filter" data-filter="system">
+                ⚙️ System
+            </button>
+
+        </section>
+
+        <section class="notifications-card">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Your Notifications</h2>
+                    <p>Real activity from your VibeConnect account.</p>
+                </div>
+
+                <button id="clearFilterBtn" class="small-btn">
+                    Clear filter
+                </button>
+            </div>
+
+            <div id="notificationsList" class="notifications-list">
+
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Loading notifications...</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="notifications-data.js"></script>
+
+</body>
+</html>
+```
