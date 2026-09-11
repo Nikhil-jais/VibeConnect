@@ -364,7 +364,7 @@ CARD HEADING
 FORM
 ========================================= */
 
-#profileForm {
+.profileForm {
     display: grid;
     gap: 17px;
 }
@@ -600,7 +600,7 @@ ACCOUNT INFORMATION
 }
 
 .small-value {
-    font-size: 10px !important;
+    font-size: 10px important;
     font-weight: 600;
 }
 
@@ -844,7 +844,7 @@ HIDDEN
 ========================================= */
 
 .hidden {
-    display: none !important;
+    display: none important;
 }
 
 /* =========================================
@@ -958,4 +958,4 @@ MOBILE
     .online-badge {
         align-self: flex-start;
     }
-}
+};
