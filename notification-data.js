@@ -1,4 +1,3 @@
-```javascript
 /* =========================================================
    VIBECONNECT — REAL NOTIFICATIONS
    STEP 28
@@ -932,4 +931,3 @@
     initialize();
 
 })();
-```
