@@ -39,7 +39,7 @@ SUPABASE
 
 function getSupabaseClient() {
 
-```
+
 if (
     window.vibeSupabase &&
     typeof window.vibeSupabase.auth !== "undefined"
@@ -48,7 +48,7 @@ if (
 }
 
 return null;
-```
+
 
 }
 
@@ -58,23 +58,23 @@ STATUS MESSAGE
 
 function showStatus(message, type = "info") {
 
-```
+
 authStatus.textContent = message;
 
 authStatus.className =
     `auth-status show ${type}`;
-```
+
 
 }
 
 function clearStatus() {
 
-```
+
 authStatus.textContent = "";
 
 authStatus.className =
     "auth-status";
-```
+
 
 }
 
@@ -84,7 +84,7 @@ LOADING STATE
 
 function setLoading(button, loading, loadingText) {
 
-```
+
 if (!button) {
     return;
 }
@@ -114,7 +114,7 @@ if (loading) {
             original;
     }
 }
-```
+
 
 }
 
@@ -124,27 +124,27 @@ SWITCH LOGIN / SIGNUP
 
 showSignup.addEventListener("click", () => {
 
-```
+
 loginSection.classList.add("hidden");
 signupSection.classList.remove("hidden");
 
 clearStatus();
 
 document.getElementById("signupName").focus();
-```
+
 
 });
 
 showLogin.addEventListener("click", () => {
 
-```
+
 signupSection.classList.add("hidden");
 loginSection.classList.remove("hidden");
 
 clearStatus();
 
 document.getElementById("loginEmail").focus();
-```
+
 
 });
 
@@ -155,7 +155,7 @@ PASSWORD SHOW / HIDE
 document.querySelectorAll(".password-toggle")
 .forEach(button => {
 
-```
+
     button.addEventListener("click", () => {
 
         const targetId =
@@ -191,7 +191,7 @@ document.querySelectorAll(".password-toggle")
     });
 
 });
-```
+
 
 /* =========================================================
 PASSWORD STRENGTH
@@ -199,7 +199,7 @@ PASSWORD STRENGTH
 
 signupPassword.addEventListener("input", () => {
 
-```
+
 const password =
     signupPassword.value;
 
@@ -256,7 +256,7 @@ if (score <= 1) {
     strengthText.textContent =
         "Strong password.";
 }
-```
+
 
 });
 
@@ -266,20 +266,20 @@ USERNAME VALIDATION
 
 function cleanUsername(username) {
 
-```
+
 return username
     .trim()
     .toLowerCase()
     .replace(/^@/, "");
-```
+
 
 }
 
 function validUsername(username) {
 
-```
+
 return /^[a-z0-9._]{3,30}$/.test(username);
-```
+
 
 }
 
@@ -289,7 +289,7 @@ LOGIN
 
 loginForm.addEventListener("submit", async event => {
 
-```
+
 event.preventDefault();
 
 clearStatus();
@@ -381,7 +381,7 @@ try {
         false
     );
 }
-```
+
 
 });
 
@@ -391,7 +391,7 @@ SIGN UP
 
 signupForm.addEventListener("submit", async event => {
 
-```
+
 event.preventDefault();
 
 clearStatus();
@@ -546,7 +546,7 @@ try {
         false
     );
 }
-```
+
 
 });
 
@@ -556,7 +556,7 @@ SHOW LOGGED-IN USER
 
 function showLoggedInUser(user) {
 
-```
+
 if (!user) {
     return;
 }
@@ -570,7 +570,7 @@ loggedInEmail.textContent =
     "Your account is connected.";
 
 clearStatus();
-```
+
 
 }
 
@@ -580,10 +580,10 @@ CONTINUE
 
 continueButton.addEventListener("click", () => {
 
-```
+
 window.location.href =
     "app.html";
-```
+
 
 });
 
@@ -593,7 +593,7 @@ LOGOUT
 
 logoutButton.addEventListener("click", async () => {
 
-```
+
 const supabase =
     getSupabaseClient();
 
@@ -643,7 +643,7 @@ try {
 
     logoutButton.disabled = false;
 }
-```
+
 
 });
 
@@ -653,7 +653,7 @@ CHECK EXISTING SESSION
 
 async function checkExistingSession() {
 
-```
+
 const supabase =
     getSupabaseClient();
 
@@ -686,7 +686,7 @@ try {
         error
     );
 }
-```
+
 
 }
 
@@ -696,7 +696,7 @@ AUTH STATE LISTENER
 
 function setupAuthListener() {
 
-```
+
 const supabase =
     getSupabaseClient();
 
@@ -724,7 +724,7 @@ supabase.auth.onAuthStateChange(
 
     }
 );
-```
+
 
 }
 
@@ -734,7 +734,7 @@ FRIENDLY ERROR MESSAGES
 
 function friendlyAuthError(error) {
 
-```
+
 const message =
     String(
         error?.message || ""
@@ -799,7 +799,6 @@ return (
     error?.message ||
     "Something went wrong. Please try again."
 );
-```
 
 }
 
@@ -809,7 +808,7 @@ INITIALIZE
 
 async function initializeAuthentication() {
 
-```
+
 /*
  * Wait briefly because supabase.js
  * is loaded separately.
@@ -848,7 +847,6 @@ if (!window.vibeSupabase) {
 setupAuthListener();
 
 await checkExistingSession();
-```
 
 }
 
@@ -860,7 +858,7 @@ PUBLIC API
 
 window.vibeConnectAuth = {
 
-```
+
 getClient() {
     return getSupabaseClient();
 },
@@ -896,6 +894,6 @@ async signOut() {
 
     return !error;
 }
-```
+
 
 };
