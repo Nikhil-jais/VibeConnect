@@ -503,13 +503,11 @@ MOBILE
 .logged-in h2 {
     font-size: 31px;
 }
-```
 
 }
 
 @media (max-width: 420px) {
 
-```
 .auth-panel {
     padding: 10px;
 }
@@ -527,6 +525,5 @@ MOBILE
 .auth-heading h2 {
     font-size: 28px;
 }
-```
 
 }
