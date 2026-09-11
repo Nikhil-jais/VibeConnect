@@ -71,13 +71,11 @@ SUPABASE CLIENT
 
 function getSupabase() {
 
-```
 if (window.vibeSupabase) {
     return window.vibeSupabase;
 }
 
 return null;
-```
 
 }
 
@@ -87,13 +85,12 @@ TOAST
 
 function showToast(message, type = "success") {
 
-```
 clearTimeout(toastTimer);
 
 toast.textContent = message;
 
 toast.className =
-    `toast show ${type}`;
+    toast show ${type};
 
 toastTimer = setTimeout(() => {
 
@@ -101,7 +98,6 @@ toastTimer = setTimeout(() => {
         "toast";
 
 }, 3000);
-```
 
 }
 
@@ -114,11 +110,10 @@ text,
 connected = true
 ) {
 
-```
 connectionStatus.innerHTML = `
     <span class="status-dot"></span>
     ${escapeHTML(text)}
-`;
+
 
 connectionStatus.style.color =
     connected
@@ -129,7 +124,7 @@ connectionStatus.style.background =
     connected
         ? "#f1f8f4"
         : "#fff1f1";
-```
+
 
 }
 
@@ -139,14 +134,12 @@ ESCAPE HTML
 
 function escapeHTML(value) {
 
-```
 return String(value ?? "")
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
-```
 
 }
 
@@ -156,22 +149,18 @@ USERNAME
 
 function cleanUsername(value) {
 
-```
 return value
     .trim()
     .toLowerCase()
     .replace(/^@/, "");
-```
 
 }
 
 function validUsername(username) {
 
-```
 return /^[a-z0-9._]{3,30}$/.test(
     username
 );
-```
 
 }
 
@@ -181,7 +170,6 @@ WAIT FOR SUPABASE
 
 async function waitForSupabase() {
 
-```
 let attempts = 0;
 
 while (
@@ -197,7 +185,6 @@ while (
 }
 
 return getSupabase();
-```
 
 }
 
@@ -207,7 +194,6 @@ GET CURRENT USER
 
 async function getCurrentUser() {
 
-```
 const supabase =
     getSupabase();
 
@@ -238,7 +224,6 @@ try {
 
     return null;
 }
-```
 
 }
 
@@ -248,7 +233,6 @@ PROFILE TABLE
 
 async function loadProfile(user) {
 
-```
 const supabase =
     getSupabase();
 
@@ -346,7 +330,6 @@ try {
         user
     );
 }
-```
 
 }
 
@@ -359,7 +342,6 @@ profile,
 user
 ) {
 
-```
 const metadata =
     user.user_metadata || {};
 
@@ -382,7 +364,7 @@ displayNameInput.value =
 
 usernameInput.value =
     username
-        ? `@${cleanUsername(username)}`
+        ? @${cleanUsername(username)}
         : "";
 
 
@@ -411,7 +393,6 @@ updateHero(
     cleanUsername(username),
     user
 );
-```
 
 }
 
@@ -425,7 +406,6 @@ username,
 user
 ) {
 
-```
 document.getElementById(
     "heroName"
 ).textContent =
@@ -436,7 +416,7 @@ document.getElementById(
     "heroUsername"
 ).textContent =
     username
-        ? `@${username}`
+        ? "@${username}`
         : "@username";
 
 
@@ -482,7 +462,6 @@ document.getElementById(
     "previewAvatar"
 ).textContent =
     getInitial(name);
-```
 
 }
 
@@ -492,7 +471,6 @@ INITIAL LETTER
 
 function getInitial(name) {
 
-```
 const value =
     String(name || "")
         .trim();
@@ -504,7 +482,6 @@ if (!value) {
 return value
     .charAt(0)
     .toUpperCase();
-```
 
 }
 
@@ -514,7 +491,6 @@ DATE
 
 function formatDate(value) {
 
-```
 if (!value) {
     return "—";
 }
@@ -536,7 +512,6 @@ return date.toLocaleDateString(
         day: "numeric"
     }
 );
-```
 
 }
 
@@ -546,10 +521,8 @@ BIO COUNTER
 
 function updateBioCount() {
 
-```
 bioCount.textContent =
     bioInput.value.length;
-```
 
 }
 
@@ -557,12 +530,10 @@ bioInput.addEventListener(
 "input",
 () => {
 
-```
     updateBioCount();
 
     updateProfilePreview();
 }
-```
 
 );
 
@@ -572,7 +543,6 @@ PREVIEW
 
 function updateProfilePreview() {
 
-```
 const name =
     displayNameInput.value.trim() ||
     "Your Name";
@@ -599,7 +569,7 @@ document.getElementById(
 document.getElementById(
     "previewUsername"
 ).textContent =
-    `@${username}`;
+    "@${username}`;
 
 
 document.getElementById(
@@ -627,7 +597,7 @@ if (locationInput.value.trim()) {
 
     addPreviewDetail(
         details,
-        `📍 ${locationInput.value.trim()}`
+        "📍 ${locationInput.value.trim()}`
     );
 }
 
@@ -639,7 +609,6 @@ if (websiteInput.value.trim()) {
         "🌐 Website"
     );
 }
-```
 
 }
 
@@ -648,7 +617,6 @@ container,
 text
 ) {
 
-```
 const element =
     document.createElement("span");
 
@@ -661,7 +629,6 @@ element.textContent =
 container.appendChild(
     element
 );
-```
 
 }
 
@@ -672,12 +639,10 @@ websiteInput,
 locationInput
 ].forEach(input => {
 
-```
 input.addEventListener(
     "input",
     updateProfilePreview
 );
-```
 
 });
 
@@ -689,7 +654,6 @@ profileForm.addEventListener(
 "submit",
 async event => {
 
-```
     event.preventDefault();
 
 
@@ -913,7 +877,6 @@ async event => {
     }
 
 }
-```
 
 );
 
@@ -925,7 +888,6 @@ logoutButton.addEventListener(
 "click",
 async () => {
 
-```
     const supabase =
         getSupabase();
 
@@ -990,7 +952,6 @@ async () => {
             false;
     }
 }
-```
 
 );
 
@@ -1002,7 +963,6 @@ backButton.addEventListener(
 "click",
 () => {
 
-```
     if (
         document.referrer &&
         document.referrer
@@ -1019,7 +979,6 @@ backButton.addEventListener(
             "app.html";
     }
 }
-```
 
 );
 
@@ -1031,11 +990,9 @@ loginButton.addEventListener(
 "click",
 () => {
 
-```
     window.location.href =
         "auth.html";
 }
-```
 
 );
 
@@ -1045,7 +1002,6 @@ FRIENDLY ERRORS
 
 function friendlyError(error) {
 
-```
 const message =
     String(
         error?.message || ""
@@ -1105,7 +1061,6 @@ return (
     error?.message ||
     "Something went wrong. Please try again."
 );
-```
 
 }
 
@@ -1115,7 +1070,6 @@ NOT LOGGED IN UI
 
 function showLoggedOut() {
 
-```
 accountContent.classList.add(
     "hidden"
 );
@@ -1128,7 +1082,6 @@ setConnectionStatus(
     "Not signed in",
     false
 );
-```
 
 }
 
@@ -1138,7 +1091,6 @@ LOGGED IN UI
 
 async function showLoggedIn(user) {
 
-```
 currentUser =
     user;
 
@@ -1159,7 +1111,6 @@ setConnectionStatus(
 
 
 await loadProfile(user);
-```
 
 }
 
@@ -1169,7 +1120,6 @@ INITIALIZE
 
 async function initializeAccount() {
 
-```
 const supabase =
     await waitForSupabase();
 
@@ -1236,7 +1186,6 @@ try {
 
     showLoggedOut();
 }
-```
 
 }
 
@@ -1248,7 +1197,6 @@ PUBLIC API
 
 window.vibeConnectAccount = {
 
-```
 getUser() {
     return currentUser;
 },
@@ -1256,6 +1204,5 @@ getUser() {
 refresh() {
     return initializeAccount();
 }
-```
 
 };
