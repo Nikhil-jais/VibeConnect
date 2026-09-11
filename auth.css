@@ -221,7 +221,7 @@ background: white;
 box-shadow: 0 0 0 4px rgba(108, 76, 255, 0.10);
 }
 
-input::placeholder {
+input:placeholder {
 color: #aaa6b5;
 }
 
@@ -453,7 +453,6 @@ MOBILE
 
 @media (max-width: 850px) {
 
-```
 .auth-page {
     display: block;
 }
