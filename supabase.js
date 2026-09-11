@@ -2,9 +2,9 @@
    VIBECONNECT — SUPABASE CONNECTION
    ========================================================= */
 
-const SUPABASE_URL = "";
+const SUPABASE_URL = "https://megsxkizldhtetulqttv.supabase.co";
 
-const SUPABASE_KEY = "";
+const SUPABASE_KEY = "sb_publishable_9Zz3oZx_DrKELLf2tIrq5g_bfYgqziL";
 
 
 /* =========================================================
