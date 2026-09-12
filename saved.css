@@ -1,215 +1,1043 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* =========================================================
+VIBECONNECT — SAVED POSTS
+Modern Social App UI
+========================================================= */
 
-    <title>Saved Posts • VibeConnect</title>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
 
-    <link rel="stylesheet" href="saved.css">
-</head>
+html {
+scroll-behavior: smooth;
+}
 
-<body>
+body {
+font-family:
+Inter,
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+Roboto,
+Helvetica,
+Arial,
+sans-serif;
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+```
+min-height: 100vh;
 
-    <header class="saved-header">
+background:
+    radial-gradient(circle at top left, rgba(108, 76, 255, 0.12), transparent 35%),
+    radial-gradient(circle at top right, rgba(168, 121, 255, 0.12), transparent 30%),
+    linear-gradient(135deg, #f8f7ff 0%, #ffffff 48%, #f3f0ff 100%);
 
-        <div class="header-left">
-            <a href="app.html" class="back-button">←</a>
+color: #171525;
+line-height: 1.5;
+```
 
-            <div>
-                <h1>Saved Posts</h1>
-                <p>Your personal collection</p>
-            </div>
-        </div>
+}
 
-        <div class="header-actions">
-            <button id="clearAllBtn" class="clear-button">
-                Clear All
-            </button>
-        </div>
+/* =========================================================
+HEADER
+========================================================= */
 
-    </header>
+.saved-header {
+position: sticky;
+top: 0;
+z-index: 100;
 
+```
+width: 100%;
 
-    <!-- =========================
-         HERO
-    ========================== -->
+display: flex;
+align-items: center;
+justify-content: space-between;
 
-    <main class="saved-page">
+padding: 16px 6%;
 
-        <section class="saved-hero">
+background: rgba(255, 255, 255, 0.82);
+backdrop-filter: blur(18px);
+-webkit-backdrop-filter: blur(18px);
 
-            <div class="hero-icon">🔖</div>
+border-bottom: 1px solid rgba(108, 76, 255, 0.10);
 
-            <div>
-                <h2>Your Saved Collection</h2>
+box-shadow:
+    0 4px 25px rgba(30, 20, 70, 0.06);
+```
 
-                <p>
-                    Keep your favorite posts here so you can
-                    find them whenever you want.
-                </p>
-            </div>
+}
 
-        </section>
+.header-left {
+display: flex;
+align-items: center;
+gap: 14px;
+}
 
+.header-left > div {
+display: flex;
+flex-direction: column;
+}
 
-        <!-- =========================
-             STATS
-        ========================== -->
+.header-left h1 {
+font-size: 1.35rem;
+font-weight: 800;
+letter-spacing: -0.4px;
+color: #18152b;
+}
 
-        <section class="saved-stats">
+.header-left p {
+margin-top: 1px;
+font-size: 0.82rem;
+color: #77738a;
+}
 
-            <div class="stat-card">
-                <span class="stat-icon">🔖</span>
-                <div>
-                    <strong id="savedCount">0</strong>
-                    <span>Saved Posts</span>
-                </div>
-            </div>
+.back-button {
+width: 42px;
+height: 42px;
 
-            <div class="stat-card">
-                <span class="stat-icon">❤️</span>
-                <div>
-                    <strong id="likedCount">0</strong>
-                    <span>Liked Posts</span>
-                </div>
-            </div>
+```
+display: flex;
+align-items: center;
+justify-content: center;
 
-            <div class="stat-card">
-                <span class="stat-icon">📸</span>
-                <div>
-                    <strong id="mediaCount">0</strong>
-                    <span>Media Posts</span>
-                </div>
-            </div>
+text-decoration: none;
 
-        </section>
+border-radius: 13px;
 
+background: #f1efff;
+color: #6c4cff;
 
-        <!-- =========================
-             FILTERS
-        ========================== -->
+font-size: 1.4rem;
+font-weight: 700;
 
-        <section class="saved-controls">
+transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+```
 
-            <div class="section-heading">
-                <div>
-                    <h2>Collection</h2>
-                    <p id="collectionDescription">
-                        Everything you've saved
-                    </p>
-                </div>
-            </div>
+}
 
-            <div class="filter-buttons">
+.back-button:hover {
+transform: translateX(-2px);
+background: #e8e3ff;
 
-                <button
-                    class="filter-button active"
-                    data-filter="all">
-                    All
-                </button>
+```
+box-shadow:
+    0 7px 20px rgba(108, 76, 255, 0.14);
+```
 
-                <button
-                    class="filter-button"
-                    data-filter="text">
-                    Text
-                </button>
+}
 
-                <button
-                    class="filter-button"
-                    data-filter="photo">
-                    Photos
-                </button>
+.clear-button {
+border: none;
+outline: none;
 
-                <button
-                    class="filter-button"
-                    data-filter="video">
-                    Videos
-                </button>
+```
+padding: 11px 17px;
 
-                <button
-                    class="filter-button"
-                    data-filter="poll">
-                    Polls
-                </button>
+border-radius: 12px;
 
-            </div>
+background: #fff0f2;
+color: #d83254;
 
-        </section>
+font-size: 0.88rem;
+font-weight: 700;
 
+cursor: pointer;
 
-        <!-- =========================
-             SAVED POSTS
-        ========================== -->
+transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+```
 
-        <section class="saved-content">
+}
 
-            <div id="savedGrid" class="saved-grid">
-                <!-- Posts generated by saved.js -->
-            </div>
+.clear-button:hover {
+transform: translateY(-1px);
+background: #ffe2e7;
 
+```
+box-shadow:
+    0 7px 18px rgba(216, 50, 84, 0.12);
+```
 
-            <!-- EMPTY STATE -->
+}
 
-            <div id="emptyState" class="empty-state hidden">
+.clear-button:active {
+transform: scale(0.97);
+}
 
-                <div class="empty-icon">🔖</div>
+/* =========================================================
+MAIN PAGE
+========================================================= */
 
-                <h2>No saved posts yet</h2>
+.saved-page {
+width: min(1180px, 92%);
+margin: 0 auto;
 
-                <p>
-                    Posts you save will appear here.
-                    Start exploring VibeConnect and save
-                    something you want to see again.
-                </p>
+```
+padding: 42px 0 70px;
+```
 
-                <a href="feed.html" class="explore-button">
-                    Explore Feed
-                </a>
+}
 
-            </div>
+/* =========================================================
+HERO
+========================================================= */
 
-        </section>
+.saved-hero {
+position: relative;
+overflow: hidden;
 
+```
+display: flex;
+align-items: center;
+gap: 22px;
 
-        <!-- =========================
-             INFO
-        ========================== -->
+padding: 32px;
 
-        <section class="saved-info">
+border-radius: 25px;
 
-            <div class="info-icon">💡</div>
+background:
+    linear-gradient(
+        135deg,
+        #6c4cff 0%,
+        #805cff 45%,
+        #a879ff 100%
+    );
 
-            <div>
-                <h3>Keep your favorites organized</h3>
+color: white;
 
-                <p>
-                    Saving a post doesn't notify the person who
-                    created it. Your saved collection is private
-                    to you.
-                </p>
-            </div>
+box-shadow:
+    0 20px 45px rgba(108, 76, 255, 0.23);
 
-        </section>
+margin-bottom: 25px;
+```
 
-    </main>
+}
 
+.saved-hero::before {
+content: "";
 
-    <!-- =========================
-         TOAST
-    ========================== -->
+```
+position: absolute;
 
-    <div id="toast" class="toast">
-        <span id="toastIcon">✓</span>
-        <span id="toastMessage">Done</span>
-    </div>
+width: 240px;
+height: 240px;
 
+top: -120px;
+right: -70px;
 
-    <script src="saved.js"></script>
+border-radius: 50%;
 
-</body>
-</html>
+background: rgba(255, 255, 255, 0.10);
+```
+
+}
+
+.saved-hero::after {
+content: "";
+
+```
+position: absolute;
+
+width: 150px;
+height: 150px;
+
+bottom: -90px;
+left: 30%;
+
+border-radius: 50%;
+
+background: rgba(255, 255, 255, 0.08);
+```
+
+}
+
+.hero-icon {
+position: relative;
+z-index: 1;
+
+```
+width: 70px;
+height: 70px;
+
+flex-shrink: 0;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 21px;
+
+background: rgba(255, 255, 255, 0.18);
+
+font-size: 2rem;
+
+box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+```
+
+}
+
+.saved-hero > div:last-child {
+position: relative;
+z-index: 1;
+}
+
+.saved-hero h2 {
+font-size: clamp(1.35rem, 3vw, 1.9rem);
+font-weight: 800;
+letter-spacing: -0.6px;
+}
+
+.saved-hero p {
+max-width: 650px;
+margin-top: 5px;
+
+```
+font-size: 0.95rem;
+
+color: rgba(255, 255, 255, 0.88);
+```
+
+}
+
+/* =========================================================
+STATS
+========================================================= */
+
+.saved-stats {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 17px;
+
+```
+margin-bottom: 34px;
+```
+
+}
+
+.stat-card {
+display: flex;
+align-items: center;
+gap: 15px;
+
+```
+padding: 20px;
+
+background: rgba(255, 255, 255, 0.88);
+
+border: 1px solid rgba(108, 76, 255, 0.08);
+
+border-radius: 19px;
+
+box-shadow:
+    0 10px 28px rgba(30, 20, 70, 0.06);
+
+transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+```
+
+}
+
+.stat-card:hover {
+transform: translateY(-3px);
+
+```
+box-shadow:
+    0 16px 35px rgba(30, 20, 70, 0.10);
+```
+
+}
+
+.stat-icon {
+width: 46px;
+height: 46px;
+
+```
+flex-shrink: 0;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 14px;
+
+background: #f1efff;
+
+font-size: 1.25rem;
+```
+
+}
+
+.stat-card div {
+display: flex;
+flex-direction: column;
+}
+
+.stat-card strong {
+font-size: 1.35rem;
+font-weight: 800;
+color: #1b1730;
+line-height: 1.2;
+}
+
+.stat-card span:not(.stat-icon) {
+margin-top: 2px;
+
+```
+font-size: 0.78rem;
+color: #858092;
+```
+
+}
+
+/* =========================================================
+CONTROLS
+========================================================= */
+
+.saved-controls {
+margin-bottom: 23px;
+}
+
+.section-heading h2 {
+font-size: 1.35rem;
+font-weight: 800;
+letter-spacing: -0.3px;
+}
+
+.section-heading p {
+margin-top: 3px;
+
+```
+font-size: 0.87rem;
+color: #817d8e;
+```
+
+}
+
+.filter-buttons {
+display: flex;
+align-items: center;
+gap: 9px;
+
+```
+margin-top: 17px;
+
+overflow-x: auto;
+
+padding-bottom: 5px;
+
+scrollbar-width: none;
+```
+
+}
+
+.filter-buttons::-webkit-scrollbar {
+display: none;
+}
+
+.filter-button {
+flex-shrink: 0;
+
+```
+padding: 9px 16px;
+
+border: 1px solid #e4e0ee;
+border-radius: 999px;
+
+background: rgba(255, 255, 255, 0.86);
+
+color: #656174;
+
+font-size: 0.84rem;
+font-weight: 700;
+
+cursor: pointer;
+
+transition:
+    all 0.2s ease;
+```
+
+}
+
+.filter-button:hover {
+border-color: #cfc5ff;
+
+```
+color: #6c4cff;
+
+background: #f7f5ff;
+```
+
+}
+
+.filter-button.active {
+border-color: #6c4cff;
+
+```
+background: #6c4cff;
+color: white;
+
+box-shadow:
+    0 7px 18px rgba(108, 76, 255, 0.22);
+```
+
+}
+
+/* =========================================================
+SAVED GRID
+========================================================= */
+
+.saved-content {
+min-height: 180px;
+}
+
+.saved-grid {
+display: grid;
+
+```
+grid-template-columns: repeat(2, minmax(0, 1fr));
+
+gap: 20px;
+```
+
+}
+
+/* =========================================================
+POST CARD
+========================================================= */
+
+.saved-post,
+.saved-card,
+.post-card {
+position: relative;
+
+```
+background: rgba(255, 255, 255, 0.94);
+
+border: 1px solid rgba(108, 76, 255, 0.08);
+
+border-radius: 21px;
+
+padding: 20px;
+
+box-shadow:
+    0 10px 30px rgba(30, 20, 70, 0.06);
+
+overflow: hidden;
+
+transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+```
+
+}
+
+.saved-post:hover,
+.saved-card:hover,
+.post-card:hover {
+transform: translateY(-4px);
+
+```
+border-color: rgba(108, 76, 255, 0.18);
+
+box-shadow:
+    0 18px 40px rgba(30, 20, 70, 0.10);
+```
+
+}
+
+/* =========================================================
+COMMON GENERATED CONTENT
+========================================================= */
+
+.saved-post img,
+.saved-card img,
+.post-card img {
+display: block;
+
+```
+width: 100%;
+max-height: 430px;
+
+object-fit: cover;
+
+border-radius: 15px;
+
+margin-top: 13px;
+```
+
+}
+
+.saved-post video,
+.saved-card video,
+.post-card video {
+display: block;
+
+```
+width: 100%;
+max-height: 430px;
+
+border-radius: 15px;
+
+margin-top: 13px;
+
+background: #111;
+```
+
+}
+
+.saved-post h3,
+.saved-card h3,
+.post-card h3 {
+font-size: 1rem;
+font-weight: 750;
+
+```
+color: #201c32;
+```
+
+}
+
+.saved-post p,
+.saved-card p,
+.post-card p {
+color: #686477;
+font-size: 0.9rem;
+}
+
+/* =========================================================
+EMPTY STATE
+========================================================= */
+
+.empty-state {
+width: min(600px, 100%);
+
+```
+margin: 40px auto;
+
+padding: 45px 28px;
+
+text-align: center;
+
+background: rgba(255, 255, 255, 0.9);
+
+border: 1px solid rgba(108, 76, 255, 0.09);
+
+border-radius: 24px;
+
+box-shadow:
+    0 14px 35px rgba(30, 20, 70, 0.06);
+```
+
+}
+
+.empty-state.hidden {
+display: none;
+}
+
+.empty-icon {
+width: 68px;
+height: 68px;
+
+```
+margin: 0 auto 16px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 20px;
+
+background: #f1efff;
+
+font-size: 1.8rem;
+```
+
+}
+
+.empty-state h2 {
+font-size: 1.25rem;
+font-weight: 800;
+}
+
+.empty-state p {
+max-width: 470px;
+
+```
+margin: 8px auto 20px;
+
+color: #777285;
+
+font-size: 0.9rem;
+```
+
+}
+
+.explore-button {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+
+```
+padding: 11px 19px;
+
+border-radius: 12px;
+
+background: #6c4cff;
+color: white;
+
+text-decoration: none;
+
+font-size: 0.88rem;
+font-weight: 700;
+
+box-shadow:
+    0 8px 20px rgba(108, 76, 255, 0.22);
+
+transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+```
+
+}
+
+.explore-button:hover {
+transform: translateY(-2px);
+
+```
+box-shadow:
+    0 12px 25px rgba(108, 76, 255, 0.28);
+```
+
+}
+
+/* =========================================================
+INFO CARD
+========================================================= */
+
+.saved-info {
+display: flex;
+align-items: flex-start;
+gap: 15px;
+
+```
+margin-top: 32px;
+
+padding: 20px 22px;
+
+border-radius: 19px;
+
+background: rgba(246, 244, 255, 0.85);
+
+border: 1px solid rgba(108, 76, 255, 0.10);
+```
+
+}
+
+.info-icon {
+width: 42px;
+height: 42px;
+
+```
+flex-shrink: 0;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 13px;
+
+background: white;
+
+font-size: 1.15rem;
+```
+
+}
+
+.saved-info h3 {
+font-size: 0.95rem;
+font-weight: 800;
+}
+
+.saved-info p {
+margin-top: 4px;
+
+```
+color: #767182;
+
+font-size: 0.83rem;
+```
+
+}
+
+/* =========================================================
+TOAST
+========================================================= */
+
+.toast {
+position: fixed;
+
+```
+left: 50%;
+bottom: 25px;
+
+z-index: 9999;
+
+display: flex;
+align-items: center;
+gap: 9px;
+
+padding: 12px 17px;
+
+border-radius: 13px;
+
+background: #201c32;
+color: white;
+
+font-size: 0.85rem;
+font-weight: 700;
+
+box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.18);
+
+transform: translate(-50%, 30px);
+
+opacity: 0;
+pointer-events: none;
+
+transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+```
+
+}
+
+.toast.show {
+opacity: 1;
+transform: translate(-50%, 0);
+}
+
+#toastIcon {
+width: 22px;
+height: 22px;
+
+```
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 50%;
+
+background: rgba(255, 255, 255, 0.12);
+```
+
+}
+
+/* =========================================================
+LINKS / BUTTON RESET
+========================================================= */
+
+button,
+a {
+-webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+outline: 3px solid rgba(108, 76, 255, 0.25);
+outline-offset: 3px;
+}
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+```
+.saved-header {
+    padding: 14px 4%;
+}
+
+.saved-page {
+    width: 92%;
+    padding-top: 30px;
+}
+
+.saved-stats {
+    gap: 12px;
+}
+
+.stat-card {
+    padding: 16px;
+}
+
+.saved-grid {
+    grid-template-columns: 1fr;
+}
+```
+
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width: 550px) {
+
+```
+.saved-header {
+    padding: 12px 4%;
+}
+
+.header-left {
+    gap: 10px;
+}
+
+.back-button {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 11px;
+}
+
+.header-left h1 {
+    font-size: 1.08rem;
+}
+
+.header-left p {
+    font-size: 0.72rem;
+}
+
+.clear-button {
+    padding: 9px 12px;
+
+    font-size: 0.75rem;
+}
+
+.saved-page {
+    width: 94%;
+
+    padding: 23px 0 45px;
+}
+
+.saved-hero {
+    align-items: flex-start;
+
+    padding: 23px;
+
+    border-radius: 21px;
+
+    gap: 15px;
+}
+
+.hero-icon {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 16px;
+
+    font-size: 1.45rem;
+}
+
+.saved-hero h2 {
+    font-size: 1.25rem;
+}
+
+.saved-hero p {
+    font-size: 0.82rem;
+}
+
+.saved-stats {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 27px;
+}
+
+.stat-card {
+    padding: 14px 16px;
+
+    border-radius: 16px;
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+}
+
+.section-heading h2 {
+    font-size: 1.2rem;
+}
+
+.filter-buttons {
+    margin-top: 13px;
+}
+
+.filter-button {
+    padding: 8px 14px;
+
+    font-size: 0.78rem;
+}
+
+.saved-post,
+.saved-card,
+.post-card {
+    padding: 16px;
+
+    border-radius: 18px;
+}
+
+.empty-state {
+    padding: 35px 20px;
+
+    border-radius: 20px;
+}
+
+.saved-info {
+    padding: 17px;
+
+    border-radius: 17px;
+}
+
+.toast {
+    width: max-content;
+    max-width: 90%;
+
+    bottom: 18px;
+}
+```
+
+}
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+```
+html {
+    scroll-behavior: auto;
+}
+
+*,
+*::before,
+*::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+}
+```
+
+}
