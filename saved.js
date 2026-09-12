@@ -1,57 +1,79 @@
-/* =========================================================
-   VIBECONNECT
-   SAVED POSTS / BOOKMARKS
-   ========================================================= */
-
 "use strict";
 
-
 /* =========================================================
+VIBECONNECT — SAVED POSTS
+Complete Saved Posts System
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+/* =====================================================
    STORAGE
-   ========================================================= */
+===================================================== */
 
-const SAVED_STORAGE_KEY = "vibeConnectSavedPosts";
+const SAVED_KEY = "vibeConnectSavedPosts";
+const LIKED_KEY = "vibeConnectLikedPosts";
 
-const LIKED_STORAGE_KEY = "vibeConnectLikedPosts";
+
+/* =====================================================
+   DOM
+===================================================== */
+
+const savedGrid = document.getElementById("savedGrid");
+const emptyState = document.getElementById("emptyState");
+
+const savedCount = document.getElementById("savedCount");
+const likedCount = document.getElementById("likedCount");
+const mediaCount = document.getElementById("mediaCount");
+
+const clearAllBtn = document.getElementById("clearAllBtn");
+
+const toast = document.getElementById("toast");
+const toastMessage = document.getElementById("toastMessage");
+const toastIcon = document.getElementById("toastIcon");
+
+const filterButtons =
+    document.querySelectorAll(".filter-button");
 
 
-/* =========================================================
-   DEMO SAVED POSTS
-   ========================================================= */
+/* =====================================================
+   STATE
+===================================================== */
 
-const demoSavedPosts = [
+let savedPosts = [];
+let currentFilter = "all";
+let toastTimer = null;
+
+
+/* =====================================================
+   DEMO POSTS
+   ===================================================== */
+
+const demoPosts = [
 
     {
         id: "saved-001",
-
         type: "text",
 
         user: "Alex Morgan",
-
         username: "@alexmorgan",
-
         avatar: "AM",
 
         text:
             "Small progress every day eventually becomes something huge. Keep building, keep learning, and don't be afraid to start again.",
 
         likes: 142,
-
         comments: 23,
 
         savedAt: Date.now() - 1000 * 60 * 20
     },
 
-
     {
         id: "saved-002",
-
         type: "photo",
 
         user: "Maya Sharma",
-
         username: "@mayasharma",
-
         avatar: "MS",
 
         text:
@@ -61,74 +83,58 @@ const demoSavedPosts = [
             "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=80",
 
         likes: 284,
-
         comments: 41,
 
         savedAt: Date.now() - 1000 * 60 * 55
     },
 
-
     {
         id: "saved-003",
-
         type: "poll",
 
-        user: "Arjun Singh",
-
-        username: "@arjunsingh",
-
+        user: "Trisha",
+        username: "@trishajaiswal",
         avatar: "AS",
 
         text:
             "What should VibeConnect add next?",
 
         poll: {
-
             question:
                 "Which feature would you use the most?",
 
             options: [
-
                 {
                     text: "Groups",
                     percent: 38
                 },
-
                 {
                     text: "Live Rooms",
                     percent: 27
                 },
-
                 {
                     text: "Reels",
                     percent: 22
                 },
-
                 {
                     text: "Events",
                     percent: 13
                 }
-
             ]
         },
 
         likes: 98,
-
         comments: 17,
 
         savedAt: Date.now() - 1000 * 60 * 90
     },
 
-
     {
         id: "saved-004",
-
         type: "video",
 
-        user: "Priya Verma",
-
-        username: "@priyaverma",
-
+        user: "Nikhil Jaiswal",
+        username: "@nikhiljaiswal09",
         avatar: "PV",
 
         text:
@@ -138,29 +144,23 @@ const demoSavedPosts = [
             "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
 
         likes: 321,
-
         comments: 52,
 
         savedAt: Date.now() - 1000 * 60 * 130
     },
 
-
     {
         id: "saved-005",
-
         type: "text",
 
         user: "Rohan Kapoor",
-
         username: "@rohank",
-
         avatar: "RK",
 
         text:
             "Your future self will thank you for the skills you start learning today. 🚀",
 
         likes: 76,
-
         comments: 9,
 
         savedAt: Date.now() - 1000 * 60 * 180
@@ -169,210 +169,153 @@ const demoSavedPosts = [
 ];
 
 
-/* =========================================================
-   STATE
-   ========================================================= */
-
-let savedPosts = [];
-
-let currentFilter = "all";
-
-
-/* =========================================================
-   DOM
-   ========================================================= */
-
-const savedGrid =
-    document.getElementById("savedGrid");
-
-const emptyState =
-    document.getElementById("emptyState");
-
-const savedCount =
-    document.getElementById("savedCount");
-
-const likedCount =
-    document.getElementById("likedCount");
-
-const mediaCount =
-    document.getElementById("mediaCount");
-
-const clearAllBtn =
-    document.getElementById("clearAllBtn");
-
-const toast =
-    document.getElementById("toast");
-
-const toastMessage =
-    document.getElementById("toastMessage");
-
-const toastIcon =
-    document.getElementById("toastIcon");
-
-const filterButtons =
-    document.querySelectorAll(".filter-button");
-
-
-/* =========================================================
-   INITIALIZE
-   ========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    initializeSavedPage
-);
-
-
-function initializeSavedPage() {
-
-    loadSavedPosts();
-
-    setupFilters();
-
-    setupClearButton();
-
-    renderSavedPosts();
-
-    updateStats();
-}
-
-
-/* =========================================================
-   LOAD SAVED POSTS
-   ========================================================= */
+/* =====================================================
+   LOAD
+===================================================== */
 
 function loadSavedPosts() {
 
     try {
 
         const stored =
-            localStorage.getItem(
-                SAVED_STORAGE_KEY
-            );
+            localStorage.getItem(SAVED_KEY);
 
-        if (stored) {
+        if (!stored) {
 
             savedPosts =
-                JSON.parse(stored);
+                demoPosts.map(post => ({
+                    ...post
+                }));
 
+            saveSavedPosts();
+
+            return;
+        }
+
+        const parsed =
+            JSON.parse(stored);
+
+        if (Array.isArray(parsed)) {
+            savedPosts = parsed;
         } else {
-
-            savedPosts =
-                demoSavedPosts;
-
-            savePosts();
-
+            savedPosts = [];
         }
 
     } catch (error) {
 
         console.error(
-            "Could not load saved posts:",
+            "VibeConnect: Could not load saved posts.",
             error
         );
 
-        savedPosts =
-            demoSavedPosts;
+        savedPosts = [];
     }
 }
 
 
-/* =========================================================
-   SAVE POSTS
-   ========================================================= */
+/* =====================================================
+   SAVE
+===================================================== */
 
-function savePosts() {
+function saveSavedPosts() {
 
-    localStorage.setItem(
-        SAVED_STORAGE_KEY,
-        JSON.stringify(savedPosts)
-    );
+    try {
+
+        localStorage.setItem(
+            SAVED_KEY,
+            JSON.stringify(savedPosts)
+        );
+
+    } catch (error) {
+
+        console.error(
+            "VibeConnect: Could not save posts.",
+            error
+        );
+    }
 }
 
 
-/* =========================================================
+/* =====================================================
    FILTERS
-   ========================================================= */
+===================================================== */
 
 function setupFilters() {
 
     filterButtons.forEach(button => {
 
-        button.addEventListener(
-            "click",
-            () => {
+        button.addEventListener("click", () => {
 
-                filterButtons.forEach(
-                    item =>
-                        item.classList.remove(
-                            "active"
-                        )
+            currentFilter =
+                button.dataset.filter || "all";
+
+            filterButtons.forEach(item => {
+
+                const active =
+                    item === button;
+
+                item.classList.toggle(
+                    "active",
+                    active
                 );
 
-                button.classList.add("active");
+                item.setAttribute(
+                    "aria-pressed",
+                    String(active)
+                );
+            });
 
-                currentFilter =
-                    button.dataset.filter;
-
-                renderSavedPosts();
-
-            }
-        );
-
+            render();
+        });
     });
 }
 
 
-/* =========================================================
-   FILTER POSTS
-   ========================================================= */
+/* =====================================================
+   GET FILTERED POSTS
+===================================================== */
 
 function getFilteredPosts() {
 
     if (currentFilter === "all") {
-
         return savedPosts;
-
     }
 
     return savedPosts.filter(
         post =>
+            post &&
             post.type === currentFilter
     );
 }
 
 
-/* =========================================================
+/* =====================================================
    RENDER
-   ========================================================= */
+===================================================== */
 
-function renderSavedPosts() {
+function render() {
+
+    if (!savedGrid || !emptyState) {
+        return;
+    }
 
     const posts =
         getFilteredPosts();
 
     savedGrid.innerHTML = "";
 
-    if (posts.length === 0) {
+    if (!posts.length) {
 
-        savedGrid.style.display =
-            "none";
+        savedGrid.style.display = "none";
 
-        emptyState.classList.remove(
-            "hidden"
-        );
+        emptyState.classList.remove("hidden");
 
         return;
-
     }
 
-    savedGrid.style.display =
-        "grid";
+    savedGrid.style.display = "";
 
-    emptyState.classList.add(
-        "hidden"
-    );
-
+    emptyState.classList.add("hidden");
 
     posts.forEach(post => {
 
@@ -380,31 +323,33 @@ function renderSavedPosts() {
             createPostCard(post);
 
         savedGrid.appendChild(card);
-
     });
 }
 
 
-/* =========================================================
+/* =====================================================
    CREATE POST CARD
-   ========================================================= */
+===================================================== */
 
 function createPostCard(post) {
 
     const card =
         document.createElement("article");
 
-    card.className =
-        "saved-post";
+    card.className = "saved-post";
 
     card.dataset.id =
-        post.id;
+        post.id || "";
 
 
-    const postHeader =
+    /* =================================================
+       HEADER
+    ================================================= */
+
+    const header =
         document.createElement("div");
 
-    postHeader.className =
+    header.className =
         "post-header";
 
 
@@ -422,28 +367,47 @@ function createPostCard(post) {
         "avatar";
 
     avatar.textContent =
-        post.avatar || "VC";
+        getInitials(
+            post.avatar ||
+            post.user ||
+            "VC"
+        );
 
 
-    const userText =
+    const userDetails =
         document.createElement("div");
 
-    userText.innerHTML = `
+    userDetails.className =
+        "user-details";
 
-        <div class="username">
-            ${escapeHTML(post.user)}
-        </div>
 
-        <div class="handle">
-            ${escapeHTML(post.username)}
-        </div>
+    const username =
+        document.createElement("div");
 
-    `;
+    username.className =
+        "username";
 
+    username.textContent =
+        post.user ||
+        "VibeConnect User";
+
+
+    const handle =
+        document.createElement("div");
+
+    handle.className =
+        "handle";
+
+    handle.textContent =
+        post.username ||
+        "@user";
+
+
+    userDetails.appendChild(username);
+    userDetails.appendChild(handle);
 
     userInfo.appendChild(avatar);
-
-    userInfo.appendChild(userText);
+    userInfo.appendChild(userDetails);
 
 
     const savedLabel =
@@ -452,22 +416,17 @@ function createPostCard(post) {
     savedLabel.className =
         "saved-label";
 
-    savedLabel.innerHTML =
+    savedLabel.textContent =
         "🔖 Saved";
 
 
-    postHeader.appendChild(
-        userInfo
-    );
-
-    postHeader.appendChild(
-        savedLabel
-    );
+    header.appendChild(userInfo);
+    header.appendChild(savedLabel);
 
 
-    /* =========================
+    /* =================================================
        BODY
-    ========================== */
+    ================================================= */
 
     const body =
         document.createElement("div");
@@ -488,13 +447,12 @@ function createPostCard(post) {
             post.text;
 
         body.appendChild(text);
-
     }
 
 
-    /* =========================
+    /* =================================================
        PHOTO
-    ========================== */
+    ================================================= */
 
     if (
         post.type === "photo" &&
@@ -511,19 +469,24 @@ function createPostCard(post) {
             post.media;
 
         image.alt =
-            "Saved post photo";
+            "Saved post";
 
         image.loading =
             "lazy";
 
-        body.appendChild(image);
+        image.onerror = () => {
 
+            image.style.display =
+                "none";
+        };
+
+        body.appendChild(image);
     }
 
 
-    /* =========================
+    /* =================================================
        VIDEO
-    ========================== */
+    ================================================= */
 
     if (
         post.type === "video" &&
@@ -539,20 +502,23 @@ function createPostCard(post) {
         video.src =
             post.video;
 
-        video.controls =
-            true;
+        video.controls = true;
 
         video.preload =
             "metadata";
 
-        body.appendChild(video);
+        video.setAttribute(
+            "playsinline",
+            ""
+        );
 
+        body.appendChild(video);
     }
 
 
-    /* =========================
+    /* =================================================
        POLL
-    ========================== */
+    ================================================= */
 
     if (
         post.type === "poll" &&
@@ -573,70 +539,98 @@ function createPostCard(post) {
             "poll-question";
 
         question.textContent =
-            post.poll.question;
+            post.poll.question ||
+            "Poll";
 
 
         poll.appendChild(question);
 
 
-        post.poll.options.forEach(
-            option => {
-
-                const optionElement =
-                    document.createElement(
-                        "div"
-                    );
-
-                optionElement.className =
-                    "poll-option";
+        const options =
+            Array.isArray(post.poll.options)
+                ? post.poll.options
+                : [];
 
 
-                const optionText =
-                    document.createElement(
-                        "span"
-                    );
+        options.forEach(option => {
 
-                optionText.textContent =
-                    option.text;
+            const optionElement =
+                document.createElement("div");
 
-
-                const percentage =
-                    document.createElement(
-                        "span"
-                    );
-
-                percentage.className =
-                    "poll-percent";
-
-                percentage.textContent =
-                    `${option.percent}%`;
+            optionElement.className =
+                "poll-option";
 
 
-                optionElement.appendChild(
-                    optionText
-                );
+            const optionText =
+                document.createElement("span");
 
-                optionElement.appendChild(
-                    percentage
-                );
+            optionText.className =
+                "poll-option-text";
+
+            optionText.textContent =
+                option.text || "";
 
 
-                poll.appendChild(
-                    optionElement
-                );
+            const percent =
+                document.createElement("span");
 
-            }
-        );
+            percent.className =
+                "poll-percent";
+
+            percent.textContent =
+                ${Number(option.percent) || 0}%`;
+
+
+            const bar =
+                document.createElement("div");
+
+            bar.className =
+                "poll-bar";
+
+
+            const fill =
+                document.createElement("div");
+
+            fill.className =
+                "poll-bar-fill";
+
+            fill.style.width =
+                ${Math.max(
+                    0,
+                    Math.min(
+                        100,
+                        Number(option.percent) || 0
+                    )
+                )}%;
+
+
+            bar.appendChild(fill);
+
+            optionElement.appendChild(
+                optionText
+            );
+
+            optionElement.appendChild(
+                percent
+            );
+
+            optionElement.appendChild(
+                bar
+            );
+
+            poll.appendChild(
+                optionElement
+            );
+        });
 
 
         body.appendChild(poll);
-
     }
 
 
-    /* =========================
+    /* =================================================
        FOOTER
-    ========================== */
+    ================================================= */
 
     const footer =
         document.createElement("div");
@@ -651,13 +645,23 @@ function createPostCard(post) {
     engagement.className =
         "engagement";
 
-    engagement.innerHTML = `
 
-        <span>❤️ ${post.likes || 0}</span>
+    const likes =
+        document.createElement("span");
 
-        <span>💬 ${post.comments || 0}</span>
+    likes.textContent =
+        ❤️ ${Number(post.likes) || 0}`;
 
-    `;
+
+    const comments =
+        document.createElement("span");
+
+    comments.textContent =
+        💬 ${Number(post.comments) || 0}`;
+
+
+    engagement.appendChild(likes);
+    engagement.appendChild(comments);
 
 
     const actions =
@@ -667,8 +671,13 @@ function createPostCard(post) {
         "post-actions";
 
 
+    /* SHARE */
+
     const shareButton =
         document.createElement("button");
+
+    shareButton.type =
+        "button";
 
     shareButton.className =
         "action-button";
@@ -676,8 +685,14 @@ function createPostCard(post) {
     shareButton.title =
         "Share";
 
+    shareButton.setAttribute(
+        "aria-label",
+        "Share post"
+    );
+
     shareButton.textContent =
         "↗";
+
 
     shareButton.addEventListener(
         "click",
@@ -685,8 +700,13 @@ function createPostCard(post) {
     );
 
 
+    /* REMOVE */
+
     const removeButton =
         document.createElement("button");
+
+    removeButton.type =
+        "button";
 
     removeButton.className =
         "action-button remove";
@@ -694,13 +714,18 @@ function createPostCard(post) {
     removeButton.title =
         "Remove from saved";
 
+    removeButton.setAttribute(
+        "aria-label",
+        "Remove from saved"
+    );
+
     removeButton.textContent =
         "🔖";
 
+
     removeButton.addEventListener(
         "click",
-        () =>
-            removeSavedPost(post.id)
+        () => removePost(post.id)
     );
 
 
@@ -722,42 +747,45 @@ function createPostCard(post) {
     );
 
 
-    card.appendChild(
-        postHeader
-    );
+    /* =================================================
+       BUILD CARD
+    ================================================= */
 
-    card.appendChild(
-        body
-    );
-
-    card.appendChild(
-        footer
-    );
+    card.appendChild(header);
+    card.appendChild(body);
+    card.appendChild(footer);
 
 
     return card;
 }
 
 
-/* =========================================================
-   REMOVE SAVED POST
-   ========================================================= */
+/* =====================================================
+   REMOVE POST
+===================================================== */
 
-function removeSavedPost(id) {
+function removePost(id) {
 
-    const post =
-        savedPosts.find(
-            item => item.id === id
-        );
+    const before =
+        savedPosts.length;
 
     savedPosts =
         savedPosts.filter(
-            item => item.id !== id
+            post =>
+                post.id !== id
         );
 
-    savePosts();
 
-    renderSavedPosts();
+    if (
+        savedPosts.length === before
+    ) {
+        return;
+    }
+
+
+    saveSavedPosts();
+
+    render();
 
     updateStats();
 
@@ -768,22 +796,26 @@ function removeSavedPost(id) {
 }
 
 
-/* =========================================================
+/* =====================================================
    CLEAR ALL
-   ========================================================= */
+===================================================== */
 
 function setupClearButton() {
 
+    if (!clearAllBtn) {
+        return;
+    }
+
     clearAllBtn.addEventListener(
         "click",
-        clearAllSavedPosts
+        clearAll
     );
 }
 
 
-function clearAllSavedPosts() {
+function clearAll() {
 
-    if (savedPosts.length === 0) {
+    if (!savedPosts.length) {
 
         showToast(
             "There are no saved posts",
@@ -795,7 +827,7 @@ function clearAllSavedPosts() {
 
 
     const confirmed =
-        confirm(
+        window.confirm(
             "Are you sure you want to remove all saved posts?"
         );
 
@@ -807,9 +839,9 @@ function clearAllSavedPosts() {
 
     savedPosts = [];
 
-    savePosts();
+    saveSavedPosts();
 
-    renderSavedPosts();
+    render();
 
     updateStats();
 
@@ -820,14 +852,17 @@ function clearAllSavedPosts() {
 }
 
 
-/* =========================================================
+/* =====================================================
    STATS
-   ========================================================= */
+===================================================== */
 
 function updateStats() {
 
-    savedCount.textContent =
-        savedPosts.length;
+    if (savedCount) {
+
+        savedCount.textContent =
+            savedPosts.length;
+    }
 
 
     const mediaTotal =
@@ -837,48 +872,64 @@ function updateStats() {
                 post.type === "video"
         ).length;
 
-    mediaCount.textContent =
-        mediaTotal;
 
+    if (mediaCount) {
 
-    let likedPosts = 0;
-
-    try {
-
-        const liked =
-            JSON.parse(
-                localStorage.getItem(
-                    LIKED_STORAGE_KEY
-                )
-            );
-
-        if (Array.isArray(liked)) {
-
-            likedPosts =
-                liked.length;
-
-        }
-
-    } catch {
-
-        likedPosts = 0;
-
+        mediaCount.textContent =
+            mediaTotal;
     }
 
 
-    likedCount.textContent =
-        likedPosts;
+    let likedTotal = 0;
+
+
+    try {
+
+        const stored =
+            localStorage.getItem(
+                LIKED_KEY
+            );
+
+
+        if (stored) {
+
+            const liked =
+                JSON.parse(stored);
+
+
+            if (Array.isArray(liked)) {
+
+                likedTotal =
+                    liked.length;
+            }
+
+        }
+
+    } catch (error) {
+
+        console.warn(
+            "Could not read liked posts.",
+            error
+        );
+    }
+
+
+    if (likedCount) {
+
+        likedCount.textContent =
+            likedTotal;
+    }
 }
 
 
-/* =========================================================
+/* =====================================================
    SHARE
-   ========================================================= */
+===================================================== */
 
 async function sharePost(post) {
 
-    const shareText =
-        `${post.user}: ${post.text || "Saved post"}`;
+    const text =
+        ${post.user || "VibeConnect User"}: ${post.text || "Saved post"}`;
 
 
     if (
@@ -888,25 +939,31 @@ async function sharePost(post) {
         try {
 
             await navigator.share({
+
                 title:
                     "VibeConnect Saved Post",
 
-                text:
-                    shareText
+                text
             });
 
-        } catch {
-            // User cancelled sharing
-        }
+            return;
 
-        return;
+        } catch (error) {
+
+            if (
+                error &&
+                error.name === "AbortError"
+            ) {
+                return;
+            }
+        }
     }
 
 
     try {
 
         await navigator.clipboard.writeText(
-            shareText
+            text
         );
 
         showToast(
@@ -914,28 +971,33 @@ async function sharePost(post) {
             "✓"
         );
 
-    } catch {
+    } catch (error) {
 
         showToast(
             "Sharing is not available",
             "!"
         );
-
     }
 }
 
 
-/* =========================================================
+/* =====================================================
    TOAST
-   ========================================================= */
-
-let toastTimer;
-
+===================================================== */
 
 function showToast(
     message,
     icon = "✓"
 ) {
+
+    if (
+        !toast ||
+        !toastMessage ||
+        !toastIcon
+    ) {
+        return;
+    }
+
 
     toastMessage.textContent =
         message;
@@ -943,103 +1005,150 @@ function showToast(
     toastIcon.textContent =
         icon;
 
+
     toast.classList.add(
         "show"
     );
 
 
-    clearTimeout(toastTimer);
+    clearTimeout(
+        toastTimer
+    );
 
 
     toastTimer =
-        setTimeout(
-            () => {
+        setTimeout(() => {
 
-                toast.classList.remove(
-                    "show"
-                );
+            toast.classList.remove(
+                "show"
+            );
 
-            },
-            2600
-        );
+        }, 2600);
 }
 
 
-/* =========================================================
-   ESCAPE HTML
-   ========================================================= */
+/* =====================================================
+   INITIALS
+===================================================== */
 
-function escapeHTML(value) {
+function getInitials(value) {
 
-    return String(value ?? "")
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+    const text =
+        String(value || "VC")
+            .trim();
+
+
+    if (!text) {
+        return "VC";
+    }
+
+
+    const parts =
+        text.split(/\s+/);
+
+
+    if (parts.length >= 2) {
+
+        return (
+            parts[0][0] +
+            parts[1][0]
+        ).toUpperCase();
+    }
+
+
+    return text
+        .slice(0, 2)
+        .toUpperCase();
 }
 
 
-/* =========================================================
+/* =====================================================
    PUBLIC API
-   ========================================================= */
+   Allows feed/app JavaScript to add/remove saved posts.
+===================================================== */
 
 window.vibeConnectSaved = {
 
     getPosts() {
-        return savedPosts;
+        return [...savedPosts];
     },
+
 
     addPost(post) {
 
-        if (!post.id) {
-
-            post.id =
-                `saved-${Date.now()}`;
-
+        if (!post || typeof post !== "object") {
+            return;
         }
 
+
+        const newPost = {
+            ...post,
+
+            id:
+                post.id ||
+                `saved-${Date.now()}`
+        };
+
+
+        const exists =
+            savedPosts.some(
+                item =>
+                    item.id === newPost.id
+            );
+
+
+        if (exists) {
+            return;
+        }
+
+
         savedPosts.unshift(
-            post
+            newPost
         );
 
-        savePosts();
 
-        renderSavedPosts();
+        saveSavedPosts();
+
+        render();
 
         updateStats();
 
+        showToast(
+            "Post saved",
+            "🔖"
+        );
     },
+
 
     removePost(id) {
 
-        removeSavedPost(id);
-
+        removePost(id);
     },
+
 
     refresh() {
 
         loadSavedPosts();
 
-        renderSavedPosts();
+        render();
 
         updateStats();
-
     }
-
 };
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadSavedPosts();
+
+setupFilters();
+
+setupClearButton();
+
+render();
+
+updateStats();
+
+});
