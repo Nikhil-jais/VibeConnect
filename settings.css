@@ -17,8 +17,8 @@ body {
         "Segoe UI",
         sans-serif;
 
-    background: #60384d;
-    color: #9f6f33;
+    background: #57444e;
+    color: #413743;
 
     min-height: 100vh;
 
@@ -116,7 +116,7 @@ body {
 
     padding: 22px;
 
-    background: #77667f;
+    background: #100e0f;
 
     border: 1px solid #753d6a;
 
@@ -141,7 +141,7 @@ body {
             #131011
         );
 
-    color: #7c5757;
+    color: #4d3737;
 
     font-size: 24px;
     font-weight: 800;
@@ -393,7 +393,7 @@ body {
 }
 
 .switch input:checked + .slider {
-    background: #7c3aed;
+    background: #252108;
 }
 
 .switch input:checked + .slider::before {
