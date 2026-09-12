@@ -198,7 +198,7 @@ function escapeHTML(value) {
             "&quot;"
         )
         .replace(
-            /'/g,
+            /"/g,
             "&#039;"
         );
 }
@@ -485,7 +485,7 @@ async function loadStories() {
     } =
         await state.client
             .from("stories")
-            .select(`
+            .select(
                 id,
                 user_id,
                 content,
@@ -497,7 +497,7 @@ async function loadStories() {
                     username,
                     avatar_url
                 )
-            `)
+            )
             .order(
                 "created_at",
                 {
@@ -532,11 +532,11 @@ async function loadStories() {
 
 
     elements.storyCount.textContent =
-        `${state.stories.length} ${
+        ${state.stories.length} ${
             state.stories.length === 1
                 ? "story"
                 : "stories"
-        }`;
+        };
 
 
     renderStories();
@@ -556,7 +556,7 @@ function renderStories() {
     if (!state.stories.length) {
 
         elements.storyGrid.innerHTML =
-            `
+            
                 <div class="empty-state">
 
                     <div class="empty-icon">
@@ -573,7 +573,7 @@ function renderStories() {
                     </p>
 
                 </div>
-            `;
+            ;
 
         return;
     }
@@ -624,13 +624,13 @@ function createStoryCard(
 
     const username =
         profile.username
-            ? `@${profile.username}`
+            ? @${profile.username}`
             : "@user";
 
 
     const avatar =
         profile.avatar_url
-            ? `
+            ? 
                 <img
                     src="${escapeHTML(
                         profile.avatar_url
@@ -639,7 +639,7 @@ function createStoryCard(
                         name
                     )}"
                 >
-              `
+              
             : getInitials(
                 name,
                 profile.username
@@ -656,7 +656,7 @@ function createStoryCard(
     ) {
 
         media =
-            `
+            
                 <video
                     class="story-media"
                     src="${escapeHTML(
@@ -666,14 +666,14 @@ function createStoryCard(
                     playsinline
                     preload="metadata"
                 ></video>
-            `;
+            ;
 
     } else if (
         story.media_url
     ) {
 
         media =
-            `
+            
                 <img
                     class="story-media"
                     src="${escapeHTML(
@@ -682,12 +682,12 @@ function createStoryCard(
                     alt="Story"
                     loading="lazy"
                 >
-            `;
+            ;
 
     } else {
 
         media =
-            `
+            
                 <div
                     class="story-media story-text-media"
                     style="
@@ -699,12 +699,12 @@ function createStoryCard(
                         );
                     "
                 ></div>
-            `;
+            ;
     }
 
 
     card.innerHTML =
-        `
+        
             ${media}
 
             <div class="story-overlay">
@@ -746,7 +746,7 @@ function createStoryCard(
                 </div>
 
             </div>
-        `;
+        ;
 
 
     card.addEventListener(
@@ -785,9 +785,9 @@ function openStory(
 
 
     elements.viewerUser.textContent =
-        `${name} • ${formatTime(
+        ${name} • ${formatTime(
             story.created_at
-        )}`;
+        )};
 
 
     elements.viewerCaption.textContent =
@@ -1004,11 +1004,11 @@ async function deleteStory() {
 
 
     elements.storyCount.textContent =
-        `${state.stories.length} ${
+        ${state.stories.length} ${
             state.stories.length === 1
                 ? "story"
                 : "stories"
-        }`;
+        };
 
 
     showToast(
@@ -1032,7 +1032,7 @@ async function loadReels() {
     } =
         await state.client
             .from("posts")
-            .select(`
+            .select(
                 id,
                 user_id,
                 content,
@@ -1044,7 +1044,7 @@ async function loadReels() {
                     username,
                     avatar_url
                 )
-            `)
+            )
             .eq(
                 "media_type",
                 "video"
@@ -1083,11 +1083,11 @@ async function loadReels() {
 
 
     elements.reelCount.textContent =
-        `${state.reels.length} ${
+        ${state.reels.length} ${
             state.reels.length === 1
                 ? "reel"
                 : "reels"
-        }`;
+        };
 
 
     renderReels();
@@ -1107,7 +1107,7 @@ function renderReels() {
     if (!state.reels.length) {
 
         elements.reelsGrid.innerHTML =
-            `
+            
                 <div class="empty-state">
 
                     <div class="empty-icon">
@@ -1124,7 +1124,7 @@ function renderReels() {
                     </p>
 
                 </div>
-            `;
+            ;
 
         return;
     }
@@ -1178,7 +1178,7 @@ function createReelCard(
 
     const avatar =
         profile.avatar_url
-            ? `
+            ? 
                 <img
                     src="${escapeHTML(
                         profile.avatar_url
@@ -1187,7 +1187,7 @@ function createReelCard(
                         name
                     )}"
                 >
-              `
+            
             : getInitials(
                 name,
                 profile.username
@@ -1195,7 +1195,7 @@ function createReelCard(
 
 
     card.innerHTML =
-        `
+        
             <video
                 class="reel-video"
                 src="${escapeHTML(
@@ -1227,7 +1227,7 @@ function createReelCard(
                         <div>
                             ${escapeHTML(
                                 profile.username
-                                    ? `@${profile.username}`
+                                    ? @${profile.username}`
                                     : ""
                             )}
                         </div>
@@ -1264,7 +1264,7 @@ function createReelCard(
             <div class="reel-play">
                 ▶
             </div>
-        `;
+        ;
 
 
     const video =
@@ -1379,7 +1379,7 @@ function setupReelPlayback() {
 function showStoryLoading() {
 
     elements.storyGrid.innerHTML =
-        `
+        
             <div class="loading-state">
 
                 <div class="spinner"></div>
@@ -1389,14 +1389,14 @@ function showStoryLoading() {
                 </p>
 
             </div>
-        `;
+        ;
 }
 
 
 function showReelLoading() {
 
     elements.reelsGrid.innerHTML =
-        `
+        
             <div class="loading-state">
 
                 <div class="spinner"></div>
@@ -1406,7 +1406,7 @@ function showReelLoading() {
                 </p>
 
             </div>
-        `;
+        ;
 }
 
 
@@ -1419,7 +1419,7 @@ function showStoryError(
 ) {
 
     elements.storyGrid.innerHTML =
-        `
+        
             <div class="error-state">
 
                 <div class="empty-icon">
@@ -1437,7 +1437,7 @@ function showStoryError(
                 </p>
 
             </div>
-        `;
+        ;
 }
 
 
@@ -1446,7 +1446,7 @@ function showReelError(
 ) {
 
     elements.reelsGrid.innerHTML =
-        `
+        
             <div class="error-state">
 
                 <div class="empty-icon">
@@ -1464,7 +1464,7 @@ function showReelError(
                 </p>
 
             </div>
-        `;
+        ;
 }
 
 
