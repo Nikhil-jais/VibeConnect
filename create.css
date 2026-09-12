@@ -9,13 +9,13 @@
 }
 
 :root {
-    --primary: #6c5ce7;
-    --primary-dark: #5546d8;
-    --background: #f5f7fb;
-    --card: #ffffff;
+    --primary: #57303a;
+    --primary-dark: #8f6464;
+    --background: #6f5358;
+    --card: #5f4a51;
     --text: #111827;
-    --muted: #6b7280;
-    --border: #e5e7eb;
+    --muted: #0a0a0b;
+    --border: #402e2e;
 }
 
 body {
@@ -53,7 +53,7 @@ body {
 
     padding: 0 24px;
 
-    background: rgba(255, 255, 255, 0.95);
+    background: rgb(79 66 75 / 95%);
 
     border-bottom: 1px solid var(--border);
 
@@ -83,13 +83,13 @@ body {
 }
 
 .back-button:hover {
-    background: #f3f4f6;
+    background: #58414c;
 }
 
 .clear-button {
     border: none;
 
-    background: transparent;
+    background: #5d3e4a00;
 
     color: var(--muted);
 
@@ -100,7 +100,7 @@ body {
 }
 
 .clear-button:hover {
-    color: #ef4444;
+    color: #7a4d4d;
 }
 
 
@@ -129,7 +129,7 @@ body {
     padding: 22px;
 
     box-shadow:
-        0 5px 25px rgba(0, 0, 0, 0.05);
+        0 5px 25px rgb(125 79 101 / 5%);
 }
 
 
@@ -152,7 +152,7 @@ body {
 
     border-radius: 50%;
 
-    background: #ede9fe;
+    background: #9d7a93;
 
     display: flex;
     align-items: center;
@@ -217,13 +217,13 @@ body {
 
     color: var(--text);
 
-    background: #fafafa;
+    background: #45333b;
 }
 
 .post-textarea:focus {
     border-color: var(--primary);
 
-    background: white;
+    background: #895555;
 }
 
 .character-count {
@@ -265,7 +265,7 @@ body {
 
     border-radius: 13px;
 
-    background: #f3f4f6;
+    background: #785170;
 
     aspect-ratio: 1 / 1;
 }
@@ -293,9 +293,9 @@ body {
 
     border-radius: 50%;
 
-    background: rgba(0, 0, 0, 0.7);
+    background: rgb(92 63 79 / 70%);
 
-    color: white;
+    color: #6d465a;
 
     font-size: 18px;
 
@@ -316,7 +316,7 @@ body {
 
     border-radius: 15px;
 
-    background: #fafafa;
+    background: #553939;
 }
 
 .poll-creator.hidden {
@@ -345,7 +345,7 @@ body {
 
     border-radius: 50%;
 
-    background: #eeeeee;
+    background: #77547f;
 
     font-size: 20px;
 
@@ -368,7 +368,7 @@ body {
 
     font-size: 13px;
 
-    background: white;
+    background: #8f6678;
 }
 
 .poll-question:focus,
@@ -391,7 +391,7 @@ body {
 
     border: none;
 
-    background: transparent;
+    background: #87677f00;
 
     color: var(--primary);
 
@@ -450,7 +450,7 @@ body {
 
     border-radius: 11px;
 
-    background: white;
+    background: #977c7c;
 
     color: var(--text);
 
@@ -468,7 +468,7 @@ body {
 
     color: var(--primary);
 
-    background: #faf9ff;
+    background: #6e6872;
 }
 
 
@@ -489,7 +489,7 @@ body {
 
     background: var(--primary);
 
-    color: white;
+    color: #1a1818;
 
     font-size: 14px;
 
