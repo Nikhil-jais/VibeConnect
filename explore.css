@@ -18,16 +18,16 @@ body {
         "Segoe UI",
         sans-serif;
 
-    color: #202124;
+    color: #9d638b;
 
     min-height: 100vh;
 
     background:
         linear-gradient(
             135deg,
-            #f8f7ff 0%,
-            #ffffff 45%,
-            #f4f7ff 100%
+            #8f636f 0%,
+            #573c3c 45%,
+            #a57c8f 100%
         );
 }
 
@@ -52,12 +52,12 @@ body {
     padding: 17px 6%;
 
     background:
-        rgba(255, 255, 255, 0.94);
+        rgb(85 58 79 / 94%);
 
     backdrop-filter: blur(18px);
 
     border-bottom:
-        1px solid #e7e6ef;
+        1px solid #604650;
 }
 
 .header-left {
@@ -83,9 +83,9 @@ body {
 
     text-decoration: none;
 
-    background: #f0edff;
+    background: #9f5a6f;
 
-    color: #6747ed;
+    color: #e9e6e7;
 
     font-size: 25px;
 
@@ -97,7 +97,7 @@ body {
 .back-button:hover {
     transform: translateX(-3px);
 
-    background: #e5e0ff;
+    background: #603641;
 }
 
 .brand-area h1 {
@@ -109,7 +109,7 @@ body {
 .brand-area p {
     margin-top: 2px;
 
-    color: #777;
+    color: #da8cbc;
 
     font-size: 13px;
 }
@@ -121,9 +121,9 @@ body {
 
     border-radius: 12px;
 
-    background: #f0edff;
+    background: #522c48;
 
-    color: #6747ed;
+    color: #a5524c;
 
     font-weight: 750;
 
@@ -133,7 +133,7 @@ body {
 }
 
 .search-link:hover {
-    background: #e4dfff;
+    background: #ff45a7;
 }
 
 
@@ -170,14 +170,14 @@ body {
 
     border-radius: 28px;
 
-    color: white;
+    color: #3b2222;
 
     background:
         linear-gradient(
             135deg,
-            #6244e8,
-            #7e5cf5,
-            #a06cff
+            #a43567,
+            #824b55,
+            #897545
         );
 
     box-shadow:
@@ -248,7 +248,7 @@ body {
 }
 
 .explore-hero h2 span {
-    color: #ffe77b;
+    color: #723238;
 }
 
 .explore-hero p {
@@ -257,7 +257,7 @@ body {
     line-height: 1.65;
 
     color:
-        rgba(255, 255, 255, 0.9);
+        rgb(29 51 42 / 90%);
 
     font-size: 15px;
 }
@@ -276,7 +276,7 @@ body {
     justify-content: center;
 
     background:
-        rgba(255, 255, 255, 0.15);
+        rgb(109 93 17 / 15%);
 
     font-size: 65px;
 
@@ -299,10 +299,10 @@ body {
 
     gap: 10px;
 
-    background: white;
+    background: #5a2f3f;
 
     border:
-        1px solid #e5e4ed;
+        1px solid #583636;
 
     border-radius: 17px;
 
@@ -310,7 +310,7 @@ body {
 
     box-shadow:
         0 8px 25px
-        rgba(30, 30, 60, 0.05);
+        rgb(132 69 91 / 5%);
 
     margin-bottom: 35px;
 }
@@ -326,17 +326,17 @@ body {
 
     outline: none;
 
-    background: transparent;
+    background: #5a355300;
 
     padding: 14px 4px;
 
     font-size: 15px;
 
-    color: #222;
+    color: #552b4c;
 }
 
 .explore-search input::placeholder {
-    color: #999;
+    color: #270f1a;
 }
 
 .clear-search {
@@ -348,9 +348,9 @@ body {
 
     border-radius: 10px;
 
-    background: #f1eff8;
+    background: #5c2d44;
 
-    color: #777;
+    color: #302237;
 
     cursor: pointer;
 
@@ -387,7 +387,7 @@ section {
 .section-kicker {
     display: block;
 
-    color: #7457e8;
+    color: #3b1e2e;
 
     font-size: 10px;
 
@@ -405,7 +405,7 @@ section {
 }
 
 .section-title p {
-    color: #777;
+    color: #1b0d12;
 
     margin-top: 5px;
 
@@ -433,10 +433,10 @@ section {
 
     border-radius: 20px;
 
-    background: white;
+    background: #452f3a;
 
     border:
-        1px solid #e8e7ef;
+        1px solid #33202c;
 
     cursor: pointer;
 
@@ -453,7 +453,7 @@ section {
 .topic-card:hover {
     transform: translateY(-4px);
 
-    border-color: #c9bfff;
+    border-color: #87262c;
 
     box-shadow:
         0 13px 30px
@@ -473,7 +473,7 @@ section {
 
     border-radius: 14px;
 
-    background: #f1efff;
+    background: #7e4b94;
 
     font-size: 23px;
 
@@ -489,7 +489,7 @@ section {
 .topic-card p {
     font-size: 12px;
 
-    color: #888;
+    color: #150e0e;
 
     line-height: 1.5;
 }
@@ -501,7 +501,7 @@ section {
 
     bottom: 17px;
 
-    color: #7657e8;
+    color: #54313d;
 
     font-weight: 800;
 }
@@ -531,10 +531,10 @@ section {
 
     padding: 17px;
 
-    background: white;
+    background: #3b272c;
 
     border:
-        1px solid #e8e7ef;
+        1px solid #482b32;
 
     border-radius: 17px;
 
@@ -546,7 +546,7 @@ section {
 .hashtag-card:hover {
     transform: translateY(-3px);
 
-    border-color: #c9bfff;
+    border-color: #351e3a;
 
     box-shadow:
         0 10px 25px
@@ -574,9 +574,9 @@ section {
 
     border-radius: 9px;
 
-    background: #f2efff;
+    background: #ba778c;
 
-    color: #7657e8;
+    color: #3d212d;
 
     font-weight: 850;
 
@@ -590,7 +590,7 @@ section {
 }
 
 .hashtag-posts-count {
-    color: #888;
+    color: #0b0606;
 
     font-size: 11px;
 
@@ -598,7 +598,7 @@ section {
 }
 
 .trending-arrow {
-    color: #7657e8;
+    color: #080405;
 
     font-size: 18px;
 }
@@ -610,11 +610,11 @@ section {
 
 .refresh-button {
     border:
-        1px solid #dedce8;
+        1px solid #6c3651;
 
-    background: white;
+    background: #301c25;
 
-    color: #6547dd;
+    color: #0b0b0b;
 
     padding: 9px 13px;
 
@@ -628,7 +628,7 @@ section {
 }
 
 .refresh-button:hover {
-    background: #f3f0ff;
+    background: #321f29;
 }
 
 
@@ -637,10 +637,10 @@ section {
    ========================================================= */
 
 .hashtag-section {
-    background: white;
+    background: #3b2828;
 
     border:
-        1px solid #e7e5f0;
+        1px solid #3d394f;
 
     border-radius: 22px;
 
@@ -665,7 +665,7 @@ section {
     padding-bottom: 20px;
 
     border-bottom:
-        1px solid #eeeeF4;
+        1px solid #3b2026;
 
     position: relative;
 }
@@ -683,9 +683,9 @@ section {
 
     border-radius: 17px;
 
-    background: #eeeaff;
+    background: #1b141b;
 
-    color: #6d4de8;
+    color: #452144;
 
     font-size: 28px;
 
@@ -693,7 +693,7 @@ section {
 }
 
 .hashtag-heading span {
-    color: #8b83a4;
+    color: #060505;
 
     font-size: 10px;
 
@@ -711,7 +711,7 @@ section {
 .hashtag-heading p {
     margin-top: 3px;
 
-    color: #888;
+    color: #060606;
 
     font-size: 12px;
 }
@@ -731,13 +731,13 @@ section {
 
     border-radius: 10px;
 
-    background: #f2f1f7;
+    background: #221c20;
 
     cursor: pointer;
 
     font-size: 21px;
 
-    color: #777;
+    color: #674d4d;
 }
 
 .hashtag-posts {
@@ -753,13 +753,13 @@ section {
 
 .hashtag-post {
     border:
-        1px solid #e8e7ef;
+        1px solid #000000;
 
     border-radius: 17px;
 
     padding: 17px;
 
-    background: #fbfbfe;
+    background: #2d2626;
 }
 
 .hashtag-user {
@@ -788,11 +788,11 @@ section {
     background:
         linear-gradient(
             135deg,
-            #7454e8,
-            #a270ff
+            #372323,
+            #301a23
         );
 
-    color: white;
+    color: #372229;
 
     font-size: 12px;
 
@@ -808,7 +808,7 @@ section {
 .hashtag-user span {
     display: block;
 
-    color: #888;
+    color: #3f2828;
 
     font-size: 11px;
 
@@ -850,10 +850,10 @@ section {
 }
 
 .creator-card {
-    background: white;
+    background: #332124;
 
     border:
-        1px solid #e7e6ee;
+        1px solid #322222;
 
     border-radius: 19px;
 
@@ -869,7 +869,7 @@ section {
 
     box-shadow:
         0 12px 28px
-        rgba(30, 30, 60, 0.07);
+        rgb(64 43 49 / 7%);
 }
 
 .creator-avatar {
@@ -887,7 +887,7 @@ section {
 
     border-radius: 50%;
 
-    color: white;
+    color: #0e0e0e;
 
     font-weight: 900;
 
@@ -896,8 +896,8 @@ section {
     background:
         linear-gradient(
             135deg,
-            #6344df,
-            #a875ff
+            #77313c,
+            #757210
         );
 }
 
@@ -906,7 +906,7 @@ section {
 }
 
 .creator-card p {
-    color: #888;
+    color: #050505;
 
     font-size: 11px;
 
@@ -914,7 +914,7 @@ section {
 }
 
 .creator-followers {
-    color: #666;
+    color: #121010;
 
     font-size: 12px;
 
@@ -926,9 +926,9 @@ section {
 
     border: none;
 
-    background: #6a4ae7;
+    background: #25181d;
 
-    color: white;
+    color: #0b0b0b;
 
     padding: 9px;
 
@@ -942,13 +942,13 @@ section {
 }
 
 .follow-button:hover {
-    background: #583bd0;
+    background: #402c31;
 }
 
 .follow-button.following {
-    background: #eeeaff;
+    background: #352328;
 
-    color: #6849df;
+    color: #454234;
 }
 
 
@@ -970,10 +970,10 @@ section {
 }
 
 .result-card {
-    background: white;
+    background: #331f1f;
 
     border:
-        1px solid #e6e5ed;
+        1px solid #3b2232;
 
     border-radius: 17px;
 
@@ -989,7 +989,7 @@ section {
 
     box-shadow:
         0 10px 25px
-        rgba(30, 30, 60, 0.07);
+        rgb(50 35 16 / 7%);
 }
 
 .result-type {
@@ -999,9 +999,9 @@ section {
 
     border-radius: 8px;
 
-    background: #f0edff;
+    background: #3a2424;
 
-    color: #6849df;
+    color: #3a2424;
 
     font-size: 10px;
 
@@ -1040,10 +1040,10 @@ section {
 
     border-radius: 18px;
 
-    background: #f3f0ff;
+    background: #3d2031;
 
     border:
-        1px solid #e1dbff;
+        1px solid #4b2121;
 }
 
 .info-icon {
@@ -1057,7 +1057,7 @@ section {
 .discovery-info p {
     margin-top: 5px;
 
-    color: #686477;
+    color: #0b0207;
 
     font-size: 13px;
 
@@ -1100,9 +1100,9 @@ section {
 
     padding: 12px 18px;
 
-    background: #202124;
+    background: #352527;
 
-    color: white;
+    color: #352327;
 
     border-radius: 13px;
 
