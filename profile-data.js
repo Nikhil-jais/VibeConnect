@@ -142,7 +142,6 @@ TOAST
 
 function showToast(message) {
 
-```
 clearTimeout(toastTimer);
 
 toast.textContent =
@@ -160,7 +159,6 @@ toastTimer =
         );
 
     }, 3000);
-```
 
 }
 
@@ -170,7 +168,7 @@ SUPABASE CLIENT
 
 function getSupabaseClient() {
 
-```
+
 if (
     window.vibeSupabase &&
     window.vibeSupabase.client
@@ -191,7 +189,6 @@ if (
 
 
 return null;
-```
 
 }
 
@@ -207,7 +204,6 @@ message,
 badge
 ) {
 
-```
 connectionIcon.textContent =
     icon;
 
@@ -230,7 +226,6 @@ if (type) {
         type
     );
 }
-```
 
 }
 
@@ -240,7 +235,6 @@ GET SESSION
 
 async function getCurrentUser() {
 
-```
 if (!supabaseClient) {
 
     return null;
@@ -265,7 +259,7 @@ if (result.error) {
 
 
 return result.data?.user || null;
-```
+
 
 }
 
@@ -275,7 +269,7 @@ INITIALIZE SUPABASE
 
 async function initialize() {
 
-```
+
 setConnection(
     "",
     "⏳",
@@ -359,7 +353,7 @@ try {
 
     showLoginState();
 }
-```
+
 
 }
 
@@ -369,7 +363,7 @@ LOGIN STATE
 
 function showLoginState() {
 
-```
+
 loginRequired.classList.remove(
     "hidden"
 );
@@ -377,7 +371,7 @@ loginRequired.classList.remove(
 profileContent.classList.add(
     "hidden"
 );
-```
+
 
 }
 
@@ -387,7 +381,7 @@ PROFILE STATE
 
 function showProfileState() {
 
-```
+
 loginRequired.classList.add(
     "hidden"
 );
@@ -395,7 +389,7 @@ loginRequired.classList.add(
 profileContent.classList.remove(
     "hidden"
 );
-```
+
 
 }
 
@@ -405,7 +399,7 @@ ACCOUNT INFORMATION
 
 function fillAccountInformation() {
 
-```
+
 if (!currentUser) {
 
     return;
@@ -426,7 +420,7 @@ accountCreated.textContent =
     formatDate(
         currentUser.created_at
     );
-```
+
 
 }
 
@@ -436,7 +430,7 @@ LOAD PROFILE
 
 async function loadProfile() {
 
-```
+
 if (
     !supabaseClient ||
     !currentUser
@@ -634,7 +628,7 @@ try {
 
     updatePreview();
 }
-```
+
 
 }
 
@@ -644,7 +638,7 @@ POPULATE FORM
 
 function populateForm(profile) {
 
-```
+
 displayNameInput.value =
     profile.display_name ||
     "";
@@ -679,7 +673,7 @@ coverUrlInput.value =
 
 
 updateBioCount();
-```
+
 
 }
 
@@ -689,7 +683,7 @@ UPDATE PREVIEW
 
 function updatePreview() {
 
-```
+
 const name =
     displayNameInput.value.trim() ||
     "Your Name";
@@ -739,7 +733,7 @@ previewBio.textContent =
 
 previewLocation.textContent =
     location
-        ? `📍 ${location}`
+        ? 📍 ${location}
         : "📍 Location";
 
 
@@ -752,7 +746,7 @@ previewWebsite.textContent =
 updateAvatarPreview();
 
 updateCoverPreview();
-```
+
 
 }
 
@@ -762,7 +756,7 @@ AVATAR PREVIEW
 
 function updateAvatarPreview() {
 
-```
+
 const url =
     avatarUrlInput.value.trim();
 
@@ -845,7 +839,7 @@ image2.addEventListener(
 previewAvatar.appendChild(
     image2
 );
-```
+
 
 }
 
@@ -855,7 +849,7 @@ COVER PREVIEW
 
 function updateCoverPreview() {
 
-```
+
 const url =
     coverUrlInput.value.trim();
 
@@ -870,8 +864,8 @@ if (!url) {
 
 
 coverPreview.style.backgroundImage =
-    `url("${escapeCSSUrl(url)}")`;
-```
+    url("${escapeCSSUrl(url)}");
+
 
 }
 
@@ -881,7 +875,7 @@ CSS URL SAFETY
 
 function escapeCSSUrl(value) {
 
-```
+
 return String(value)
     .replace(
         /\\/g,
@@ -889,13 +883,13 @@ return String(value)
     )
     .replace(
         /"/g,
-        '\\"'
+        "\\"'
     )
     .replace(
         /\)/g,
         "\\)"
     );
-```
+
 
 }
 
@@ -905,10 +899,10 @@ BIO COUNTER
 
 function updateBioCount() {
 
-```
+
 bioCount.textContent =
-    `${bioInput.value.length} / 160`;
-```
+    ${bioInput.value.length} / 160;
+
 
 }
 
@@ -918,7 +912,7 @@ VALIDATE USERNAME
 
 function validateUsername(username) {
 
-```
+
 if (!username) {
 
     return "Username is required.";
@@ -945,7 +939,6 @@ if (
 
 
 return "";
-```
 
 }
 
@@ -955,7 +948,7 @@ VALIDATE WEBSITE
 
 function validateWebsite(value) {
 
-```
+
 if (!value) {
 
     return "";
@@ -983,7 +976,7 @@ try {
 
     return "Please enter a valid website URL.";
 }
-```
+
 
 }
 
@@ -995,7 +988,7 @@ profileForm.addEventListener(
 "submit",
 async event => {
 
-```
+
     event.preventDefault();
 
 
@@ -1270,7 +1263,7 @@ async event => {
             "💾 Save Profile";
     }
 }
-```
+
 
 );
 
@@ -1290,7 +1283,7 @@ coverUrlInput
 ].forEach(
 input => {
 
-```
+
     input.addEventListener(
         "input",
         () => {
@@ -1300,7 +1293,7 @@ input => {
         }
     );
 }
-```
+
 
 );
 
@@ -1317,7 +1310,7 @@ resetButton.addEventListener(
 "click",
 () => {
 
-```
+
     if (!originalProfile) {
 
         return;
@@ -1335,7 +1328,7 @@ resetButton.addEventListener(
         "Changes have been reset."
     );
 }
-```
+
 
 );
 
@@ -1347,11 +1340,11 @@ loginButton.addEventListener(
 "click",
 () => {
 
-```
+
     window.location.href =
         "auth.html";
 }
-```
+
 
 );
 
@@ -1363,7 +1356,6 @@ logoutButton.addEventListener(
 "click",
 async () => {
 
-```
     if (!supabaseClient) {
 
         return;
@@ -1425,7 +1417,7 @@ async () => {
             "Sign Out";
     }
 }
-```
+
 
 );
 
@@ -1437,7 +1429,7 @@ backButton.addEventListener(
 "click",
 () => {
 
-```
+
     if (
         document.referrer &&
         document.referrer.includes(
@@ -1453,7 +1445,7 @@ backButton.addEventListener(
             "app.html";
     }
 }
-```
+
 
 );
 
@@ -1465,7 +1457,7 @@ function friendlyDatabaseError(
 error
 ) {
 
-```
+
 const message =
     String(
         error?.message ||
@@ -1529,7 +1521,7 @@ if (
 
 return message ||
     "Something went wrong while saving the profile.";
-```
+
 
 }
 
@@ -1541,7 +1533,7 @@ function formatDate(
 value
 ) {
 
-```
+
 if (!value) {
 
     return "Not available";
@@ -1572,7 +1564,7 @@ return new Intl.DateTimeFormat(
 ).format(
     date
 );
-```
+
 
 }
 
@@ -1582,7 +1574,7 @@ AUTH STATE LISTENER
 
 function setupAuthListener() {
 
-```
+
 if (!supabaseClient) {
 
     return;
@@ -1644,7 +1636,7 @@ supabaseClient
             }
         }
     );
-```
+
 
 }
 
@@ -1656,13 +1648,13 @@ document.addEventListener(
 "DOMContentLoaded",
 async () => {
 
-```
+
     await initialize();
 
     setupAuthListener();
 
 }
-```
+
 
 );
 
@@ -1672,7 +1664,7 @@ PUBLIC API
 
 window.vibeConnectRealProfile = {
 
-```
+
 getUser() {
 
     return currentUser;
@@ -1689,6 +1681,6 @@ reload() {
 
     return loadProfile();
 }
-```
+
 
 };
