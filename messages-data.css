@@ -9,23 +9,23 @@
 }
 
 :root {
-    --bg: #f7f7fb;
-    --card: #ffffff;
-    --text: #171722;
+    --bg: #2f2128;
+    --card: #5f4848;
+    --text: #0e0e0e;
     --muted: #777783;
-    --border: #e8e8ef;
+    --border: #404529;
 
-    --primary: #6d4aff;
-    --primary-dark: #5433db;
+    --primary: #925455;
+    --primary-dark: #2a1d1f;
 
-    --success: #16a34a;
-    --danger: #dc2626;
+    --success: #3d2b34;
+    --danger: #c10847;
 
-    --mine: #6d4aff;
-    --theirs: #f0eff5;
+    --mine: #502c42;
+    --theirs: #1d2d30;
 
     --shadow:
-        0 12px 35px rgba(35, 24, 80, 0.08);
+        0 12px 35px rgb(71 44 45 / 8%);
 }
 
 body {
@@ -71,7 +71,7 @@ button {
     padding: 18px 28px;
 
     background:
-        rgba(255, 255, 255, 0.94);
+        rgb(69 63 66 / 94%);
 
     backdrop-filter: blur(16px);
 
@@ -95,12 +95,12 @@ button {
 
     border-radius: 14px;
 
-    background: white;
+    background: #5f5151;
     color: var(--text);
 
     font-size: 22px;
 
-    transition: 0.2s ease;
+    transition: 0.2s cubic-bezier(0.4, 0, 1, 1);
 }
 
 .back-button:hover {
@@ -141,7 +141,7 @@ button {
 
     border-radius: 12px;
 
-    background: white;
+    background: #b790aa;
 
     color:
         var(--text);
@@ -216,7 +216,7 @@ button {
     border-radius: 12px;
 
     background:
-        #f0edff;
+        #ba8c9a;
 
     font-size: 20px;
 }
@@ -248,7 +248,7 @@ button {
     border-radius: 50%;
 
     background:
-        #f59e0b;
+        #b18d4f;
 }
 
 .status-dot.connected {
@@ -278,7 +278,7 @@ button {
     overflow: hidden;
 
     background:
-        white;
+        #b2779b;
 
     border:
         1px solid var(--border);
@@ -345,7 +345,7 @@ button {
     border-radius: 10px;
 
     background:
-        #f0edff;
+        #d1aaaa;
 
     color:
         var(--primary);
@@ -379,7 +379,7 @@ button {
         13px;
 
     background:
-        #fafafe;
+        #c295af;
 }
 
 .search-box:focus-within {
@@ -388,7 +388,7 @@ button {
 
     box-shadow:
         0 0 0 4px
-        rgba(109, 74, 255, 0.1);
+        rgb(235 193 193 / 10%);
 }
 
 .search-box input {
@@ -438,7 +438,7 @@ button {
         15px;
 
     background:
-        transparent;
+        #774c6100;
 
     text-align: left;
 
@@ -448,12 +448,12 @@ button {
 
 .conversation-item:hover {
     background:
-        #f7f5ff;
+        #ad839e;
 }
 
 .conversation-item.active {
     background:
-        #f0edff;
+        #b48fa5;
 }
 
 .avatar {
@@ -473,8 +473,8 @@ button {
     background:
         linear-gradient(
             135deg,
-            #e8e1ff,
-            #f7f4ff
+            #bc96a3,
+            #9c6576
         );
 
     color:
@@ -543,7 +543,7 @@ button {
     min-width: 0;
 
     background:
-        #fbfbfd;
+        #897284;
 }
 
 .chat-empty {
@@ -574,7 +574,7 @@ button {
     border-radius: 25px;
 
     background:
-        #f0edff;
+        #cfb0b0;
 
     font-size: 38px;
 }
@@ -620,7 +620,7 @@ button {
         16px 20px;
 
     background:
-        white;
+        #dcbfbf;
 
     border-bottom:
         1px solid var(--border);
@@ -646,7 +646,7 @@ button {
         14px;
 
     background:
-        #e9e4ff;
+        #996969;
 
     color:
         var(--primary);
@@ -685,17 +685,17 @@ button {
     border-radius: 10px;
 
     background:
-        #f3f3f7;
+        #ba8b8b;
 
     color:
-        #666;
+        #8d9eac;
 
     font-size: 22px;
 }
 
 .close-chat:hover {
     background:
-        #e9e9ef;
+        #aa898f;
 
     color:
         var(--text);
@@ -759,7 +759,7 @@ button {
         var(--mine);
 
     color:
-        white;
+        #b47592;
 
     border-bottom-right-radius:
         5px;
@@ -795,10 +795,10 @@ button {
 
     border: 0;
 
-    background: transparent;
+    background: #b1739100;
 
     color:
-        #888;
+        #b179a1;
 
     font-size: 10px;
 
@@ -825,7 +825,7 @@ button {
         13px 15px 5px;
 
     background:
-        white;
+        #a98499;
 
     border-top:
         1px solid var(--border);
@@ -851,7 +851,7 @@ button {
     outline: 0;
 
     background:
-        #fafafe;
+        #917182;
 
     color:
         var(--text);
@@ -865,7 +865,7 @@ button {
 
     box-shadow:
         0 0 0 4px
-        rgba(109, 74, 255, 0.1);
+        rgb(172 125 125 / 10%);
 }
 
 .send-button {
@@ -882,7 +882,7 @@ button {
         var(--primary);
 
     color:
-        white;
+        #ac7575;
 
     font-weight:
         800;
@@ -914,7 +914,7 @@ button {
         0 17px 12px;
 
     background:
-        white;
+        #e29898;
 
     color:
         var(--muted);
@@ -955,7 +955,7 @@ button {
     margin: 0 auto;
 
     border:
-        3px solid #e5e1ff;
+        3px solid #87a0b2;
 
     border-top-color:
         var(--primary);
@@ -986,7 +986,7 @@ button {
     text-align: center;
 
     background:
-        white;
+        #af7c7c;
 
     border:
         1px solid var(--border);
@@ -1034,7 +1034,7 @@ button {
         var(--primary);
 
     color:
-        white;
+        #9c7193;
 
     font-weight:
         800;
@@ -1068,10 +1068,10 @@ button {
         12px;
 
     background:
-        #181820;
+        #2f1c1c;
 
     color:
-        white;
+        #402626;
 
     font-size:
         13px;
@@ -1081,7 +1081,7 @@ button {
 
     box-shadow:
         0 12px 35px
-        rgba(0, 0, 0, 0.2);
+        rgb(51 35 35 / 20%);
 
     opacity:
         0;
