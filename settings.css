@@ -17,8 +17,8 @@ body {
         "Segoe UI",
         sans-serif;
 
-    background: #f6f7fb;
-    color: #17171c;
+    background: #60384d;
+    color: #9f6f33;
 
     min-height: 100vh;
 
@@ -44,9 +44,9 @@ body {
 
     padding: 0 28px;
 
-    background: rgba(255, 255, 255, 0.94);
+    background: rgb(106 74 95 / 94%);
 
-    border-bottom: 1px solid #e5e5eb;
+    border-bottom: 1px solid #7a4c70;
 
     backdrop-filter: blur(14px);
 }
@@ -76,7 +76,7 @@ body {
     border: none;
     border-radius: 50%;
 
-    background: #f0f1f5;
+    background: #825176;
 
     cursor: pointer;
 
@@ -86,7 +86,7 @@ body {
 }
 
 .back-btn:hover {
-    background: #e4e5eb;
+    background: #667d57;
     transform: translateX(-2px);
 }
 
@@ -116,9 +116,9 @@ body {
 
     padding: 22px;
 
-    background: white;
+    background: #77667f;
 
-    border: 1px solid #e3e3e9;
+    border: 1px solid #753d6a;
 
     border-radius: 20px;
 
@@ -137,11 +137,11 @@ body {
     background:
         linear-gradient(
             135deg,
-            #7c3aed,
-            #ec4899
+            #45414b,
+            #131011
         );
 
-    color: white;
+    color: #7c5757;
 
     font-size: 24px;
     font-weight: 800;
@@ -165,8 +165,8 @@ body {
 .edit-profile-btn {
     border: none;
 
-    background: #17171c;
-    color: white;
+    background: #453144;
+    color: #604451;
 
     padding: 10px 15px;
 
@@ -189,9 +189,9 @@ body {
    ========================================================= */
 
 .settings-section {
-    background: white;
+    background: #302b2e;
 
-    border: 1px solid #e3e3e9;
+    border: 1px solid #974e5b;
 
     border-radius: 20px;
 
@@ -208,7 +208,7 @@ body {
 
     padding: 20px;
 
-    border-bottom: 1px solid #eeeeF2;
+    border-bottom: 1px solid #d48bf3;
 }
 
 .section-icon {
@@ -220,7 +220,7 @@ body {
 
     border-radius: 12px;
 
-    background: #f0ebff;
+    background: #383830;
 
     font-size: 19px;
 }
@@ -263,7 +263,7 @@ body {
 
     border-bottom: 1px solid #f0f0f3;
 
-    background: transparent;
+    background: #5d525200;
 
     text-align: left;
 
@@ -279,7 +279,7 @@ body {
 }
 
 .setting-item:hover {
-    background: #faf9ff;
+    background: #b7ae2e;
 }
 
 .setting-icon {
@@ -293,7 +293,7 @@ body {
 
     border-radius: 11px;
 
-    background: #f4f3f7;
+    background: #8c5959;
 
     font-size: 16px;
 }
@@ -315,7 +315,7 @@ body {
 
     margin-top: 3px;
 
-    color: #888;
+    color: #9f7676;
 
     font-size: 12px;
 
@@ -338,7 +338,7 @@ body {
 }
 
 .toggle-item:hover {
-    background: transparent;
+    background: #33202000;
 }
 
 .switch {
@@ -362,7 +362,7 @@ body {
 
     inset: 0;
 
-    background: #d7d7df;
+    background: #4b253c;
 
     border-radius: 30px;
 
@@ -382,7 +382,7 @@ body {
     left: 3px;
     top: 3px;
 
-    background: white;
+    background: #702c2c;
 
     border-radius: 50%;
 
@@ -417,9 +417,9 @@ body {
 }
 
 .theme-card {
-    border: 2px solid #e7e7ed;
+    border: 2px solid #b4a05f;
 
-    background: white;
+    background: #5f4f6f;
 
     border-radius: 15px;
 
@@ -439,7 +439,7 @@ body {
 }
 
 .theme-card.active {
-    border-color: #7c3aed;
+    border-color: #743b54;
 
     box-shadow:
         0 0 0 3px rgba(124, 58, 237, 0.08);
@@ -459,7 +459,7 @@ body {
 }
 
 .light-preview {
-    background: #f5f5f7;
+    background: #555572;
 }
 
 .dark-preview {
@@ -470,7 +470,7 @@ body {
     background:
         linear-gradient(
             135deg,
-            #f5f5f7 50%,
+            #81416c 50%,
             #19191f 50%
         );
 }
@@ -497,7 +497,7 @@ body {
    ========================================================= */
 
 .danger-item {
-    color: #dc2626;
+    color: #d11830;
 }
 
 .danger-item .setting-icon {
@@ -535,7 +535,7 @@ body {
     background:
         linear-gradient(
             135deg,
-            #7c3aed,
+            #814f62,
             #ec4899
         );
 
@@ -584,9 +584,9 @@ body {
 
     padding: 12px 18px;
 
-    background: #17171c;
+    background: #723170;
 
-    color: white;
+    color: #a17a7a;
 
     border-radius: 12px;
 
@@ -614,8 +614,8 @@ body {
    ========================================================= */
 
 body.dark-mode {
-    background: #101014;
-    color: #f4f4f6;
+    background: #2c2c38;
+    color: #434216;
 }
 
 body.dark-mode .settings-header {
@@ -625,7 +625,7 @@ body.dark-mode .settings-header {
 
 body.dark-mode .back-btn {
     background: #24242b;
-    color: white;
+    color: #87d4d3;
 }
 
 body.dark-mode .profile-card,
@@ -649,12 +649,12 @@ body.dark-mode .setting-icon {
 
 body.dark-mode .theme-card {
     background: #18181e;
-    color: white;
+    color: #a12d2d;
     border-color: #303038;
 }
 
 body.dark-mode .theme-card.active {
-    border-color: #9b6cff;
+    border-color: #36049f;
 }
 
 body.dark-mode .header-left p,
