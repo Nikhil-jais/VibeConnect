@@ -24,9 +24,9 @@ body {
         "Segoe UI",
         sans-serif;
 
-    background: #111;
+    background: #3f3838;
 
-    color: white;
+    color: #4f2a32;
 
     min-height: 100vh;
 }
@@ -58,8 +58,8 @@ body {
     background:
         linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0.82),
-            rgba(0, 0, 0, 0)
+            rgb(80 73 73 / 82%),
+            rgb(71 56 56 / 0%)
         );
 
     pointer-events: none;
@@ -95,10 +95,10 @@ body {
 
     text-decoration: none;
 
-    color: white;
+    color: #060606;
 
     background:
-        rgba(0, 0, 0, 0.45);
+        rgb(130 114 114 / 45%);
 
     backdrop-filter: blur(10px);
 
@@ -106,13 +106,13 @@ body {
 
     font-weight: 800;
 
-    transition: 0.2s ease;
+    transition: 0.2s ease-in-out;
 }
 
 
 .back-button:hover {
     background:
-        rgba(255, 255, 255, 0.15);
+        rgb(87 66 66 / 15%);
 
     transform: translateX(-2px);
 }
@@ -137,7 +137,7 @@ body {
 .brand span {
     font-size: 14px;
 
-    color: #d3c8ff;
+    color: #674554;
 
     font-weight: 700;
 }
@@ -157,13 +157,13 @@ body {
     border-radius: 12px;
 
     background:
-        rgba(255, 255, 255, 0.14);
+        rgb(214 207 207 / 14%);
 
     border:
         1px solid
         rgba(255, 255, 255, 0.2);
 
-    color: white;
+    color: #352929;
 
     font-size: 13px;
 
@@ -177,7 +177,7 @@ body {
 
 .create-button:hover {
     background:
-        rgba(255, 255, 255, 0.22);
+        rgb(77 52 52 / 22%);
 }
 
 
@@ -214,10 +214,10 @@ body {
 .reel-tab {
     border: none;
 
-    background: transparent;
+    background: #453c3c00;
 
     color:
-        rgba(255, 255, 255, 0.65);
+        rgb(154 137 137 / 65%);
 
     padding: 8px 14px;
 
@@ -241,7 +241,7 @@ body {
 .reel-tab.active {
     background: white;
 
-    color: #222;
+    color: #573e3e;
 }
 
 
@@ -310,7 +310,7 @@ body {
     background:
         linear-gradient(
             to top,
-            rgba(0, 0, 0, 0.75),
+            rgb(6 5 5 / 75%),
             rgba(0, 0, 0, 0.05) 55%,
             rgba(0, 0, 0, 0.3)
         );
@@ -347,7 +347,7 @@ body {
     justify-content: center;
 
     background:
-        rgba(0, 0, 0, 0.55);
+        rgb(26 25 25 / 55%);
 
     backdrop-filter: blur(8px);
 
@@ -399,7 +399,7 @@ body {
     border-radius: 9px;
 
     background:
-        rgba(0, 0, 0, 0.45);
+        rgb(132 103 103 / 45%);
 
     backdrop-filter: blur(10px);
 
@@ -421,9 +421,9 @@ body {
     border-radius: 50%;
 
     background:
-        rgba(0, 0, 0, 0.48);
+        rgb(186 158 158 / 48%);
 
-    color: white;
+    color: #81666f;
 
     cursor: pointer;
 
@@ -477,13 +477,13 @@ body {
     background:
         linear-gradient(
             135deg,
-            #7651ed,
-            #b16dff
+            #674949,
+            #786073
         );
 
     border:
         2px solid
-        rgba(255, 255, 255, 0.9);
+        rgb(88 67 67 / 90%);
 
     font-size: 12px;
 
@@ -504,7 +504,7 @@ body {
     display: block;
 
     color:
-        rgba(255, 255, 255, 0.68);
+        rgb(124 119 84 / 68%);
 
     font-size: 11px;
 
@@ -514,11 +514,11 @@ body {
 
 .follow-small {
     border: 1px solid
-        rgba(255, 255, 255, 0.7);
+        rgb(120 84 183);
 
-    background: transparent;
+    background: #704e4e00;
 
-    color: white;
+    color: #6f5a78;
 
     border-radius: 9px;
 
@@ -533,7 +533,7 @@ body {
 
 
 .follow-small.following {
-    background: white;
+    background: #675d68;
 
     color: #333;
 }
@@ -558,7 +558,7 @@ body {
 
 
 .reel-hashtag {
-    color: #d8ccff;
+    color: #bcb5d2;
 
     font-size: 12px;
 
@@ -592,9 +592,9 @@ body {
 .reel-action {
     border: none;
 
-    background: transparent;
+    background: #5a4d4d00;
 
-    color: white;
+    color: #858181;
 
     cursor: pointer;
 
@@ -622,19 +622,19 @@ body {
     font-size: 10px;
 
     color:
-        rgba(255, 255, 255, 0.9);
+        rgb(124 101 101 / 90%);
 
     font-weight: 700;
 }
 
 
 .reel-action.liked {
-    color: #ff5b76;
+    color: #bc081b;
 }
 
 
 .reel-action.saved {
-    color: #b59aff;
+    color: #894d69;
 }
 
 
@@ -668,7 +668,7 @@ body {
     inset: 0;
 
     background:
-        rgba(0, 0, 0, 0.68);
+        rgb(77 42 42 / 68%);
 }
 
 
@@ -681,9 +681,9 @@ body {
 
     max-height: 75vh;
 
-    background: white;
+    background: #3d3d3d;
 
-    color: #222;
+    color: #130101;
 
     border-radius:
         24px 24px 0 0;
@@ -722,7 +722,7 @@ body {
     padding: 18px 20px;
 
     border-bottom:
-        1px solid #eee;
+        1px solid #151010;
 }
 
 
@@ -732,7 +732,7 @@ body {
 
 
 .modal-header span {
-    color: #888;
+    color: #080202;
 
     font-size: 11px;
 }
@@ -747,7 +747,7 @@ body {
 
     border-radius: 10px;
 
-    background: #f2f1f6;
+    background: #a7a4b4;
 
     color: #555;
 
@@ -778,7 +778,7 @@ body {
     padding: 11px 0;
 
     border-bottom:
-        1px solid #f0eff3;
+        1px solid #50364b;
 }
 
 
@@ -800,11 +800,11 @@ body {
     background:
         linear-gradient(
             135deg,
-            #7651ed,
-            #a36eff
+            #351f21,
+            #553b3e
         );
 
-    color: white;
+    color: #4f4242;
 
     font-size: 10px;
 
@@ -822,7 +822,7 @@ body {
 .comment-content p {
     margin-top: 3px;
 
-    color: #555;
+    color: #605151;
 
     font-size: 13px;
 
@@ -838,9 +838,9 @@ body {
     padding: 13px 15px;
 
     border-top:
-        1px solid #eee;
+        1px solid #3f3535;
 
-    background: white;
+    background: #3d3c3d;
 }
 
 
@@ -848,7 +848,7 @@ body {
     flex: 1;
 
     border:
-        1px solid #ddd;
+        1px solid #4f2a2a;
 
     border-radius: 12px;
 
@@ -861,7 +861,7 @@ body {
 
 
 .comment-form input:focus {
-    border-color: #7651ed;
+    border-color: #5d3f4f;
 }
 
 
@@ -872,9 +872,9 @@ body {
 
     padding: 0 15px;
 
-    background: #6c4ae6;
+    background: #8a6a76;
 
-    color: white;
+    color: #080607;
 
     font-weight: 750;
 
@@ -901,7 +901,7 @@ body {
 
     padding: 30px;
 
-    background: #111;
+    background: #060606;
 }
 
 
@@ -955,9 +955,9 @@ body {
 
     border-radius: 12px;
 
-    background: #704de9;
+    background: #393642;
 
-    color: white;
+    color: #423131;
 
     font-weight: 750;
 }
@@ -991,7 +991,7 @@ body {
 
     padding: 12px 18px;
 
-    background: white;
+    background: #624747;
 
     color: #222;
 
