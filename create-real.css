@@ -4,23 +4,23 @@
    ========================================================= */
 
 :root {
-    --purple: #7048e8;
-    --purple-dark: #5834c5;
-    --purple-light: #eee8ff;
+    --purple: #845c69;
+    --purple-dark: #7d437f;
+    --purple-light: #8a6478;
 
-    --text: #18152b;
-    --muted: #77738b;
+    --text: #0b0b0b;
+    --muted: #bf5c7b;
 
-    --background: #f7f6fb;
-    --white: #ffffff;
+    --background: #3f3538;
+    --white: #4b3640;
 
-    --border: #e6e2ee;
+    --border: #97538d;
 
-    --success: #20a464;
+    --success: #5effb1;
     --danger: #df4d5d;
 
     --shadow:
-        0 15px 45px rgba(45, 29, 90, 0.08);
+        0 15px 45px rgb(255 121 158 / 8%);
 }
 
 
@@ -57,7 +57,7 @@ input {
 
 button,
 a {
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: #8d717100;
 }
 
 a {
@@ -85,7 +85,7 @@ a {
 
     padding: 0 30px;
 
-    background: rgba(255, 255, 255, 0.94);
+    background: rgb(39 36 31 / 94%);
 
     border-bottom: 1px solid var(--border);
 
@@ -148,10 +148,10 @@ a {
         linear-gradient(
             135deg,
             var(--purple),
-            #a17cf0
+            #893149
         );
 
-    color: white;
+    color: #0a0909;
 
     display: flex;
 
@@ -257,7 +257,7 @@ a {
    ========================================================= */
 
 .composer-card {
-    background: white;
+    background: #322d2f;
 
     border: 1px solid var(--border);
 
@@ -279,7 +279,7 @@ a {
 
     margin-bottom: 20px;
 
-    border-bottom: 1px solid #f0edf5;
+    border-bottom: 1px solid #0d0c0e;
 }
 
 .avatar {
@@ -357,7 +357,7 @@ a {
 
     padding: 16px;
 
-    background: #fcfbfe;
+    background: #251e24;
 
     color: var(--text);
 
@@ -375,11 +375,11 @@ a {
 
     box-shadow:
         0 0 0 4px
-        rgba(112, 72, 232, 0.08);
+        rgb(111 67 82 / 8%);
 }
 
 .post-input::placeholder {
-    color: #aaa6b5;
+    color: #aaa6a6;
 }
 
 .character-count {
@@ -425,11 +425,11 @@ a {
 .upload-box {
     min-height: 135px;
 
-    border: 2px dashed #d9d1ef;
+    border: 2px dashed #7d757a;
 
     border-radius: 16px;
 
-    background: #fbfaff;
+    background: #544f4f;
 
     cursor: pointer;
 
@@ -484,7 +484,7 @@ a {
 
     border-radius: 15px;
 
-    background: #fbfaff;
+    background: #3f3738;
 }
 
 .preview-header {
@@ -501,7 +501,7 @@ a {
 .remove-button {
     border: 0;
 
-    background: #fff0f2;
+    background: #030303;
 
     color: var(--danger);
 
@@ -521,7 +521,7 @@ a {
 
     border-radius: 12px;
 
-    background: #111;
+    background: #705555;
 }
 
 .media-preview img,
@@ -557,9 +557,9 @@ a {
 
     border-radius: 14px;
 
-    background: #f7f4ff;
+    background: #4d393d;
 
-    border: 1px solid #e6dcff;
+    border: 1px solid #7d314a;
 }
 
 .progress-top {
@@ -585,7 +585,7 @@ a {
 
     border-radius: 20px;
 
-    background: #e3ddf2;
+    background: #95727d;
 }
 
 .progress-bar {
@@ -631,7 +631,7 @@ a {
 
     padding-top: 20px;
 
-    border-top: 1px solid #f0edf5;
+    border-top: 1px solid #0b0909;
 }
 
 .primary-button,
@@ -660,7 +660,7 @@ a {
 .primary-button {
     background: var(--purple);
 
-    color: white;
+    color: #0d0c0d;
 }
 
 .primary-button:hover {
@@ -678,9 +678,9 @@ a {
 }
 
 .secondary-button {
-    background: #f1eef7;
+    background: #121011;
 
-    color: #5f596e;
+    color: #e60e24;
 }
 
 .secondary-button:hover {
@@ -697,7 +697,7 @@ a {
 
     text-align: center;
 
-    background: white;
+    background: #35292e;
 
     border: 1px solid var(--border);
 
@@ -763,7 +763,7 @@ a {
 
     padding: 15px;
 
-    background: white;
+    background: #4a4344;
 
     border: 1px solid var(--border);
 
@@ -816,16 +816,16 @@ a {
 
     border-radius: 12px;
 
-    background: #201a32;
+    background: #4b3c44;
 
-    color: white;
+    color: #683b3b;
 
     font-size: 12px;
 
     font-weight: 700;
 
     box-shadow:
-        0 12px 35px rgba(0,0,0,0.2);
+        0 12px 35px rgb(58 41 41 / 20%);
 
     transition: 0.25s ease;
 }
@@ -943,4 +943,4 @@ footer strong {
     .back-button {
         font-size: 11px;
     }
-}
+};
